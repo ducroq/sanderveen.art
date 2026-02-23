@@ -72,7 +72,6 @@ enableGitInfo = false
   phone = ""
   instagram = ""
   goldAccent = "#B8860B"
-  siteLogo = "/images/logo.png"
 
 [outputs]
   home = ["HTML", "RSS"]

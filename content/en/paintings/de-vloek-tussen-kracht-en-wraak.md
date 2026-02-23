@@ -1,5 +1,5 @@
 ---
-title: "The Curse Between Strength And Revenge"
+title: "The Curse between Strength and Revenge"
 date: 2025-01-01
 draft: false
 translationKey: "de-vloek-tussen-kracht-en-wraak"

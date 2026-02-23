@@ -1,5 +1,5 @@
 ---
-title: "The Key Of The Compass"
+title: "The Key of the Compass"
 date: 2025-01-01
 draft: false
 translationKey: "de-sleutel-van-het-kompas"

@@ -25,7 +25,7 @@
     </div>
 
     <nav class="single-nav">
-      <a href="{{ .Parent.RelPermalink }}" class="btn btn-outline">&larr; {{ i18n "back_to_overview" }}</a>
+      {{ with .Parent }}<a href="{{ .RelPermalink }}" class="btn btn-outline">&larr; {{ i18n "back_to_overview" }}</a>{{ end }}
     </nav>
   </div>
 </article>

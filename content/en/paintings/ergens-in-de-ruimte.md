@@ -1,5 +1,5 @@
 ---
-title: "Somewhere In Space"
+title: "Somewhere in Space"
 date: 2025-01-01
 draft: false
 translationKey: "ergens-in-de-ruimte"

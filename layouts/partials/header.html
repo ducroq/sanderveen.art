@@ -4,11 +4,11 @@
       <span class="logo-text">Sander Veen</span>
     </a>
 
-    <nav class="main-nav" id="main-nav" aria-label="{{ if eq .Language.LanguageCode "nl" }}Hoofdnavigatie{{ else }}Main navigation{{ end }}">
+    <nav class="main-nav" id="main-nav" aria-label="{{ i18n "main_navigation" }}">
       <ul class="nav-list">
         {{ range .Site.Menus.main }}
           <li class="nav-item">
-            <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} is-active{{ end }}">
+            <a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL }}{{ end }}" class="nav-link{{ if .Page }}{{ if eq $.RelPermalink .Page.RelPermalink }} is-active{{ end }}{{ end }}">
               {{ .Name }}
             </a>
           </li>

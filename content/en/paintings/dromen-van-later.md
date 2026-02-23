@@ -1,5 +1,5 @@
 ---
-title: "Dreams Of Later"
+title: "Dreams of Later"
 date: 2025-01-01
 draft: false
 translationKey: "dromen-van-later"

@@ -1,5 +1,5 @@
 ---
-title: "City In Decay"
+title: "City in Decay"
 date: 2025-01-01
 draft: false
 translationKey: "stad-in-verval"

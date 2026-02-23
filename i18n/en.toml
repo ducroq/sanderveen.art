@@ -4,17 +4,8 @@ other = "Inquire about this work"
 [inquiry_note]
 other = "No obligation"
 
-[inquiry_subject]
-other = "Interest in: {{ .Title }}"
-
-[price_on_request]
-other = "Price on request"
-
 [sold]
 other = "Sold"
-
-[available]
-other = "Available"
 
 [dimensions_label]
 other = "Dimensions"
@@ -24,12 +15,6 @@ other = "Medium"
 
 [year_label]
 other = "Year"
-
-[price_label]
-other = "Price"
-
-[status_label]
-other = "Status"
 
 [view_painting]
 other = "View painting"
@@ -58,20 +43,8 @@ other = "Message"
 [contact_form_submit]
 other = "Send message"
 
-[contact_form_success]
-other = "Thank you for your message! I will get back to you as soon as possible."
-
 [featured_paintings]
 other = "Featured works"
-
-[latest_news]
-other = "Latest news"
-
-[upcoming_exhibitions]
-other = "Upcoming exhibitions"
-
-[workshops_title]
-other = "Workshops"
 
 [about_title]
 other = "About"
@@ -85,14 +58,24 @@ other = "Open menu"
 [menu_close]
 other = "Close menu"
 
-[language_switch]
-other = "Nederlands"
-
 [breadcrumb_home]
 other = "Home"
 
 [no_results]
 other = "No results found"
 
-[category_all]
-other = "All categories"
+
+[skip_to_content]
+other = "Skip to content"
+
+[main_navigation]
+other = "Main navigation"
+
+[phone_label]
+other = "Phone"
+
+[inquiry_subject_prefix]
+other = "Inquiry about"
+
+[contact_subject_default]
+other = "Contact request via website"

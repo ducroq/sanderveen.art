@@ -4,6 +4,10 @@
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author }}">
+<meta name="theme-color" content="#FAF8F5">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="48x48">
+<link rel="icon" href="{{ "favicon-192.png" | relURL }}" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
 
 {{/* Open Graph */}}
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}">
@@ -20,6 +24,15 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="{{ $.Title }}">
+  {{ end }}
+{{ else }}
+  {{ $fallback := resources.Get "images/paintings/magisch-realisme/de-pelgrimstocht.jpg" }}
+  {{ if $fallback }}
+    {{ $ogFallback := $fallback.Fill "1200x630" }}
+    <meta property="og:image" content="{{ $ogFallback.Permalink }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ .Site.Params.author }}">
   {{ end }}
 {{ end }}
 

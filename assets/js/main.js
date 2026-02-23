@@ -18,7 +18,10 @@
       toggle.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('is-open');
       nav.setAttribute('aria-hidden', String(expanded));
-      document.body.style.overflow = expanded ? '' : 'hidden';
+      // Lock scroll on both html and body for iOS Safari
+      var lock = expanded ? '' : 'hidden';
+      document.documentElement.style.overflow = lock;
+      document.body.style.overflow = lock;
     });
 
     // Reset aria-hidden on resize (mobile <-> desktop)
@@ -27,6 +30,7 @@
         nav.removeAttribute('aria-hidden');
         nav.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       } else if (!nav.classList.contains('is-open')) {
         nav.setAttribute('aria-hidden', 'true');

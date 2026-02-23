@@ -1,5 +1,5 @@
 ---
-title: "Woman In The Mirror"
+title: "Woman in the Mirror"
 date: 2025-01-01
 draft: false
 translationKey: "vrouw-in-de-spiegel"

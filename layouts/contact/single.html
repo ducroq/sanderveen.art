@@ -47,7 +47,7 @@
         <p><strong>Email:</strong> <a href="mailto:{{ . }}">{{ . }}</a></p>
       {{ end }}
       {{ with .Site.Params.phone }}
-        <p><strong>{{ if eq $.Language.LanguageCode "nl" }}Telefoon{{ else }}Phone{{ end }}:</strong> <a href="tel:{{ . }}">{{ . }}</a></p>
+        <p><strong>{{ i18n "phone_label" }}:</strong> <a href="tel:{{ . }}">{{ . }}</a></p>
       {{ end }}
     </div>
   </div>
@@ -68,8 +68,8 @@ function handleContactSubmit(e) {
   var painting = document.getElementById('painting-field').value;
 
   var subject = painting
-    ? '{{ if eq .Language.LanguageCode "nl" }}Interesse in{{ else }}Inquiry about{{ end }} ' + painting
-    : '{{ if eq .Language.LanguageCode "nl" }}Contactverzoek via website{{ else }}Contact request via website{{ end }}';
+    ? '{{ i18n "inquiry_subject_prefix" }} ' + painting
+    : '{{ i18n "contact_subject_default" }}';
 
   var body = message + '\n\n---\n' + name + '\n' + email;
   if (phone) body += '\n' + phone;

@@ -4,17 +4,8 @@ other = "Neem contact op over dit werk"
 [inquiry_note]
 other = "Vrijblijvend informeren"
 
-[inquiry_subject]
-other = "Interesse in: {{ .Title }}"
-
-[price_on_request]
-other = "Prijs op aanvraag"
-
 [sold]
 other = "Verkocht"
-
-[available]
-other = "Beschikbaar"
 
 [dimensions_label]
 other = "Afmetingen"
@@ -24,12 +15,6 @@ other = "Techniek"
 
 [year_label]
 other = "Jaar"
-
-[price_label]
-other = "Prijs"
-
-[status_label]
-other = "Status"
 
 [view_painting]
 other = "Bekijk schilderij"
@@ -58,20 +43,8 @@ other = "Bericht"
 [contact_form_submit]
 other = "Verstuur bericht"
 
-[contact_form_success]
-other = "Bedankt voor uw bericht! Ik neem zo snel mogelijk contact met u op."
-
 [featured_paintings]
 other = "Uitgelichte werken"
-
-[latest_news]
-other = "Laatste nieuws"
-
-[upcoming_exhibitions]
-other = "Komende exposities"
-
-[workshops_title]
-other = "Workshops"
 
 [about_title]
 other = "Over mij"
@@ -85,14 +58,24 @@ other = "Menu openen"
 [menu_close]
 other = "Menu sluiten"
 
-[language_switch]
-other = "English"
-
 [breadcrumb_home]
 other = "Home"
 
 [no_results]
 other = "Geen resultaten gevonden"
 
-[category_all]
-other = "Alle categorieën"
+
+[skip_to_content]
+other = "Naar inhoud"
+
+[main_navigation]
+other = "Hoofdnavigatie"
+
+[phone_label]
+other = "Telefoon"
+
+[inquiry_subject_prefix]
+other = "Interesse in"
+
+[contact_subject_default]
+other = "Contactverzoek via website"

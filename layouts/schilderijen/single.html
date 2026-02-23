@@ -48,9 +48,11 @@
       {{ with .PrevInSection }}
         <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">&larr; {{ .Title }}</a>
       {{ end }}
-      <a href="{{ .Parent.RelPermalink }}" class="btn btn-outline">
-        {{ i18n "back_to_overview" }}
-      </a>
+      {{ with .Parent }}
+        <a href="{{ .RelPermalink }}" class="btn btn-outline">
+          {{ i18n "back_to_overview" }}
+        </a>
+      {{ end }}
       {{ with .NextInSection }}
         <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">{{ .Title }} &rarr;</a>
       {{ end }}
