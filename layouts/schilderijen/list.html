@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-intro">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-grid">
+      {{ range .Pages.ByWeight }}
+        {{ partial "painting-card.html" . }}
+      {{ end }}
+    </div>
+
+    {{ if gt (len .Pages) 0 }}
+    {{ else }}
+      <p class="no-results">{{ i18n "no_results" }}</p>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

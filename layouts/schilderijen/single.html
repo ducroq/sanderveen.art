@@ -1,0 +1,66 @@
+{{ define "main" }}
+<article class="painting-detail">
+  <div class="container">
+    {{ partial "breadcrumbs.html" . }}
+
+    <div class="painting-detail-grid">
+      <div class="painting-detail-image">
+        {{ with .Params.image }}
+          {{ $img := resources.Get . }}
+          {{ if $img }}
+            {{ $large := $img.Resize "1200x" }}
+            <button
+              class="painting-image-trigger"
+              id="painting-image"
+              data-full="{{ $img.RelPermalink }}"
+              data-thumb="{{ $large.RelPermalink }}"
+              aria-label="{{ i18n "view_painting" }}"
+              type="button"
+            >
+              <img
+                src="{{ $large.RelPermalink }}"
+                alt="{{ $.Title }} — {{ $.Params.medium }}, {{ $.Params.dimensions }}"
+                class="painting-hero-img"
+                width="{{ $large.Width }}"
+                height="{{ $large.Height }}"
+              >
+            </button>
+          {{ end }}
+        {{ end }}
+      </div>
+
+      <div class="painting-detail-info">
+        <h1 class="painting-title">{{ .Title }}</h1>
+
+        {{ partial "painting-meta.html" . }}
+
+        {{ with .Content }}
+          <div class="painting-description prose">
+            {{ . }}
+          </div>
+        {{ end }}
+
+        {{ partial "inquiry-button.html" . }}
+      </div>
+    </div>
+
+    <nav class="painting-nav">
+      {{ with .PrevInSection }}
+        <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">&larr; {{ .Title }}</a>
+      {{ end }}
+      <a href="{{ .Parent.RelPermalink }}" class="btn btn-outline">
+        {{ i18n "back_to_overview" }}
+      </a>
+      {{ with .NextInSection }}
+        <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">{{ .Title }} &rarr;</a>
+      {{ end }}
+    </nav>
+  </div>
+</article>
+
+{{/* Lightbox overlay */}}
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="{{ .Title }}" hidden>
+  <button class="lightbox-close" aria-label="{{ i18n "menu_close" }}">&times;</button>
+  <img class="lightbox-img" src="" alt="{{ .Title }}">
+</div>
+{{ end }}

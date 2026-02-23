@@ -1,0 +1,14 @@
+---
+title: "Verdreven Tirannie"
+date: 2025-01-01
+draft: false
+translationKey: "verdreven-tirannie"
+type: "schilderijen"
+medium: "Olieverf op paneel"
+dimensions: "125 x 100 cm"
+year: ""
+status: "available"
+featured: true
+image: "images/paintings/magisch-realisme/verdreven-tirannie.jpg"
+category: "Magisch realisme"
+---

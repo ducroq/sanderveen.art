@@ -1,0 +1,37 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-intro">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ if gt (len .Pages) 0 }}
+      <div class="card-list">
+        {{ range .Pages.ByDate.Reverse }}
+          <article class="card">
+            {{ with .Params.image }}
+              {{ $img := resources.Get . }}
+              {{ if $img }}
+                {{ $thumb := $img.Fill "600x400 Center" }}
+                <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" class="card-image" loading="lazy">
+              {{ end }}
+            {{ end }}
+            <div class="card-body">
+              <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+              {{ with .Params.workshop_date }}<p class="card-date">{{ . }}</p>{{ end }}
+              {{ with .Params.location }}<p class="card-location">{{ . }}</p>{{ end }}
+              {{ .Summary }}
+              <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">{{ i18n "read_more" }}</a>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="no-results">{{ i18n "no_results" }}</p>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

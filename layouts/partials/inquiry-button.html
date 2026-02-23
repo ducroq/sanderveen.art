@@ -1,0 +1,10 @@
+{{/* Expects: . = painting page */}}
+{{ if ne .Params.status "sold" }}
+  {{ $contactPage := .Site.GetPage "contact" }}
+  {{ with $contactPage }}
+    <a href="{{ .RelPermalink }}?painting={{ urlquery $.Title }}" class="btn btn-inquiry">
+      {{ i18n "inquiry_button" }}
+    </a>
+    <p class="inquiry-note">{{ i18n "inquiry_note" }}</p>
+  {{ end }}
+{{ end }}

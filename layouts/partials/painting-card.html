@@ -1,0 +1,29 @@
+{{/* Expects: . = painting page */}}
+<article class="painting-card{{ if .Params.featured }} is-featured{{ end }}{{ if eq .Params.status "sold" }} is-sold{{ end }}">
+  <a href="{{ .RelPermalink }}" class="painting-card-link">
+    {{ with .Params.image }}
+      {{ $img := resources.Get . }}
+      {{ if $img }}
+        {{ $thumb := $img.Fit "400x600" }}
+        <div class="painting-card-image">
+          <img
+            src="{{ $thumb.RelPermalink }}"
+            alt="{{ $.Title }} — {{ $.Params.medium }}, {{ $.Params.dimensions }}"
+            loading="lazy"
+            width="{{ $thumb.Width }}"
+            height="{{ $thumb.Height }}"
+          >
+          {{ if eq $.Params.status "sold" }}
+            <span class="badge badge-sold">{{ i18n "sold" }}</span>
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+    <div class="painting-card-info">
+      <h3 class="painting-card-title">{{ .Title }}</h3>
+      {{ with .Params.medium }}
+        <p class="painting-card-medium">{{ . }}</p>
+      {{ end }}
+    </div>
+  </a>
+</article>

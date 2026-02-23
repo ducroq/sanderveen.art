@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{/* Hero section */}}
+<section class="hero">
+  <div class="container hero-inner">
+    <h1 class="hero-title">Sander Veen</h1>
+    {{ with .Description }}
+      <p class="hero-subtitle">{{ . }}</p>
+    {{ end }}
+    {{ $paintingsPage := .Site.GetPage "schilderijen" }}
+    {{ if not $paintingsPage }}{{ $paintingsPage = .Site.GetPage "paintings" }}{{ end }}
+    {{ with $paintingsPage }}
+      <a href="{{ .RelPermalink }}" class="btn btn-primary">
+        {{ i18n "all_paintings" }}
+      </a>
+    {{ end }}
+  </div>
+</section>
+
+{{/* Featured paintings */}}
+{{ $paintings := where (where .Site.RegularPages "Type" "schilderijen") ".Params.featured" true }}
+{{ if gt (len $paintings) 0 }}
+<section class="section featured-section">
+  <div class="container">
+    <h2 class="section-title">{{ i18n "featured_paintings" }}</h2>
+    <div class="gallery-grid gallery-grid--featured">
+      {{ range first 6 $paintings }}
+        {{ partial "painting-card.html" . }}
+      {{ end }}
+    </div>
+    <div class="section-cta">
+      {{ $paintingsPage := .Site.GetPage "schilderijen" }}
+      {{ if not $paintingsPage }}{{ $paintingsPage = .Site.GetPage "paintings" }}{{ end }}
+      {{ with $paintingsPage }}
+        <a href="{{ .RelPermalink }}" class="btn btn-outline">
+          {{ i18n "all_paintings" }} &rarr;
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* About teaser */}}
+{{ $about := .Site.GetPage "over" }}
+{{ if not $about }}
+  {{ $about = .Site.GetPage "about" }}
+{{ end }}
+{{ with $about }}
+<section class="section about-teaser">
+  <div class="container about-teaser-inner">
+    <div class="about-teaser-content">
+      <h2 class="section-title">{{ i18n "about_title" }}</h2>
+      {{ .Summary }}
+      <a href="{{ .RelPermalink }}" class="btn btn-outline">{{ i18n "read_more" }} &rarr;</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

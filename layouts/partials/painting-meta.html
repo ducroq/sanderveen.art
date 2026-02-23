@@ -1,0 +1,21 @@
+{{/* Expects: . = painting page */}}
+<dl class="painting-meta">
+  {{ with .Params.medium }}
+    <div class="painting-meta-row">
+      <dt>{{ i18n "medium_label" }}</dt>
+      <dd>{{ . }}</dd>
+    </div>
+  {{ end }}
+  {{ with .Params.dimensions }}
+    <div class="painting-meta-row">
+      <dt>{{ i18n "dimensions_label" }}</dt>
+      <dd>{{ . }}</dd>
+    </div>
+  {{ end }}
+  {{ with .Params.year }}
+    <div class="painting-meta-row">
+      <dt>{{ i18n "year_label" }}</dt>
+      <dd>{{ . }}</dd>
+    </div>
+  {{ end }}
+</dl>

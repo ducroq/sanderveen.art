@@ -1,0 +1,33 @@
+{{ define "main" }}
+<article class="single-content">
+  <div class="container">
+    {{ partial "breadcrumbs.html" . }}
+
+    <header class="single-header">
+      <h1>{{ .Title }}</h1>
+      <div class="single-meta">
+        {{ with .Params.start_date }}<span class="meta-date">{{ . }}</span>{{ end }}
+        {{ with .Params.end_date }}<span class="meta-date"> — {{ . }}</span>{{ end }}
+        {{ with .Params.location }}<span class="meta-location">{{ . }}</span>{{ end }}
+        {{ with .Params.address }}<span class="meta-address">{{ . }}</span>{{ end }}
+      </div>
+    </header>
+
+    {{ with .Params.image }}
+      {{ $img := resources.Get . }}
+      {{ if $img }}
+        {{ $hero := $img.Fit "1200x600" }}
+        <img src="{{ $hero.RelPermalink }}" alt="{{ $.Title }}" class="single-hero-img">
+      {{ end }}
+    {{ end }}
+
+    <div class="single-body prose">
+      {{ .Content }}
+    </div>
+
+    <nav class="single-nav">
+      <a href="{{ .Parent.RelPermalink }}" class="btn btn-outline">&larr; {{ i18n "back_to_overview" }}</a>
+    </nav>
+  </div>
+</article>
+{{ end }}

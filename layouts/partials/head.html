@@ -1,0 +1,96 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+
+{{/* Open Graph */}}
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ .Site.Params.locale }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ with .Params.image }}
+  {{ $img := resources.Get . }}
+  {{ if $img }}
+    {{ $ogImg := $img.Fill "1200x630" }}
+    <meta property="og:image" content="{{ $ogImg.Permalink }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ $.Title }}">
+  {{ end }}
+{{ end }}
+
+{{/* Twitter Card */}}
+<meta name="twitter:card" content="{{ if .Params.image }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+{{ with .Params.image }}
+  {{ $img := resources.Get . }}
+  {{ if $img }}
+    {{ $twImg := $img.Fill "1200x600" }}
+    <meta name="twitter:image" content="{{ $twImg.Permalink }}">
+  {{ end }}
+{{ end }}
+
+{{/* Language alternates */}}
+<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+{{ if .IsTranslated }}
+  {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+  {{ end }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{ end }}
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* RSS autodiscovery */}}
+{{ range .AlternativeOutputFormats }}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+{{ end }}
+
+{{/* Preload fonts */}}
+<link rel="preload" href="/fonts/playfair-display-v30-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-v13-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-v13-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+
+{{/* CSS via Hugo Pipes */}}
+{{ $reset := resources.Get "css/_reset.css" }}
+{{ $typography := resources.Get "css/_typography.css" }}
+{{ $layout := resources.Get "css/_layout.css" }}
+{{ $components := resources.Get "css/_components.css" }}
+{{ $gallery := resources.Get "css/_gallery.css" }}
+{{ $navigation := resources.Get "css/_navigation.css" }}
+{{ $footer := resources.Get "css/_footer.css" }}
+{{ $utilities := resources.Get "css/_utilities.css" }}
+
+{{ $css := slice $reset $typography $layout $components $gallery $navigation $footer $utilities | resources.Concat "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+{{/* Structured data for paintings */}}
+{{ if and (eq .Type "schilderijen") .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VisualArtwork",
+  "name": {{ .Title | jsonify }},
+  "creator": {
+    "@type": "Person",
+    "name": {{ .Site.Params.author | jsonify }}
+  },
+  "artMedium": {{ .Params.medium | jsonify }},
+  "description": {{ with .Description }}{{ . | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }}
+  {{ with .Params.image -}}
+    {{ $img := resources.Get . -}}
+    {{ if $img -}}
+  ,"image": {{ $img.Permalink | jsonify }}
+    {{- end }}
+  {{- end }}
+  {{ with .Params.dimensions -}}
+  ,"size": {{ . | jsonify }}
+  {{- end }}
+}
+</script>
+{{ end }}

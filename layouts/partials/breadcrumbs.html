@@ -1,0 +1,17 @@
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol class="breadcrumb-list">
+    <li class="breadcrumb-item">
+      <a href="{{ .Site.Home.RelPermalink }}">{{ i18n "breadcrumb_home" }}</a>
+    </li>
+    {{ if .Parent }}
+      {{ if ne .Parent.RelPermalink .Site.Home.RelPermalink }}
+        <li class="breadcrumb-item">
+          <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+    <li class="breadcrumb-item is-active" aria-current="page">
+      {{ .Title }}
+    </li>
+  </ol>
+</nav>

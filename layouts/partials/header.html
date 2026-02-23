@@ -1,0 +1,27 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="{{ .Site.Home.RelPermalink }}" class="site-logo" aria-label="Home">
+      <span class="logo-text">Sander Veen</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="{{ if eq .Language.LanguageCode "nl" }}Hoofdnavigatie{{ else }}Main navigation{{ end }}">
+      <ul class="nav-list">
+        {{ range .Site.Menus.main }}
+          <li class="nav-item">
+            <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} is-active{{ end }}">
+              {{ .Name }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      {{- partial "language-switcher.html" . -}}
+
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="{{ i18n "menu_open" }}">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </div>
+</header>

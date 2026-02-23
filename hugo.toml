@@ -1,0 +1,81 @@
+baseURL = "https://sanderveen.art"
+title = "Sander Veen — Schilderijen"
+
+defaultContentLanguage = "nl"
+defaultContentLanguageInSubdir = false
+
+enableRobotsTXT = true
+enableGitInfo = false
+
+[pagination]
+  pagerSize = 12
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+  [imaging.exif]
+    disableDate = false
+    disableLatLong = true
+
+[languages]
+  [languages.nl]
+    languageName = "Nederlands"
+    languageCode = "nl"
+    weight = 1
+    title = "Sander Veen — Schilderijen"
+    [languages.nl.params]
+      description = "Schilderijen en kunstwerken van Sander Veen. Olieverf, acryl en mixed media. Bekijk het portfolio en neem contact op voor aankoop."
+      locale = "nl_NL"
+    [[languages.nl.menus.main]]
+      name = "Schilderijen"
+      pageRef = "/schilderijen/"
+      weight = 10
+    [[languages.nl.menus.main]]
+      name = "Over mij"
+      pageRef = "/over/"
+      weight = 40
+    [[languages.nl.menus.main]]
+      name = "Contact"
+      pageRef = "/contact/"
+      weight = 50
+
+  [languages.en]
+    languageName = "English"
+    languageCode = "en"
+    weight = 2
+    contentDir = "content/en"
+    title = "Sander Veen — Paintings"
+    [languages.en.params]
+      description = "Paintings and artworks by Sander Veen. Oil, acrylic and mixed media. Browse the portfolio and inquire about purchasing."
+      locale = "en_US"
+    [[languages.en.menus.main]]
+      name = "Paintings"
+      pageRef = "/paintings/"
+      weight = 10
+    [[languages.en.menus.main]]
+      name = "About"
+      pageRef = "/about/"
+      weight = 40
+    [[languages.en.menus.main]]
+      name = "Contact"
+      pageRef = "/contact/"
+      weight = 50
+
+[params]
+  author = "Sander Veen"
+  email = "info@sanderveen.art"
+  phone = ""
+  instagram = ""
+  goldAccent = "#B8860B"
+  siteLogo = "/images/logo.png"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
