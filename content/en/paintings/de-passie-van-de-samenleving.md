@@ -1,5 +1,5 @@
 ---
-title: "Passion Of Society"
+title: "The Passion of Society"
 date: 2025-01-01
 draft: false
 translationKey: "de-passie-van-de-samenleving"

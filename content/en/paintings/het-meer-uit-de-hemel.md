@@ -1,5 +1,5 @@
 ---
-title: "The Lake Of Heaven"
+title: "The Lake from the Heavens"
 date: 2025-01-01
 draft: false
 translationKey: "het-meer-uit-de-hemel"

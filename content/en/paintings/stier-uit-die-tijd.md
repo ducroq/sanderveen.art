@@ -1,5 +1,5 @@
 ---
-title: "Bull From That Time"
+title: "Bull of That Era"
 date: 2025-01-01
 draft: false
 translationKey: "stier-uit-die-tijd"

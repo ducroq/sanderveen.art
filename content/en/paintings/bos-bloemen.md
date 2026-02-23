@@ -1,5 +1,5 @@
 ---
-title: "Forest Flowers"
+title: "Bouquet of Flowers"
 date: 2025-01-01
 draft: false
 translationKey: "bos-bloemen"

@@ -1,5 +1,5 @@
 ---
-title: "Diptych Of Reconciliation"
+title: "Diptych for Reconciliation"
 date: 2025-01-01
 draft: false
 translationKey: "tweeluik-voor-verzoening"

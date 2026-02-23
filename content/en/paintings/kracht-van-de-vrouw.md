@@ -1,5 +1,5 @@
 ---
-title: "Power Of The Woman"
+title: "Strength of Woman"
 date: 2025-01-01
 draft: false
 translationKey: "kracht-van-de-vrouw"
