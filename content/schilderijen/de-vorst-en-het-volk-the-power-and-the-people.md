@@ -1,5 +1,5 @@
 ---
-title: "De Vorst en het Volk The Power And The People"
+title: "De Vorst en het Volk"
 date: 2025-01-01
 draft: false
 translationKey: "de-vorst-en-het-volk-the-power-and-the-people"

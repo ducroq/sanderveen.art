@@ -8,6 +8,10 @@
 
 <section class="section">
   <div class="container">
+    {{ with .Content }}
+      <div class="prose">{{ . }}</div>
+    {{ end }}
+
     {{ if gt (len .Pages) 0 }}
       <div class="card-list">
         {{ range .Pages }}
@@ -20,8 +24,6 @@
           </article>
         {{ end }}
       </div>
-    {{ else }}
-      <p class="no-results">{{ i18n "no_results" }}</p>
     {{ end }}
   </div>
 </section>

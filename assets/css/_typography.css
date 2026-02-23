@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/playfair-display-v30-latin-700.woff2') format('woff2');
+  src: url('../fonts/playfair-display-v30-latin-700.woff2') format('woff2');
 }
 
 @font-face {
@@ -12,7 +12,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/inter-v13-latin-regular.woff2') format('woff2');
+  src: url('../fonts/inter-v13-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -20,7 +20,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/inter-v13-latin-500.woff2') format('woff2');
+  src: url('../fonts/inter-v13-latin-500.woff2') format('woff2');
 }
 
 @font-face {
@@ -28,7 +28,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/inter-v13-latin-600.woff2') format('woff2');
+  src: url('../fonts/inter-v13-latin-600.woff2') format('woff2');
 }
 
 :root {
@@ -38,7 +38,7 @@
   --color-bg: #FAF8F5;
   --color-bg-alt: #F2EDE8;
   --color-text: #1A1A1A;
-  --color-text-muted: #6B6560;
+  --color-text-muted: #5C5652;
   --color-gold: #B8860B;
   --color-gold-light: #D4A843;
   --color-gold-dark: #8B6508;

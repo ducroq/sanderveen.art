@@ -32,9 +32,15 @@
   opacity: 0.8;
 }
 
-.footer-info a:hover {
+.footer-info a:hover,
+.footer-info a:focus-visible {
   opacity: 1;
   color: var(--color-gold-light);
+}
+
+.footer-info a:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 2px;
 }
 
 .footer-social {
@@ -49,9 +55,15 @@
   transition: opacity 0.2s ease;
 }
 
-.footer-social a:hover {
+.footer-social a:hover,
+.footer-social a:focus-visible {
   opacity: 1;
   color: var(--color-gold-light);
+}
+
+.footer-social a:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 2px;
 }
 
 .footer-copyright {

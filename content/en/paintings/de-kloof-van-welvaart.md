@@ -1,5 +1,5 @@
 ---
-title: "The Gab Of Welfare"
+title: "The Gap of Prosperity"
 date: 2025-01-01
 draft: false
 translationKey: "de-kloof-van-welvaart"

@@ -1,5 +1,5 @@
 ---
-title: "The New Founding Anima"
+title: "The Newfound Animal"
 date: 2025-01-01
 draft: false
 translationKey: "het-nieuwgevonden-dier"

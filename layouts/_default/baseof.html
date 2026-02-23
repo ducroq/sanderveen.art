@@ -4,6 +4,7 @@
   {{- partial "head.html" . -}}
 </head>
 <body>
+  <a href="#main-content" class="skip-link visually-hidden">{{ if eq .Language.LanguageCode "nl" }}Naar inhoud{{ else }}Skip to content{{ end }}</a>
   {{- partial "header.html" . -}}
 
   <main id="main-content">

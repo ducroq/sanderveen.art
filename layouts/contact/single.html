@@ -10,20 +10,10 @@
   <div class="container contact-grid">
     <div class="contact-form-wrapper">
       <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        action="{{ if eq .Language.LanguageCode "nl" }}/contact/bedankt/{{ else }}/en/contact/thank-you/{{ end }}"
         class="contact-form"
         id="contact-form"
+        onsubmit="return handleContactSubmit(event)"
       >
-        {{/* Honeypot */}}
-        <p class="visually-hidden">
-          <label>Don't fill this out: <input name="bot-field"></label>
-        </p>
-
-        <input type="hidden" name="form-name" value="contact">
         <input type="hidden" name="painting" id="painting-field" value="">
 
         <div class="form-group">
@@ -62,4 +52,31 @@
     </div>
   </div>
 </section>
+
+<script>
+function handleContactSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contact-form');
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var phone = document.getElementById('phone').value;
+  var message = document.getElementById('message').value;
+  var painting = document.getElementById('painting-field').value;
+
+  var subject = painting
+    ? '{{ if eq .Language.LanguageCode "nl" }}Interesse in{{ else }}Inquiry about{{ end }} ' + painting
+    : '{{ if eq .Language.LanguageCode "nl" }}Contactverzoek via website{{ else }}Contact request via website{{ end }}';
+
+  var body = message + '\n\n---\n' + name + '\n' + email;
+  if (phone) body += '\n' + phone;
+
+  window.location.href = 'mailto:{{ .Site.Params.email }}'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+}
+</script>
 {{ end }}

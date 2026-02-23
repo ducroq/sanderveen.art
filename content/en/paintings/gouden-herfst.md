@@ -1,5 +1,5 @@
 ---
-title: "Golden Fa"
+title: "Golden Autumn"
 date: 2025-01-01
 draft: false
 translationKey: "gouden-herfst"

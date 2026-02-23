@@ -2,12 +2,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author }}">
 
 {{/* Open Graph */}}
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:locale" content="{{ .Site.Params.locale }}">
@@ -26,7 +26,7 @@
 {{/* Twitter Card */}}
 <meta name="twitter:card" content="{{ if .Params.image }}summary_large_image{{ else }}summary{{ end }}">
 <meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 {{ with .Params.image }}
   {{ $img := resources.Get . }}
   {{ if $img }}
@@ -52,9 +52,10 @@
 {{ end }}
 
 {{/* Preload fonts */}}
-<link rel="preload" href="/fonts/playfair-display-v30-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/inter-v13-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/inter-v13-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/playfair-display-v30-latin-700.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/inter-v13-latin-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/inter-v13-latin-500.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/inter-v13-latin-600.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 
 {{/* CSS via Hugo Pipes */}}
 {{ $reset := resources.Get "css/_reset.css" }}
@@ -81,7 +82,7 @@
     "name": {{ .Site.Params.author | jsonify }}
   },
   "artMedium": {{ .Params.medium | jsonify }},
-  "description": {{ with .Description }}{{ . | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }}
+  "description": {{ with .Description }}{{ . | jsonify }}{{ else }}{{ if .Params.medium }}{{ printf "%s — %s" .Title .Params.medium | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }}{{ end }}
   {{ with .Params.image -}}
     {{ $img := resources.Get . -}}
     {{ if $img -}}
