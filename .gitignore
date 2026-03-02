@@ -28,3 +28,9 @@ scripts/manifest.json
 
 # Netlify
 .netlify/
+
+# Claude Code
+.claude/
+
+# Office documents (not source content)
+*.docx
