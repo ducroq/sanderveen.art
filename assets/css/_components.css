@@ -235,6 +235,20 @@
   object-fit: contain;
 }
 
+/* Exhibition gallery */
+.exhibition-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.exhibition-gallery .gallery-img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
 /* No results */
 .no-results {
   text-align: center;

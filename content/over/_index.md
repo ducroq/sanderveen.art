@@ -1,11 +1,13 @@
 ---
 title: "Over Sander Veen"
-description: "Kunstenaar en schilder"
+description: "Hedendaags kunstenaar uit Veenendaal — abstracte kunst en magisch realisme"
 translationKey: "about"
 ---
 
-Sander Veen is een Nederlandse kunstenaar die werkt met olieverf, acryl en mixed media. Zijn werk kenmerkt zich door het gebruik van bladgoud, textuur en expressieve kleurpaletten.
+Welkom in de wereld van Sander Veen, een hedendaagse kunstenaar uit Veenendaal die gespecialiseerd is in abstracte kunst en magisch realisme. Sander staat bekend om zijn unieke stijl, waarin hij fantasievolle beelden combineert met geometrische vormen en levendige kleuren. Zijn schilderijen vervagen de grens tussen werkelijkheid en verbeelding, wat zorgt voor een betoverende en inspirerende ervaring.
 
-De schilderijen variëren van abstract tot magisch realisme, waarbij thema's als de menselijke conditie, spiritualiteit en de kracht van de natuur centraal staan.
+In de magisch realistische werken van Sander Veen worden elementen uit de natuur, historische thema's en fantasiewerelden op een bijzondere manier gecombineerd. Elk schilderij vertelt een verhaal dat zowel herkenbaar als onwerkelijk aanvoelt. Door het gebruik van symboliek en mystiek weet hij een mysterieuze sfeer te creëren die kijkers uitnodigt om op ontdekkingsreis te gaan.
 
-Sander werkt vanuit zijn atelier en is beschikbaar voor atelierbezoeken op afspraak. Neem gerust contact op voor meer informatie of een persoonlijke bezichtiging.
+Sanders abstracte kunst gaat verder dan het visuele. Geïnspireerd door het onbewuste en spirituele emoties, nodigt hij het publiek uit om dieper te kijken en nieuwe lagen van betekenis te ontdekken. Zijn gebruik van licht, textuur en krachtige kleuren zorgt voor een unieke verbinding tussen het innerlijke gevoel en het grote geheel.
+
+Sander is autodidact en heeft zijn eigen weg gevonden in de kunstwereld. Met meerdere exposities op zijn naam weet hij zijn publiek te betrekken bij zijn persoonlijke zoektocht naar emotie, mystiek en verbinding.

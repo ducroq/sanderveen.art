@@ -25,6 +25,18 @@
       {{ .Content }}
     </div>
 
+    {{ with .Params.gallery }}
+    <div class="exhibition-gallery">
+      {{ range . }}
+        {{ $img := resources.Get . }}
+        {{ if $img }}
+          {{ $thumb := $img.Fit "600x400" }}
+          <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" class="gallery-img" loading="lazy">
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
+
     <nav class="single-nav">
       {{ with .Parent }}<a href="{{ .RelPermalink }}" class="btn btn-outline">&larr; {{ i18n "back_to_overview" }}</a>{{ end }}
     </nav>

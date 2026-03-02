@@ -36,6 +36,14 @@ enableGitInfo = false
       pageRef = "/schilderijen/"
       weight = 10
     [[languages.nl.menus.main]]
+      name = "Workshops"
+      pageRef = "/workshops/"
+      weight = 20
+    [[languages.nl.menus.main]]
+      name = "Exposities"
+      pageRef = "/exposities/"
+      weight = 30
+    [[languages.nl.menus.main]]
       name = "Over mij"
       pageRef = "/over/"
       weight = 40
@@ -58,6 +66,14 @@ enableGitInfo = false
       pageRef = "/paintings/"
       weight = 10
     [[languages.en.menus.main]]
+      name = "Workshops"
+      pageRef = "/workshops/"
+      weight = 20
+    [[languages.en.menus.main]]
+      name = "Exhibitions"
+      pageRef = "/exhibitions/"
+      weight = 30
+    [[languages.en.menus.main]]
       name = "About"
       pageRef = "/about/"
       weight = 40
@@ -70,7 +86,7 @@ enableGitInfo = false
   author = "Sander Veen"
   email = "info@sanderveen.art"
   phone = ""
-  instagram = ""
+  instagram = "https://www.instagram.com/sander.veen/"
   goldAccent = "#B8860B"
 
 [outputs]
