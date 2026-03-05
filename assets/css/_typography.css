@@ -111,3 +111,16 @@ a:hover {
   color: var(--color-text-muted);
   font-style: italic;
 }
+
+/* Dark theme — toggle with body.dark class */
+body.dark {
+  --color-bg: #1A1A1A;
+  --color-bg-alt: #242424;
+  --color-text: #F0EDE8;
+  --color-text-muted: #A89F96;
+  --color-gold: #D4A843;
+  --color-gold-light: #E8C56D;
+  --color-gold-dark: #B8860B;
+  --color-border: #3A3530;
+  --color-white: #2A2725;
+}

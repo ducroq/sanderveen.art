@@ -107,6 +107,21 @@
     });
   }
 
+  // Theme toggle
+  var themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark');
+      themeToggle.textContent = '☀️';
+    }
+    themeToggle.addEventListener('click', function () {
+      var isDark = document.body.classList.toggle('dark');
+      themeToggle.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  }
+
   // Pre-fill inquiry form from URL params
   var params = new URLSearchParams(window.location.search);
   var paintingParam = params.get('painting');

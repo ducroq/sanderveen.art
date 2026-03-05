@@ -76,3 +76,13 @@
     text-align: right;
   }
 }
+
+/* Dark theme footer */
+body.dark .site-footer {
+  background-color: #111;
+}
+
+body.dark .footer-info a,
+body.dark .footer-social a {
+  color: var(--color-bg);
+}

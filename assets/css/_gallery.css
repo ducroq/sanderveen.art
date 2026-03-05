@@ -96,3 +96,8 @@
   font-size: var(--text-sm);
   color: var(--color-text-muted);
 }
+
+/* Dark theme gallery */
+body.dark .painting-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}

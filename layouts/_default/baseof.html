@@ -4,6 +4,7 @@
   {{- partial "head.html" . -}}
 </head>
 <body>
+  <script>if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark')</script>
   <a href="#main-content" class="skip-link visually-hidden">{{ i18n "skip_to_content" }}</a>
   {{- partial "header.html" . -}}
 
