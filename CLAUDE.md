@@ -16,14 +16,16 @@ Live: https://ducroq.github.io/sanderveen.art/
 | Adding a new section               | `docs/RUNBOOK.md` § Adding a Section |
 | Debugging a build failure          | `memory/gotcha-log.md`              |
 | Touching i18n strings              | `i18n/nl.toml`, `i18n/en.toml`     |
+| CMS / content management           | `docs/CMS-HANDLEIDING.md`          |
 
 ## Hard Constraints
 
 1. **No webshop, no prices** — inquiry-based only (mailto contact form)
 2. **Bilingual parity** — every NL page needs an EN counterpart (linked via `translationKey`)
-3. **No external dependencies** — no npm, no CDN, no JS frameworks; self-hosted fonts
+3. **No external dependencies** — no npm, no CDN, no JS frameworks; self-hosted fonts (exception: Sveltia CMS loaded from unpkg)
 4. **Extended Hugo in CI** — local Windows build is non-extended (no WebP); CI uses `hugo_extended`
 5. **GitHub Pages deployment** — no Netlify, no Vercel
+6. **Privacy** — Eenvoudlaan 6A is also Sander's home address; only show full address in workshop pages, not on contact page
 
 ## Architecture
 
@@ -55,7 +57,9 @@ sanderveen.nl/
 │   ├── partials/          # head, header, footer, painting-card, lightbox, etc.
 │   └── index.html         # Homepage template
 ├── static/fonts/          # Self-hosted woff2 (Playfair Display 700, Inter 400/500/600)
+├── static/admin/          # Sveltia CMS (index.html + config.yml)
 ├── scripts/               # Python: scrape.py, generate_content.py, cleanup_content.py, download_exhibitions.py
+├── docs/CMS-HANDLEIDING.md # Dutch CMS user guide for Sander
 └── .github/workflows/hugo.yml  # CI: build with extended Hugo, deploy to GH Pages
 ```
 
@@ -66,6 +70,8 @@ sanderveen.nl/
 - **Bilingual**: EN content in `content/en/`, linked to NL via `translationKey` in front matter; EN painting pages use `type: "schilderijen"` to reuse NL layouts; EN workshops use `type: "workshops"`, EN exhibitions use `type: "exposities"`
 - **Fonts**: woff2 files in `static/fonts/`, referenced with `../fonts/` in CSS @font-face (required for GH Pages subpath)
 - **Contact**: mailto link, no server-side form processing
+- **CMS**: Sveltia CMS at `static/admin/`, configured in `static/admin/config.yml`, uses GitHub PAT auth
+- **Theme**: dark/light toggle via `body.dark` class, persisted in localStorage
 
 ## Key Paths
 
@@ -91,6 +97,8 @@ sanderveen.nl/
 | `layouts/workshops/single.html` | Workshop detail page |
 | `layouts/exposities/single.html` | Exhibition detail page (with gallery) |
 | `static/fonts/` | Self-hosted web fonts |
+| `static/admin/config.yml` | Sveltia CMS collection config |
+| `docs/CMS-HANDLEIDING.md` | Dutch CMS user guide |
 | `.github/workflows/hugo.yml` | CI/CD pipeline |
 
 ## How to Work Here
@@ -111,11 +119,12 @@ hugo version
 
 ## Design Tokens
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--color-bg` | `#FAF8F5` | Page background |
-| `--color-text` | `#1A1A1A` | Body text |
-| `--color-gold` | `#B8860B` | Accent, links, buttons |
-| Muted text | `#5C5652` | Secondary text (WCAG AA) |
-| Headings font | Playfair Display 700 | h1–h3 |
-| Body font | Inter 400/500/600 | Paragraphs, UI |
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--color-bg` | `#FAF8F5` | `#1A1A1A` | Page background |
+| `--color-text` | `#1A1A1A` | `#F0EDE8` | Body text |
+| `--color-gold` | `#B8860B` | `#D4A843` | Accent, links, buttons |
+| `--color-text-muted` | `#5C5652` | `#A89F96` | Secondary text |
+| `--color-white` | `#FFFFFF` | `#2A2725` | Cards, inputs |
+
+Dark theme activated via `body.dark` class, toggled with 🌙 button in header. Sander to choose final preference.

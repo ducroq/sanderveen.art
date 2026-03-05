@@ -157,6 +157,30 @@ To add a section beyond paintings, workshops, and exhibitions:
 3. Add menu entries in `hugo.toml` under both `[languages.nl.menus.main]` and `[languages.en.menus.main]`
 4. Add any new i18n keys to both `i18n/nl.toml` and `i18n/en.toml`
 
+## Content Management (CMS)
+
+Sander can manage content via the Sveltia CMS admin panel at `/admin/`.
+
+### How It Works
+- **Sveltia CMS** loads from `static/admin/index.html` (single `<script>` tag)
+- **Config** in `static/admin/config.yml` defines all content collections
+- **Auth**: GitHub Personal Access Token (fine-grained, scoped to this repo only, contents read+write)
+- On publish, Sveltia commits directly to `main` → triggers GitHub Actions deploy
+
+### Collections
+- Schilderijen / Paintings (NL + EN)
+- Workshops (NL + EN)
+- Exposities / Exhibitions (NL + EN)
+- Over mij / About (NL + EN)
+
+### If the PAT expires or is revoked
+1. Generate a new fine-grained PAT at https://github.com/settings/personal-access-tokens/new
+2. Scope: repository `ducroq/sanderveen.art`, permission Contents read+write
+3. Send the new token to Sander via Signal
+
+### User guide
+See `docs/CMS-HANDLEIDING.md` (Dutch) for Sander's step-by-step instructions.
+
 ## Common Problems
 
 | Problem | Cause | Fix |
