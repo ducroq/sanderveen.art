@@ -1,0 +1,193 @@
+backend:
+  name: github
+  repo: ducroq/sanderveen.art
+  branch: main
+
+media_folder: assets/images
+public_folder: images
+
+locale: nl
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # --- Dutch paintings ---
+  - name: schilderijen
+    label: Schilderijen (NL)
+    folder: content/schilderijen
+    create: true
+    slug: "{{slug}}"
+    filter: { field: translationKey, pattern: ".+" }
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Datum, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Vertaalsleutel, name: translationKey, widget: string, hint: "Zelfde waarde als EN versie" }
+      - { label: Type, name: type, widget: hidden, default: schilderijen }
+      - label: Techniek
+        name: medium
+        widget: string
+        hint: "Bijv. Olieverf op doek, Acryl op paneel"
+      - { label: Afmetingen, name: dimensions, widget: string, hint: "Bijv. 80 x 60 cm" }
+      - { label: Jaar, name: year, widget: string, required: false }
+      - label: Status
+        name: status
+        widget: select
+        options: [available, sold, not-for-sale]
+        default: available
+      - { label: Uitgelicht, name: featured, widget: boolean, default: false }
+      - label: Afbeelding
+        name: image
+        widget: image
+        hint: "Upload naar assets/images/paintings/"
+      - label: Categorie
+        name: category
+        widget: select
+        options: ["Abstract", "Magisch realisme"]
+      - { label: Beschrijving, name: body, widget: markdown, required: false }
+
+  # --- English paintings ---
+  - name: paintings-en
+    label: Paintings (EN)
+    folder: content/en/paintings
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Translation key, name: translationKey, widget: string, hint: "Must match the NL version" }
+      - { label: Type, name: type, widget: hidden, default: schilderijen }
+      - { label: Medium, name: medium, widget: string }
+      - { label: Dimensions, name: dimensions, widget: string }
+      - { label: Year, name: year, widget: string, required: false }
+      - label: Status
+        name: status
+        widget: select
+        options: [available, sold, not-for-sale]
+        default: available
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - label: Image
+        name: image
+        widget: image
+      - label: Category
+        name: category
+        widget: select
+        options: ["Abstract", "Magical Realism"]
+      - { label: Description, name: body, widget: markdown, required: false }
+
+  # --- Workshops (NL) ---
+  - name: workshops
+    label: Workshops (NL)
+    folder: content/workshops
+    create: true
+    slug: "{{slug}}"
+    filter: { field: translationKey, pattern: ".+" }
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Beschrijving (kort), name: description, widget: string }
+      - { label: Vertaalsleutel, name: translationKey, widget: string }
+      - { label: Type, name: type, widget: hidden, default: workshops }
+      - { label: Datum/tijd, name: workshop_date, widget: string, hint: "Bijv. Zaterdagen 10:00-12:00" }
+      - { label: Locatie, name: location, widget: string, default: "Atelier Sander Veen, Eenvoudlaan 6A, Veenendaal" }
+      - { label: Prijs, name: price, widget: string, default: "40 per les" }
+      - { label: Volgorde, name: weight, widget: number, default: 50 }
+      - { label: Inhoud, name: body, widget: markdown }
+
+  # --- Workshops (EN) ---
+  - name: workshops-en
+    label: Workshops (EN)
+    folder: content/en/workshops
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description (short), name: description, widget: string }
+      - { label: Translation key, name: translationKey, widget: string }
+      - { label: Type, name: type, widget: hidden, default: workshops }
+      - { label: Date/time, name: workshop_date, widget: string }
+      - { label: Location, name: location, widget: string, default: "Studio Sander Veen, Eenvoudlaan 6A, Veenendaal" }
+      - { label: Price, name: price, widget: string, default: "40 per lesson" }
+      - { label: Order, name: weight, widget: number, default: 50 }
+      - { label: Content, name: body, widget: markdown }
+
+  # --- Exposities (NL) ---
+  - name: exposities
+    label: Exposities (NL)
+    folder: content/exposities
+    create: true
+    slug: "{{slug}}"
+    filter: { field: translationKey, pattern: ".+" }
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Beschrijving (kort), name: description, widget: string }
+      - { label: Vertaalsleutel, name: translationKey, widget: string }
+      - { label: Type, name: type, widget: hidden, default: exposities }
+      - { label: Datum, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Begindatum, name: start_date, widget: string }
+      - { label: Einddatum, name: end_date, widget: string }
+      - { label: Locatie, name: location, widget: string }
+      - label: Hoofdafbeelding
+        name: image
+        widget: image
+      - label: Galerijtje
+        name: gallery
+        widget: list
+        field: { label: Foto, name: photo, widget: image }
+        required: false
+      - { label: Volgorde, name: weight, widget: number, default: 50 }
+      - { label: Inhoud, name: body, widget: markdown }
+
+  # --- Exhibitions (EN) ---
+  - name: exhibitions-en
+    label: Exhibitions (EN)
+    folder: content/en/exhibitions
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description (short), name: description, widget: string }
+      - { label: Translation key, name: translationKey, widget: string }
+      - { label: Type, name: type, widget: hidden, default: exposities }
+      - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Start date, name: start_date, widget: string }
+      - { label: End date, name: end_date, widget: string }
+      - { label: Location, name: location, widget: string }
+      - label: Main image
+        name: image
+        widget: image
+      - label: Gallery
+        name: gallery
+        widget: list
+        field: { label: Photo, name: photo, widget: image }
+        required: false
+      - { label: Order, name: weight, widget: number, default: 50 }
+      - { label: Content, name: body, widget: markdown }
+
+  # --- About (NL) ---
+  - name: over
+    label: Over mij (NL)
+    files:
+      - name: over
+        label: Over mij
+        file: content/over/_index.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Beschrijving, name: description, widget: string }
+          - { label: Vertaalsleutel, name: translationKey, widget: hidden, default: about }
+          - { label: Inhoud, name: body, widget: markdown }
+
+  # --- About (EN) ---
+  - name: about-en
+    label: About (EN)
+    files:
+      - name: about
+        label: About
+        file: content/en/about/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string }
+          - { label: Translation key, name: translationKey, widget: hidden, default: about }
+          - { label: Content, name: body, widget: markdown }
