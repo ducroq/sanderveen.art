@@ -9,6 +9,6 @@ dimensions: "60,5 x 53 cm"
 year: ""
 status: "available"
 featured: true
-image: "images/paintings/magisch-realisme/de-vorst-en-het-volk-the-power-and-the-people.jpg"
-category: "Magisch realisme"
+image: "images/paintings/surrealistisch/de-vorst-en-het-volk-the-power-and-the-people.jpg"
+category: "Surrealistisch"
 ---

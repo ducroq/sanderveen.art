@@ -9,6 +9,6 @@ dimensions: "76 x 51 cm"
 year: ""
 status: "available"
 featured: false
-image: "images/paintings/magisch-realisme/tot-ongeloof.jpg"
-category: "Magical realism"
+image: "images/paintings/surrealistisch/tot-ongeloof.jpg"
+category: "Surrealist"
 ---

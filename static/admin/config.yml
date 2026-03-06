@@ -45,7 +45,7 @@ collections:
       - label: Categorie
         name: category
         widget: select
-        options: ["Abstract", "Magisch realisme"]
+        options: ["Abstract", "Surrealistisch"]
       - { label: Beschrijving, name: body, widget: markdown, required: false }
 
   # --- English paintings ---
@@ -75,7 +75,7 @@ collections:
       - label: Category
         name: category
         widget: select
-        options: ["Abstract", "Magical Realism"]
+        options: ["Abstract", "Surrealist"]
       - { label: Description, name: body, widget: markdown, required: false }
 
   # --- Workshops (NL) ---

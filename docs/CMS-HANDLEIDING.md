@@ -18,7 +18,7 @@
    - **Status** — available (te koop), sold (verkocht), of not-for-sale
    - **Uitgelicht** — aan als het op de homepage moet staan
    - **Afbeelding** — upload de foto van het schilderij
-   - **Categorie** — Abstract of Magisch realisme
+   - **Categorie** — Abstract of Surrealistisch
    - **Vertaalsleutel** — een korte naam zonder spaties, bijv. `mijn-schilderij` (moet gelijk zijn aan de Engelse versie)
 4. Klik op **Publish**
 5. Herhaal voor de Engelse versie via **Paintings (EN)** met dezelfde vertaalsleutel

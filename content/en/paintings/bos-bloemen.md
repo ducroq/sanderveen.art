@@ -9,6 +9,6 @@ dimensions: "122,5 x 52,5 cm"
 year: ""
 status: "available"
 featured: false
-image: "images/paintings/magisch-realisme/bos-bloemen.jpg"
-category: "Magical realism"
+image: "images/paintings/surrealistisch/bos-bloemen.jpg"
+category: "Surrealist"
 ---

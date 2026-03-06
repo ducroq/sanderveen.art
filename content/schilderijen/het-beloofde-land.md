@@ -9,6 +9,6 @@ dimensions: "77,5 x 44,5 cm"
 year: ""
 status: "available"
 featured: false
-image: "images/paintings/magisch-realisme/het-beloofde-land.jpg"
-category: "Magisch realisme"
+image: "images/paintings/surrealistisch/het-beloofde-land.jpg"
+category: "Surrealistisch"
 ---

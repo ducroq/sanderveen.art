@@ -9,6 +9,6 @@ dimensions: "58,5 x 48,5 cm"
 year: ""
 status: "available"
 featured: false
-image: "images/paintings/magisch-realisme/de-bekering.jpg"
-category: "Magisch realisme"
+image: "images/paintings/surrealistisch/de-bekering.jpg"
+category: "Surrealistisch"
 ---

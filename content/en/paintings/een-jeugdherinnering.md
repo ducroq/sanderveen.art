@@ -9,6 +9,6 @@ dimensions: "60 x 50 cm"
 year: ""
 status: "available"
 featured: false
-image: "images/paintings/magisch-realisme/een-jeugdherinnering.jpg"
-category: "Magical realism"
+image: "images/paintings/surrealistisch/een-jeugdherinnering.jpg"
+category: "Surrealist"
 ---

@@ -8,7 +8,7 @@ Usage:
 Output:
     scripts/manifest.json
     assets/images/paintings/abstract/*.jpg
-    assets/images/paintings/magisch-realisme/*.jpg
+    assets/images/paintings/surrealistisch/*.jpg
 """
 
 import json
@@ -27,7 +27,7 @@ MANIFEST_PATH = Path(__file__).parent / "manifest.json"
 
 CATEGORIES = {
     "abstract": "/webshop/schilderijenpaintings/abstract/",
-    "magisch-realisme": "/webshop/schilderijenpaintings/magisch-realisme--reverso-context/",
+    "magisch-realisme": "/webshop/schilderijenpaintings/surrealistisch--reverso-context/",
 }
 
 

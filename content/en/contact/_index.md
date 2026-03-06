@@ -8,7 +8,7 @@ layout: "single"
 
 Interested in a painting or would you like more information? Fill out the form and I will get back to you as soon as possible.
 
-You are also welcome to visit the studio by appointment.
+You can also use this form to schedule a visit to the studio.
 
 **Studio Sander Veen**
 Veenendaal

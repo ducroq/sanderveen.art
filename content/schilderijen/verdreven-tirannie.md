@@ -9,6 +9,6 @@ dimensions: "125 x 100 cm"
 year: ""
 status: "available"
 featured: true
-image: "images/paintings/magisch-realisme/verdreven-tirannie.jpg"
-category: "Magisch realisme"
+image: "images/paintings/surrealistisch/verdreven-tirannie.jpg"
+category: "Surrealistisch"
 ---

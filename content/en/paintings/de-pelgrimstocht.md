@@ -9,6 +9,6 @@ dimensions: "100 x 84 cm"
 year: ""
 status: "available"
 featured: true
-image: "images/paintings/magisch-realisme/de-pelgrimstocht.jpg"
-category: "Magical realism"
+image: "images/paintings/surrealistisch/de-pelgrimstocht.jpg"
+category: "Surrealist"
 ---

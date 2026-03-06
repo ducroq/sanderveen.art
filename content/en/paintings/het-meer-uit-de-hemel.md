@@ -9,6 +9,6 @@ dimensions: "77,5 x 62,5 cm"
 year: ""
 status: "available"
 featured: false
-image: "images/paintings/magisch-realisme/het-meer-uit-de-hemel.jpg"
-category: "Magical realism"
+image: "images/paintings/surrealistisch/het-meer-uit-de-hemel.jpg"
+category: "Surrealist"
 ---

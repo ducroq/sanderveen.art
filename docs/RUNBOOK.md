@@ -71,7 +71,7 @@ title: "Titel van het Schilderij"
 translationKey: "my-painting-name"
 image: "images/paintings/my-painting-name.jpg"
 date: 2024-01-01
-categories: ["abstract"]       # or "magisch-realisme"
+categories: ["abstract"]       # or "surrealistisch"
 featured: false                # true for homepage display (max ~6)
 dimensions: "100 × 80 cm"
 medium: "Olieverf op doek"
@@ -106,7 +106,7 @@ Description of the painting.
 - `translationKey` **must match** between NL and EN versions
 - EN files need `type: "schilderijen"` to reuse the Dutch layout templates
 - `image` path is relative to `assets/` (Hugo resource pipeline)
-- Categories: `abstract` or `magisch-realisme`
+- Categories: `abstract` or `surrealistisch`
 - Set `featured: true` on ≤6 paintings for homepage display
 
 ## Adding a Workshop

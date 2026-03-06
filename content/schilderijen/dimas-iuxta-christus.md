@@ -9,6 +9,6 @@ dimensions: "75 x 75 cm"
 year: ""
 status: "available"
 featured: false
-image: "images/paintings/magisch-realisme/dimas-iuxta-christus.jpg"
-category: "Magisch realisme"
+image: "images/paintings/surrealistisch/dimas-iuxta-christus.jpg"
+category: "Surrealistisch"
 ---
