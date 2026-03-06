@@ -30,7 +30,7 @@ Live: https://ducroq.github.io/sanderveen.art/
 ## Architecture
 
 ```
-sanderveen.nl/
+sanderveen.art/
 ├── hugo.toml              # Site config, languages, menus, params
 ├── assets/
 │   ├── css/               # 8 CSS files → Hugo Pipes concat+minify+fingerprint
