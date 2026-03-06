@@ -14,7 +14,7 @@ Live: https://ducroq.github.io/sanderveen.art/
 | Changing CSS or layout             | Architecture below + `assets/css/`  |
 | Working on deployment or CI        | `docs/RUNBOOK.md` § Deployment      |
 | Adding a new section               | `docs/RUNBOOK.md` § Adding a Section |
-| Debugging a build failure          | `memory/gotcha-log.md`              |
+| Debugging a build failure          | `docs/RUNBOOK.md` § Common Problems |
 | Touching i18n strings              | `i18n/nl.toml`, `i18n/en.toml`     |
 | CMS / content management           | `docs/CMS-HANDLEIDING.md`          |
 

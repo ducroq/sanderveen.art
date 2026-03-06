@@ -21,7 +21,7 @@ EN_PAINTINGS_DIR = PROJECT_DIR / "content" / "en" / "paintings"
 
 CATEGORY_MAP = {
     "abstract": {"nl": "Abstract", "en": "Abstract"},
-    "magisch-realisme": {"nl": "Magisch Realisme", "en": "Magical Realism"},
+    "magisch-realisme": {"nl": "Surrealistisch", "en": "Surrealist"},
 }
 
 

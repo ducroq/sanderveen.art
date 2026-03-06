@@ -16,4 +16,4 @@ gallery:
 weight: 10
 ---
 
-Driedaagse expositie in Veenendaal op 8, 9 en 10 november 2024. Een selectie van abstracte en magisch-realistische schilderijen werd getoond aan het publiek.
+Driedaagse expositie in Veenendaal op 8, 9 en 10 november 2024. Een selectie van abstracte en surrealistische schilderijen werd getoond aan het publiek.

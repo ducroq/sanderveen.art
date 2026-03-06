@@ -33,7 +33,7 @@ hugo server -D
 hugo --minify
 ```
 
-**Note**: Local Windows Hugo (non-extended) cannot produce WebP images. This is expected — CI uses extended Hugo. See `memory/gotcha-log.md` for details.
+**Note**: Local Windows Hugo (non-extended) cannot produce WebP images. This is expected — CI uses extended Hugo.
 
 ## Deployment
 
@@ -200,5 +200,4 @@ See `docs/CMS-HANDLEIDING.md` (Dutch) for Sander's step-by-step instructions.
 |----------|----------|---------|----------------|
 | `CLAUDE.md` | Project root | Quick orientation, architecture, constraints | Architecture changes, new key paths |
 | `docs/RUNBOOK.md` | `docs/` | How-to procedures, troubleshooting | New workflows, new problems solved |
-| `memory/MEMORY.md` | Claude memory | Session-persistent state, discoveries | New findings, decisions, status changes |
-| `memory/gotcha-log.md` | Claude memory | Pitfalls and surprises | Every time you hit an unexpected issue |
+| `docs/CMS-HANDLEIDING.md` | `docs/` | Dutch CMS user guide | CMS workflow changes |

@@ -16,4 +16,4 @@ gallery:
 weight: 10
 ---
 
-Three-day exhibition in Veenendaal on 8, 9 and 10 November 2024. A selection of abstract and magic realist paintings was shown to the public.
+Three-day exhibition in Veenendaal on 8, 9 and 10 November 2024. A selection of abstract and surrealist paintings was shown to the public.

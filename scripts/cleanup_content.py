@@ -197,8 +197,8 @@ def main():
         featured = slug in FEATURED_SLUGS
 
         # Category label
-        cat_nl = "Abstract" if category == "abstract" else "Magisch realisme"
-        cat_en = "Abstract" if category == "abstract" else "Magical realism"
+        cat_nl = "Abstract" if category == "abstract" else "Surrealistisch"
+        cat_en = "Abstract" if category == "abstract" else "Surrealist"
 
         # Generate NL file
         nl_content = generate_md(title_nl, slug, medium_nl, dimensions, image, featured, cat_nl)
