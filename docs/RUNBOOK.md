@@ -57,9 +57,10 @@ hugo --minify --baseURL "https://ducroq.github.io/sanderveen.art/"
 This is the most common content operation. Follow these steps:
 
 ### 1. Add the Image
-Place the painting image in `assets/images/paintings/`:
+Place the painting image in the appropriate subdirectory of `assets/images/paintings/`:
 ```
-assets/images/paintings/my-painting-name.jpg
+assets/images/paintings/abstract/my-painting-name.jpg
+assets/images/paintings/surrealistisch/my-painting-name.jpg
 ```
 Use lowercase, hyphenated filenames. Prefer high-resolution source files — Hugo generates responsive sizes.
 
@@ -69,9 +70,11 @@ Create `content/schilderijen/my-painting-name.md`:
 ---
 title: "Titel van het Schilderij"
 translationKey: "my-painting-name"
-image: "images/paintings/my-painting-name.jpg"
+image: "images/paintings/abstract/my-painting-name.jpg"
 date: 2024-01-01
-categories: ["abstract"]       # or "surrealistisch"
+type: "schilderijen"
+category: "Abstract"           # or "Surrealistisch"
+status: "available"            # available, sold, price_on_request
 featured: false                # true for homepage display (max ~6)
 dimensions: "100 × 80 cm"
 medium: "Olieverf op doek"
@@ -88,10 +91,11 @@ Create `content/en/paintings/my-painting-name.md`:
 ---
 title: "Painting Title"
 translationKey: "my-painting-name"    # must match NL
-type: "schilderijen"                  # reuse NL layouts
-image: "images/paintings/my-painting-name.jpg"
+image: "images/paintings/abstract/my-painting-name.jpg"
 date: 2024-01-01
-categories: ["abstract"]
+type: "schilderijen"                  # reuse NL layouts
+category: "Abstract"                  # or "Surrealist"
+status: "available"
 featured: false
 dimensions: "100 × 80 cm"
 medium: "Oil on canvas"
@@ -106,7 +110,7 @@ Description of the painting.
 - `translationKey` **must match** between NL and EN versions
 - EN files need `type: "schilderijen"` to reuse the Dutch layout templates
 - `image` path is relative to `assets/` (Hugo resource pipeline)
-- Categories: `abstract` or `surrealistisch`
+- Category: `"Abstract"` or `"Surrealistisch"` (NL), `"Abstract"` or `"Surrealist"` (EN)
 - Set `featured: true` on ≤6 paintings for homepage display
 
 ## Adding a Workshop
