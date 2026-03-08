@@ -6,7 +6,7 @@ translationKey: "bos-bloemen"
 type: "schilderijen"
 medium: "Oil paint on panel"
 dimensions: "122,5 x 52,5 cm"
-year: ""
+year: "2023"
 status: "available"
 featured: false
 image: "images/paintings/surrealistisch/bos-bloemen.jpg"

@@ -6,7 +6,7 @@ translationKey: "tot-ongeloof"
 type: "schilderijen"
 medium: "Oil paint on canvas"
 dimensions: "76 x 51 cm"
-year: ""
+year: "2020"
 status: "available"
 featured: false
 image: "images/paintings/surrealistisch/tot-ongeloof.jpg"

@@ -6,7 +6,7 @@ translationKey: "dimas-iuxta-christus"
 type: "schilderijen"
 medium: "Olieverf op doek"
 dimensions: "75 x 75 cm"
-year: ""
+year: "2023"
 status: "available"
 featured: false
 image: "images/paintings/surrealistisch/dimas-iuxta-christus.jpg"

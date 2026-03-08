@@ -6,7 +6,7 @@ translationKey: "een-jeugdherinnering"
 type: "schilderijen"
 medium: "Oil paint on panel"
 dimensions: "60 x 50 cm"
-year: ""
+year: "2024"
 status: "available"
 featured: false
 image: "images/paintings/surrealistisch/een-jeugdherinnering.jpg"

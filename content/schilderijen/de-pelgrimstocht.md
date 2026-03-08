@@ -6,7 +6,7 @@ translationKey: "de-pelgrimstocht"
 type: "schilderijen"
 medium: "Olieverf op paneel"
 dimensions: "100 x 84 cm"
-year: ""
+year: "2024"
 status: "available"
 featured: true
 image: "images/paintings/surrealistisch/de-pelgrimstocht.jpg"

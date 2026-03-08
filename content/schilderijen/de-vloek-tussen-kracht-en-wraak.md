@@ -6,7 +6,7 @@ translationKey: "de-vloek-tussen-kracht-en-wraak"
 type: "schilderijen"
 medium: "Olieverf op paneel"
 dimensions: "61 x 50 cm"
-year: ""
+year: "2022"
 status: "available"
 featured: false
 image: "images/paintings/surrealistisch/de-vloek-tussen-kracht-en-wraak.jpg"

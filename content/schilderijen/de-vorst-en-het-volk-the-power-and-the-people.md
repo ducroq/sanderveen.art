@@ -6,7 +6,7 @@ translationKey: "de-vorst-en-het-volk-the-power-and-the-people"
 type: "schilderijen"
 medium: "Olieverf op paneel"
 dimensions: "60,5 x 53 cm"
-year: ""
+year: "2024"
 status: "available"
 featured: true
 image: "images/paintings/surrealistisch/de-vorst-en-het-volk-the-power-and-the-people.jpg"

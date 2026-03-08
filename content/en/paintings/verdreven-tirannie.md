@@ -6,7 +6,7 @@ translationKey: "verdreven-tirannie"
 type: "schilderijen"
 medium: "Oil paint on panel"
 dimensions: "125 x 100 cm"
-year: ""
+year: "2020"
 status: "available"
 featured: true
 image: "images/paintings/surrealistisch/verdreven-tirannie.jpg"

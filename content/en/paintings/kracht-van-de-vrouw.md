@@ -6,7 +6,7 @@ translationKey: "kracht-van-de-vrouw"
 type: "schilderijen"
 medium: "Oil paint on panel"
 dimensions: "62 x 43 cm"
-year: ""
+year: "2022"
 status: "available"
 featured: false
 image: "images/paintings/surrealistisch/kracht-van-de-vrouw.jpg"
