@@ -28,11 +28,22 @@ body.dark .site-header.is-scrolled {
 .site-logo {
   text-decoration: none;
   color: var(--color-text);
+  display: flex;
+  align-items: center;
 }
 
 .site-logo:focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
+}
+
+.logo-img {
+  height: 2.5rem;
+  width: auto;
+}
+
+body.dark .logo-img {
+  filter: invert(1);
 }
 
 .logo-text {

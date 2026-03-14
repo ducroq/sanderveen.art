@@ -46,6 +46,17 @@
   background-color: var(--color-bg-alt);
 }
 
+.hero-logo {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+body.dark .hero-logo {
+  filter: invert(1);
+}
+
 .hero-title {
   font-size: var(--text-4xl);
   margin-bottom: 1rem;
@@ -62,6 +73,9 @@
 @media (min-width: 768px) {
   .hero {
     padding-block: 8rem 6rem;
+  }
+  .hero-logo {
+    max-width: 500px;
   }
   .hero-title {
     font-size: var(--text-5xl);

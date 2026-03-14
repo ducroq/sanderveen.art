@@ -2,7 +2,13 @@
 {{/* Hero section */}}
 <section class="hero">
   <div class="container hero-inner">
-    <h1 class="hero-title">Sander Veen</h1>
+    {{ $logo := resources.Get "images/logo.png" }}
+    {{ with $logo }}
+      {{ $hero := .Fit "500x163" }}
+      <img src="{{ $hero.RelPermalink }}" alt="Sander Veen Art — Sinds 1980" class="hero-logo" width="{{ $hero.Width }}" height="{{ $hero.Height }}">
+    {{ else }}
+      <h1 class="hero-title">Sander Veen</h1>
+    {{ end }}
     {{ with .Description }}
       <p class="hero-subtitle">{{ . }}</p>
     {{ end }}

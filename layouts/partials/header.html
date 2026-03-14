@@ -1,7 +1,11 @@
 <header class="site-header">
   <div class="container header-inner">
     <a href="{{ .Site.Home.RelPermalink }}" class="site-logo" aria-label="Home">
-      <span class="logo-text">Sander Veen</span>
+      {{ $logo := resources.Get "images/logo.png" }}
+      {{ with $logo }}
+        {{ $resized := .Fit "240x48" }}
+        <img src="{{ $resized.RelPermalink }}" alt="Sander Veen Art — Sinds 1980" class="logo-img" width="{{ $resized.Width }}" height="{{ $resized.Height }}">
+      {{ end }}
     </a>
 
     <nav class="main-nav" id="main-nav" aria-label="{{ i18n "main_navigation" }}">
