@@ -1,6 +1,7 @@
 ---
 title: "Over Sander Veen"
 description: "Hedendaags kunstenaar uit Veenendaal — abstracte kunst en surrealisme"
+type: "page"
 translationKey: "about"
 ---
 
