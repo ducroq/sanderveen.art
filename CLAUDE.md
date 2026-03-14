@@ -58,8 +58,11 @@ sanderveen.art/
 │   └── index.html         # Homepage template
 ├── static/fonts/          # Self-hosted woff2 (Playfair Display 700, Inter 400/500/600)
 ├── static/admin/          # Sveltia CMS (index.html + config.yml)
-├── scripts/               # Python: scrape.py, generate_content.py, cleanup_content.py, download_exhibitions.py
-├── docs/CMS-HANDLEIDING.md # Dutch CMS user guide for Sander
+├── scripts/               # Python: scrape.py, generate_content.py, cleanup_content.py, download_exhibitions.py, md_to_pdf.py
+├── docs/
+│   ├── CMS-HANDLEIDING.md           # Dutch CMS user guide (source)
+│   ├── CMS-Handleiding-SanderVeen.pdf  # PDF version for Sander
+│   └── RUNBOOK.md                   # Operational runbook
 └── .github/workflows/hugo.yml  # CI: build with extended Hugo, deploy to GH Pages
 ```
 
@@ -67,7 +70,8 @@ sanderveen.art/
 
 - **CSS**: 8 partials in `assets/css/` concatenated by Hugo Pipes in `layouts/partials/head.html`
 - **Images**: stored in `assets/images/`, processed with Hugo's `Fit`/`Fill`/`Resize` in templates
-- **Bilingual**: EN content in `content/en/`, linked to NL via `translationKey` in front matter; EN painting pages use `type: "schilderijen"` to reuse NL layouts; EN workshops use `type: "workshops"`, EN exhibitions use `type: "exposities"`
+- **Bilingual**: EN content in `content/en/`, separated via Hugo module mounts (`excludeFiles` in `hugo.toml`); linked to NL via `translationKey` in front matter; EN painting pages use `type: "schilderijen"` to reuse NL layouts; EN workshops use `type: "workshops"`, EN exhibitions use `type: "exposities"`
+- **Logo**: `assets/images/logo.png` (transparent PNG), used in header and homepage hero; `filter: invert(1)` for dark mode
 - **Fonts**: woff2 files in `static/fonts/`, referenced with `../fonts/` in CSS @font-face (required for GH Pages subpath)
 - **Contact**: mailto link, no server-side form processing
 - **CMS**: Sveltia CMS at `static/admin/`, configured in `static/admin/config.yml`, uses GitHub PAT auth
@@ -79,7 +83,7 @@ sanderveen.art/
 |------|---------|
 | `hugo.toml` | Site config, languages, menus |
 | `layouts/partials/head.html` | CSS pipeline, meta tags, font preloads |
-| `layouts/partials/header.html` | Navigation, language switcher |
+| `layouts/partials/header.html` | Navigation, logo, language switcher |
 | `layouts/schilderijen/single.html` | Individual painting page |
 | `layouts/schilderijen/list.html` | Gallery grid |
 | `layouts/partials/painting-card.html` | Gallery card component |
@@ -98,7 +102,10 @@ sanderveen.art/
 | `layouts/exposities/single.html` | Exhibition detail page (with gallery) |
 | `static/fonts/` | Self-hosted web fonts |
 | `static/admin/config.yml` | Sveltia CMS collection config |
-| `docs/CMS-HANDLEIDING.md` | Dutch CMS user guide |
+| `assets/images/logo.png` | Site logo (transparent PNG) |
+| `docs/CMS-HANDLEIDING.md` | Dutch CMS user guide (source) |
+| `docs/CMS-Handleiding-SanderVeen.pdf` | PDF version for Sander |
+| `scripts/md_to_pdf.py` | Markdown to PDF converter |
 | `.github/workflows/hugo.yml` | CI/CD pipeline |
 
 ## How to Work Here

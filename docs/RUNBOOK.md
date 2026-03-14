@@ -184,6 +184,7 @@ Sander can manage content via the Sveltia CMS admin panel at `/admin/`.
 
 ### User guide
 See `docs/CMS-HANDLEIDING.md` (Dutch) for Sander's step-by-step instructions.
+PDF version: `docs/CMS-Handleiding-SanderVeen.pdf` (regenerate with `python scripts/md_to_pdf.py`).
 
 ## Common Problems
 
@@ -196,6 +197,7 @@ See `docs/CMS-HANDLEIDING.md` (Dutch) for Sander's step-by-step instructions.
 | i18n key shows `[i18n] ...` | Missing key in one language file | Add the key to both `i18n/nl.toml` and `i18n/en.toml` |
 | EN painting uses wrong layout | Missing `type: "schilderijen"` | Add `type: "schilderijen"` to EN front matter |
 | Language switcher 404s | `translationKey` mismatch | Ensure both NL and EN files share the same `translationKey` |
+| Language switcher shows two buttons | Missing module mounts | `hugo.toml` must have `[module]` mounts with `excludeFiles = ["en/**"]` for NL — without this, Hugo processes `content/en/` as both NL and EN |
 | Images not processed | Image path doesn't resolve | Path must be relative to `assets/`, e.g. `images/paintings/foo.jpg` |
 
 ## Documentation Practices
