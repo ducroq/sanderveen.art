@@ -2,7 +2,7 @@
 translationKey: ''
 title: Horizonde
 date: 2026-03-15
-draft: false
+draft: true
 type: schilderijen
 medium: Olieverf op paneel
 dimensions: 23x17 cm
