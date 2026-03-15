@@ -74,7 +74,7 @@ image: "images/paintings/abstract/my-painting-name.jpg"
 date: 2024-01-01
 type: "schilderijen"
 category: "Abstract"           # or "Surrealistisch"
-status: "available"            # available, sold, price_on_request
+status: "available"            # available, sold, not-for-sale
 featured: false                # true for homepage display (max ~6)
 dimensions: "100 × 80 cm"
 medium: "Olieverf op doek"

@@ -41,7 +41,7 @@ sanderveen.art/
 │       ├── exhibitions/   # Exhibition photos
 │       └── workshops/     # Workshop photos
 ├── content/
-│   ├── schilderijen/      # NL painting pages (38 .md files)
+│   ├── schilderijen/      # NL painting pages (35 .md files)
 │   ├── over/              # NL about
 │   ├── contact/           # NL contact
 │   ├── workshops/         # NL workshops (5 workshops)
@@ -88,7 +88,7 @@ sanderveen.art/
 | `layouts/schilderijen/list.html` | Gallery grid |
 | `layouts/partials/painting-card.html` | Gallery card component |
 | `layouts/index.html` | Homepage |
-| `assets/css/_gallery.css` | Masonry layout, lightbox styles |
+| `assets/css/_gallery.css` | Grid layout, painting cards (row-wise, grouped by category) |
 | `assets/css/_layout.css` | Page structure, responsive breakpoints |
 | `i18n/nl.toml` | Dutch UI strings |
 | `i18n/en.toml` | English UI strings |
