@@ -6,7 +6,7 @@ translationKey: "het-getal-14"
 type: "schilderijen"
 medium: "Olieverf op paneel"
 dimensions: "67,5 x 45 cm"
-year: ""
+year: "2020"
 status: "available"
 featured: false
 image: "images/paintings/abstract/het-getal-14.jpg"

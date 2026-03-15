@@ -6,7 +6,7 @@ translationKey: "tweeluik-voor-verzoening"
 type: "schilderijen"
 medium: "Olieverf, pigment op paneel"
 dimensions: "67,5 x 40 cm"
-year: ""
+year: "2021"
 status: "available"
 featured: false
 image: "images/paintings/abstract/tweeluik-voor-verzoening.jpg"

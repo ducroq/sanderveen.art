@@ -6,7 +6,7 @@ translationKey: "gouden-herfst"
 type: "schilderijen"
 medium: "Acrylic, textile on canvas"
 dimensions: "60 x 50 cm"
-year: ""
+year: "2020"
 status: "available"
 featured: false
 image: "images/paintings/abstract/gouden-herfst.jpg"

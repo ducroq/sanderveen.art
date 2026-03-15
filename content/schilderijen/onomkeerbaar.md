@@ -6,7 +6,7 @@ translationKey: "onomkeerbaar"
 type: "schilderijen"
 medium: "Olieverf, bladgoud en epoxy op paneel"
 dimensions: "113 x 80,5 cm"
-year: ""
+year: "2025"
 status: "available"
 featured: true
 image: "images/paintings/abstract/onomkeerbaar.jpg"

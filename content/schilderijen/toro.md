@@ -6,7 +6,7 @@ translationKey: "toro"
 type: "schilderijen"
 medium: "Olieverf, hout, pigment op paneel"
 dimensions: "60 x 42,5 cm"
-year: ""
+year: "2022"
 status: "available"
 featured: false
 image: "images/paintings/abstract/toro.jpg"

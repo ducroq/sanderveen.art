@@ -6,7 +6,7 @@ translationKey: "stad-in-verval"
 type: "schilderijen"
 medium: "Olieverf en structuur op paneel"
 dimensions: "74 x 61 cm"
-year: ""
+year: "2025"
 status: "available"
 featured: false
 image: "images/paintings/abstract/stad-in-verval.jpg"

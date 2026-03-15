@@ -6,7 +6,7 @@ translationKey: "de-groep"
 type: "schilderijen"
 medium: "Oil paint, acrylic on panel"
 dimensions: "75,5 x 62 cm"
-year: ""
+year: "2023"
 status: "available"
 featured: false
 image: "images/paintings/abstract/de-groep.jpg"

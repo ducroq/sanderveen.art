@@ -6,7 +6,7 @@ translationKey: "de-passie-van-de-samenleving"
 type: "schilderijen"
 medium: "Oil paint and acrylic on canvas"
 dimensions: "120 x 60 cm"
-year: ""
+year: "2024"
 status: "available"
 featured: true
 image: "images/paintings/abstract/de-passie-van-de-samenleving.jpg"

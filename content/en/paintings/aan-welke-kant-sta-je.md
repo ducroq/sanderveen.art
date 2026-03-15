@@ -6,7 +6,7 @@ translationKey: "aan-welke-kant-sta-je"
 type: "schilderijen"
 medium: "Oil paint, acrylic, epoxy on canvas"
 dimensions: "75 x 43 cm"
-year: ""
+year: "2024"
 status: "available"
 featured: false
 image: "images/paintings/abstract/aan-welke-kant-sta-je.jpg"

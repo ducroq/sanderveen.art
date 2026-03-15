@@ -6,7 +6,7 @@ translationKey: "de-sleutel-van-het-kompas"
 type: "schilderijen"
 medium: "Olieverf, bladgoud, structuur en epoxy op paneel"
 dimensions: "74 x 48 cm"
-year: ""
+year: "2024"
 status: "available"
 featured: false
 image: "images/paintings/abstract/de-sleutel-van-het-kompas.jpg"

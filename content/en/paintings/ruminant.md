@@ -6,7 +6,7 @@ translationKey: "ruminant"
 type: "schilderijen"
 medium: "Oil paint and texture paste on panel"
 dimensions: "62 x 43 cm"
-year: ""
+year: "2022"
 status: "available"
 featured: false
 image: "images/paintings/abstract/ruminant.jpg"

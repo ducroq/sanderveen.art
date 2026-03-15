@@ -79,3 +79,9 @@ other = "Inquiry about"
 
 [contact_subject_default]
 other = "Contact request via website"
+
+[category_abstract]
+other = "Abstract"
+
+[category_surrealistisch]
+other = "Surrealist"

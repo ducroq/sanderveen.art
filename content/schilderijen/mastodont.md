@@ -6,7 +6,7 @@ translationKey: "mastodont"
 type: "schilderijen"
 medium: "Olieverf op paneel"
 dimensions: "77 x 45 cm"
-year: ""
+year: "2022"
 status: "available"
 featured: false
 image: "images/paintings/abstract/mastodont.jpg"

@@ -6,7 +6,7 @@ translationKey: "de-sleutel-van-het-kompas"
 type: "schilderijen"
 medium: "Oil paint, gold leaf, texture paste and epoxy on panel"
 dimensions: "74 x 48 cm"
-year: ""
+year: "2024"
 status: "available"
 featured: false
 image: "images/paintings/abstract/de-sleutel-van-het-kompas.jpg"

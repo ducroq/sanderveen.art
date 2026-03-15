@@ -6,7 +6,7 @@ translationKey: "stier-uit-die-tijd"
 type: "schilderijen"
 medium: "Oil paint on panel"
 dimensions: "67 x 48 cm"
-year: ""
+year: "2022"
 status: "available"
 featured: false
 image: "images/paintings/abstract/stier-uit-die-tijd.jpg"

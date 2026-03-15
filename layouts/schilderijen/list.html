@@ -6,18 +6,30 @@
   </div>
 </section>
 
-<section class="gallery-section">
-  <div class="container">
-    <div class="gallery-grid">
-      {{ range .Pages.ByWeight }}
-        {{ partial "painting-card.html" . }}
-      {{ end }}
-    </div>
+{{ $categories := slice "Abstract" "Surrealistisch" }}
+{{ $i18nKeys := dict "Abstract" "category_abstract" "Surrealistisch" "category_surrealistisch" }}
 
-    {{ if gt (len .Pages) 0 }}
-    {{ else }}
+{{ range $cat := $categories }}
+  {{ $paintings := where $.Pages "Params.category" $cat }}
+  {{ if gt (len $paintings) 0 }}
+  <section class="gallery-section">
+    <div class="container">
+      <h2 class="gallery-category-title">{{ i18n (index $i18nKeys $cat) }}</h2>
+      <div class="gallery-grid">
+        {{ range $paintings.ByParam "year" | collections.Reverse }}
+          {{ partial "painting-card.html" . }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+{{ end }}
+
+{{ if eq (len .Pages) 0 }}
+  <section class="gallery-section">
+    <div class="container">
       <p class="no-results">{{ i18n "no_results" }}</p>
-    {{ end }}
-  </div>
-</section>
+    </div>
+  </section>
+{{ end }}
 {{ end }}

@@ -6,7 +6,7 @@ translationKey: "het-nieuwe-goud"
 type: "schilderijen"
 medium: "Acryl, spuitlak, bladgoud op doek"
 dimensions: "60 x 50 cm"
-year: ""
+year: "2022"
 status: "available"
 featured: false
 image: "images/paintings/abstract/het-nieuwe-goud.jpg"
