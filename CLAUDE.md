@@ -45,7 +45,7 @@ sanderveen.art/
 │   ├── over/              # NL about
 │   ├── contact/           # NL contact
 │   ├── workshops/         # NL workshops (5 workshops)
-│   ├── exposities/        # NL exhibitions (5 exhibitions)
+│   ├── exposities/        # NL exhibitions (6 exhibitions)
 │   └── en/                # EN mirror (paintings/, about/, contact/, workshops/, exhibitions/)
 ├── i18n/                  # nl.toml, en.toml — all UI strings
 ├── layouts/
@@ -92,11 +92,11 @@ sanderveen.art/
 | `assets/css/_layout.css` | Page structure, responsive breakpoints |
 | `i18n/nl.toml` | Dutch UI strings |
 | `i18n/en.toml` | English UI strings |
-| `content/schilderijen/` | Dutch painting content (38 pages) |
+| `content/schilderijen/` | Dutch painting content (35 pages) |
 | `content/en/paintings/` | English painting content |
 | `content/workshops/` | Dutch workshop content (5 workshops) |
 | `content/en/workshops/` | English workshop content |
-| `content/exposities/` | Dutch exhibition content (5 exhibitions) |
+| `content/exposities/` | Dutch exhibition content (6 exhibitions) |
 | `content/en/exhibitions/` | English exhibition content |
 | `layouts/workshops/single.html` | Workshop detail page |
 | `layouts/exposities/single.html` | Exhibition detail page (with gallery) |

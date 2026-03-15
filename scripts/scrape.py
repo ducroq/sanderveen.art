@@ -27,7 +27,7 @@ MANIFEST_PATH = Path(__file__).parent / "manifest.json"
 
 CATEGORIES = {
     "abstract": "/webshop/schilderijenpaintings/abstract/",
-    "magisch-realisme": "/webshop/schilderijenpaintings/surrealistisch--reverso-context/",
+    "magisch-realisme": "/webshop/schilderijenpaintings/magisch-realisme--reverso-context/",
 }
 
 
