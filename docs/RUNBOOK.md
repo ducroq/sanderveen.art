@@ -178,7 +178,10 @@ Sander can manage content via the Sveltia CMS admin panel at `/admin/`.
 - Over mij / About (NL + EN)
 
 ### If the PAT expires or is revoked
-1. Generate a new fine-grained PAT at https://github.com/settings/personal-access-tokens/new
+Sander can generate a new token himself — see `docs/CMS-HANDLEIDING.md` § "Token verlopen?".
+
+Alternatively:
+1. Generate a new fine-grained PAT at https://github.com/settings/tokens?type=beta
 2. Scope: repository `ducroq/sanderveen.art`, permission Contents read+write
 3. Send the new token to Sander via Signal
 

@@ -125,6 +125,6 @@ def write_rich_line(pdf, text, x_offset=10, dark=(40, 40, 40), base_color=None):
 
 if __name__ == "__main__":
     build_pdf(
-        r"C:\local_dev\sanderveen.nl\docs\CMS-HANDLEIDING.md",
-        r"C:\Users\scbry\Downloads\CMS-Handleiding-SanderVeen.pdf",
+        r"C:\local_dev\sanderveen.art\docs\CMS-HANDLEIDING.md",
+        r"C:\local_dev\sanderveen.art\docs\CMS-Handleiding-SanderVeen.pdf",
     )

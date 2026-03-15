@@ -3,8 +3,22 @@
 ## Inloggen
 
 1. Ga naar **https://ducroq.github.io/sanderveen.art/admin/**
-2. De eerste keer wordt gevraagd om een token — plak de code die je via Signal hebt ontvangen
-3. Je komt nu in het dashboard
+2. Klik op **"Sign in with Token"**
+3. Plak je token (begint met `github_pat_...`) en bevestig
+4. Je komt nu in het dashboard
+
+### Token verlopen? Nieuw token aanmaken
+
+1. Ga naar **https://github.com/settings/tokens?type=beta** (log in met je GitHub account)
+2. Klik op **"Generate new token"**
+3. Vul in:
+   - **Token name:** `sanderveen-cms`
+   - **Expiration:** 90 days
+   - **Repository access:** "Only select repositories" → kies `ducroq/sanderveen.art`
+   - **Permissions → Repository permissions → Contents:** Read and write
+4. Klik op **"Generate token"**
+5. **Kopieer het token** — je ziet het maar 1x!
+6. Ga terug naar het CMS en log in met dit token
 
 ## Een nieuw schilderij toevoegen
 
