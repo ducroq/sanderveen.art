@@ -8,9 +8,15 @@
 
 {{ $categories := slice "Abstract" "Surrealistisch" }}
 {{ $i18nKeys := dict "Abstract" "category_abstract" "Surrealistisch" "category_surrealistisch" }}
+{{/* EN uses "Surrealist" in front matter, NL uses "Surrealistisch" — match both */}}
+{{ $altNames := dict "Surrealistisch" "Surrealist" }}
 
 {{ range $cat := $categories }}
   {{ $paintings := where $.Pages "Params.category" $cat }}
+  {{ with index $altNames $cat }}
+    {{ $alt := where $.Pages "Params.category" . }}
+    {{ $paintings = $paintings | append $alt }}
+  {{ end }}
   {{ if gt (len $paintings) 0 }}
   <section class="gallery-section">
     <div class="container">

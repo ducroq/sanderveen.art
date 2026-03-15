@@ -21,6 +21,9 @@
     {{ end }}
     <div class="painting-card-info">
       <h2 class="painting-card-title">{{ .Title }}</h2>
+      {{ with .Params.year }}
+        <p class="painting-card-year">{{ . }}</p>
+      {{ end }}
       {{ with .Params.medium }}
         <p class="painting-card-medium">{{ . }}</p>
       {{ end }}
