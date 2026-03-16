@@ -189,6 +189,32 @@ Alternatively:
 See `docs/CMS-HANDLEIDING.md` (Dutch) for Sander's step-by-step instructions.
 PDF version: `docs/CMS-Handleiding-SanderVeen.pdf` (regenerate with `python scripts/md_to_pdf.py`).
 
+## Content Validation
+
+Run `python scripts/validate_content.py` to check all content files against the CMS schema. This catches issues before they reach production.
+
+### What It Checks
+- **Front matter schema** — required fields present and correctly typed
+- **Enum validation** — status (`available`/`sold`/`not-for-sale`), category values
+- **Bilingual parity** — every NL file has an EN counterpart with matching `translationKey`
+- **Cross-language consistency** — status, featured, image, and category match between NL/EN
+- **Image paths** — referenced images exist in `assets/images/`
+- **CMS config sync** — collection folders in `config.yml` exist on disk
+- **Orphaned images** — painting images not referenced by any content
+
+### When to Run
+- After editing content manually or via CMS
+- After adding new paintings, workshops, or exhibitions
+- After running `generate_content.py` or `cleanup_content.py`
+- Before committing content changes
+- When Sander reports CMS issues
+
+### Usage
+```bash
+python scripts/validate_content.py          # human-readable report
+python scripts/validate_content.py --json   # JSON output for tooling
+```
+
 ## Common Problems
 
 | Problem | Cause | Fix |

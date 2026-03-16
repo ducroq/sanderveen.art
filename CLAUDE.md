@@ -17,6 +17,7 @@ Live: https://ducroq.github.io/sanderveen.art/
 | Debugging a build failure          | `docs/RUNBOOK.md` § Common Problems |
 | Touching i18n strings              | `i18n/nl.toml`, `i18n/en.toml`     |
 | CMS / content management           | `docs/CMS-HANDLEIDING.md`          |
+| Validating content or CMS issues   | `scripts/validate_content.py`       |
 
 ## Hard Constraints
 
@@ -58,7 +59,7 @@ sanderveen.art/
 │   └── index.html         # Homepage template
 ├── static/fonts/          # Self-hosted woff2 (Playfair Display 700, Inter 400/500/600)
 ├── static/admin/          # Sveltia CMS (index.html + config.yml)
-├── scripts/               # Python: scrape.py, generate_content.py, cleanup_content.py, download_exhibitions.py, md_to_pdf.py
+├── scripts/               # Python: scrape.py, generate_content.py, cleanup_content.py, download_exhibitions.py, md_to_pdf.py, validate_content.py
 ├── docs/
 │   ├── CMS-HANDLEIDING.md           # Dutch CMS user guide (source)
 │   ├── CMS-Handleiding-SanderVeen.pdf  # PDF version for Sander
@@ -106,6 +107,7 @@ sanderveen.art/
 | `docs/CMS-HANDLEIDING.md` | Dutch CMS user guide (source) |
 | `docs/CMS-Handleiding-SanderVeen.pdf` | PDF version for Sander |
 | `scripts/md_to_pdf.py` | Markdown to PDF converter |
+| `scripts/validate_content.py` | Content validation (schema, parity, images) |
 | `.github/workflows/hugo.yml` | CI/CD pipeline |
 
 ## How to Work Here
@@ -122,7 +124,18 @@ hugo --minify --baseURL "$BASE_URL/"
 
 # Check Hugo version
 hugo version
+
+# Validate content (schema, bilingual parity, images, CMS config)
+python scripts/validate_content.py          # human-readable
+python scripts/validate_content.py --json   # machine-readable
 ```
+
+### Claude Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/test-content` | Validate content files, offer fixes for issues |
+| `/test-site` | Full site validation (content + Hugo build + bilingual page counts) |
 
 ## Design Tokens
 
