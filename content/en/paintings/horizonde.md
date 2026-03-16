@@ -4,7 +4,7 @@ date: 2026-03-15
 draft: true
 translationKey: "horizonde"
 type: "schilderijen"
-medium: "Olieverf op paneel"
+medium: "Oil on panel"
 dimensions: "23 x 17 cm"
 year: "2021"
 status: "available"

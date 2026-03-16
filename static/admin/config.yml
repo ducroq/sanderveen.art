@@ -24,7 +24,11 @@ collections:
       - { label: Titel, name: title, widget: string }
       - { label: Datum, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
       - { label: Draft, name: draft, widget: boolean, default: false }
-      - { label: Vertaalsleutel, name: translationKey, widget: string, hint: "Zelfde waarde als EN versie" }
+      - label: Vertaalsleutel
+        name: translationKey
+        widget: string
+        hint: "Kleine letters met streepjes, bijv. 'mijn-schilderij'. Moet gelijk zijn aan de EN versie!"
+        pattern: ['^[a-z0-9][a-z0-9-]+$', "Alleen kleine letters, cijfers en streepjes. Geen spaties of hoofdletters."]
       - { label: Type, name: type, widget: hidden, default: schilderijen }
       - label: Techniek
         name: medium
@@ -41,7 +45,8 @@ collections:
       - label: Afbeelding
         name: image
         widget: image
-        hint: "Upload naar assets/images/paintings/"
+        hint: "Hernoem het bestand VOOR upload: kleine letters, streepjes, geen spaties. Bijv. 'mijn-schilderij.jpg'"
+        media_folder: "{{media_folder}}/paintings"
       - label: Categorie
         name: category
         widget: select
@@ -58,7 +63,11 @@ collections:
       - { label: Title, name: title, widget: string }
       - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
       - { label: Draft, name: draft, widget: boolean, default: false }
-      - { label: Translation key, name: translationKey, widget: string, hint: "Must match the NL version" }
+      - label: Translation key
+        name: translationKey
+        widget: string
+        hint: "Lowercase with hyphens, e.g. 'my-painting'. Must match the NL version!"
+        pattern: ['^[a-z0-9][a-z0-9-]+$', "Only lowercase letters, numbers and hyphens. No spaces or capitals."]
       - { label: Type, name: type, widget: hidden, default: schilderijen }
       - { label: Medium, name: medium, widget: string }
       - { label: Dimensions, name: dimensions, widget: string }
@@ -72,6 +81,8 @@ collections:
       - label: Image
         name: image
         widget: image
+        hint: "Rename file BEFORE upload: lowercase, hyphens, no spaces. E.g. 'my-painting.jpg'"
+        media_folder: "{{media_folder}}/paintings"
       - label: Category
         name: category
         widget: select
@@ -88,7 +99,11 @@ collections:
     fields:
       - { label: Titel, name: title, widget: string }
       - { label: Beschrijving (kort), name: description, widget: string }
-      - { label: Vertaalsleutel, name: translationKey, widget: string }
+      - label: Vertaalsleutel
+        name: translationKey
+        widget: string
+        hint: "Kleine letters met streepjes, bijv. 'workshop-abstract'. Moet gelijk zijn aan de EN versie!"
+        pattern: ['^[a-z0-9][a-z0-9-]+$', "Alleen kleine letters, cijfers en streepjes."]
       - { label: Type, name: type, widget: hidden, default: workshops }
       - { label: Datum/tijd, name: workshop_date, widget: string, hint: "Bijv. Zaterdagen 10:00-12:00" }
       - { label: Locatie, name: location, widget: string, default: "Atelier Sander Veen, Eenvoudlaan 6A, Veenendaal" }
@@ -105,7 +120,11 @@ collections:
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description (short), name: description, widget: string }
-      - { label: Translation key, name: translationKey, widget: string }
+      - label: Translation key
+        name: translationKey
+        widget: string
+        hint: "Lowercase with hyphens. Must match the NL version!"
+        pattern: ['^[a-z0-9][a-z0-9-]+$', "Only lowercase letters, numbers and hyphens."]
       - { label: Type, name: type, widget: hidden, default: workshops }
       - { label: Date/time, name: workshop_date, widget: string }
       - { label: Location, name: location, widget: string, default: "Studio Sander Veen, Eenvoudlaan 6A, Veenendaal" }
@@ -123,7 +142,11 @@ collections:
     fields:
       - { label: Titel, name: title, widget: string }
       - { label: Beschrijving (kort), name: description, widget: string }
-      - { label: Vertaalsleutel, name: translationKey, widget: string }
+      - label: Vertaalsleutel
+        name: translationKey
+        widget: string
+        hint: "Kleine letters met streepjes, bijv. 'expo-naam-2025'. Moet gelijk zijn aan de EN versie!"
+        pattern: ['^[a-z0-9][a-z0-9-]+$', "Alleen kleine letters, cijfers en streepjes."]
       - { label: Type, name: type, widget: hidden, default: exposities }
       - { label: Datum, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
       - { label: Begindatum, name: start_date, widget: string }
@@ -149,7 +172,11 @@ collections:
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description (short), name: description, widget: string }
-      - { label: Translation key, name: translationKey, widget: string }
+      - label: Translation key
+        name: translationKey
+        widget: string
+        hint: "Lowercase with hyphens. Must match the NL version!"
+        pattern: ['^[a-z0-9][a-z0-9-]+$', "Only lowercase letters, numbers and hyphens."]
       - { label: Type, name: type, widget: hidden, default: exposities }
       - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
       - { label: Start date, name: start_date, widget: string }
