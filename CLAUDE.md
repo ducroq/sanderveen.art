@@ -42,7 +42,7 @@ sanderveen.art/
 │       ├── exhibitions/   # Exhibition photos
 │       └── workshops/     # Workshop photos
 ├── content/
-│   ├── schilderijen/      # NL painting pages (35 .md files)
+│   ├── schilderijen/      # NL painting pages (36 .md files: 22 abstract, 14 surrealistisch)
 │   ├── over/              # NL about
 │   ├── contact/           # NL contact
 │   ├── workshops/         # NL workshops (5 workshops)

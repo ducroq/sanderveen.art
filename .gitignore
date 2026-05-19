@@ -31,6 +31,7 @@ scripts/manifest.json
 
 # Claude Code
 .claude/
+memory/
 
 # Office documents (not source content)
 *.docx
