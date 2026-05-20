@@ -3,8 +3,8 @@ backend:
   repo: ducroq/sanderveen.art
   branch: main
 
-media_folder: assets/images
-public_folder: images
+media_folder: assets/images/paintings
+public_folder: images/paintings
 
 locale: nl
 
@@ -46,7 +46,7 @@ collections:
         name: image
         widget: image
         hint: "Hernoem het bestand VOOR upload: kleine letters, streepjes, geen spaties. Bijv. 'mijn-schilderij.jpg'"
-        media_folder: "{{media_folder}}/paintings"
+        pattern: ['^images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten (geen spaties, geen hoofdletters). Bijv. 'mijn-schilderij.jpg'."]
       - label: Categorie
         name: category
         widget: select
@@ -82,7 +82,7 @@ collections:
         name: image
         widget: image
         hint: "Rename file BEFORE upload: lowercase, hyphens, no spaces. E.g. 'my-painting.jpg'"
-        media_folder: "{{media_folder}}/paintings"
+        pattern: ['^images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens (no spaces, no capitals). E.g. 'my-painting.jpg'."]
       - label: Category
         name: category
         widget: select
@@ -155,10 +155,17 @@ collections:
       - label: Hoofdafbeelding
         name: image
         widget: image
+        media_folder: "/assets/images/exhibitions"
+        public_folder: "images/exhibitions"
       - label: Galerijtje
         name: gallery
         widget: list
-        field: { label: Foto, name: photo, widget: image }
+        field:
+          label: Foto
+          name: photo
+          widget: image
+          media_folder: "/assets/images/exhibitions"
+          public_folder: "images/exhibitions"
         required: false
       - { label: Volgorde, name: weight, widget: number, default: 50 }
       - { label: Inhoud, name: body, widget: markdown }
@@ -185,10 +192,17 @@ collections:
       - label: Main image
         name: image
         widget: image
+        media_folder: "/assets/images/exhibitions"
+        public_folder: "images/exhibitions"
       - label: Gallery
         name: gallery
         widget: list
-        field: { label: Photo, name: photo, widget: image }
+        field:
+          label: Photo
+          name: photo
+          widget: image
+          media_folder: "/assets/images/exhibitions"
+          public_folder: "images/exhibitions"
         required: false
       - { label: Order, name: weight, widget: number, default: 50 }
       - { label: Content, name: body, widget: markdown }

@@ -9,6 +9,6 @@ dimensions: 38 x 25 cm
 year: '2021'
 status: available
 featured: false
-image: /assets/images/paintings/Horizon in de lente, 38x25cm.jpg
+image: "images/paintings/Horizon in de lente, 38x25cm.jpg"
 category: Abstract
 ---
