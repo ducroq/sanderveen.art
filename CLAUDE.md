@@ -42,7 +42,7 @@ sanderveen.art/
 │       ├── exhibitions/   # Exhibition photos
 │       └── workshops/     # Workshop photos
 ├── content/
-│   ├── schilderijen/      # NL painting pages (36 .md files: 22 abstract, 14 surrealistisch)
+│   ├── schilderijen/      # NL painting pages (38 .md files: 24 abstract, 14 surrealistisch)
 │   ├── over/              # NL about
 │   ├── contact/           # NL contact
 │   ├── workshops/         # NL workshops (5 workshops)
@@ -93,7 +93,7 @@ sanderveen.art/
 | `assets/css/_layout.css` | Page structure, responsive breakpoints |
 | `i18n/nl.toml` | Dutch UI strings |
 | `i18n/en.toml` | English UI strings |
-| `content/schilderijen/` | Dutch painting content (35 pages) |
+| `content/schilderijen/` | Dutch painting content (38 pages) |
 | `content/en/paintings/` | English painting content |
 | `content/workshops/` | Dutch workshop content (5 workshops) |
 | `content/en/workshops/` | English workshop content |

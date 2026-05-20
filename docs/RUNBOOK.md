@@ -171,6 +171,11 @@ Sander can manage content via the Sveltia CMS admin panel at `/admin/`.
 - **Auth**: GitHub Personal Access Token (fine-grained, scoped to this repo only, contents read+write)
 - On publish, Sveltia commits directly to `main` → triggers GitHub Actions deploy
 
+### Media folder configuration (read this before editing `config.yml`)
+- **Global**: `media_folder: assets/images/paintings`, `public_folder: images/paintings` — sets the default for standalone Media Library uploads. Most uploads are paintings, so this routes them correctly by default.
+- **Per-field `media_folder` override requires a matching `public_folder` override.** This is a Sveltia/Decap rule. Without the pair, the CMS writes a broken absolute path (`/assets/images/...`) into content files. Exhibition image fields are pinned to `/assets/images/exhibitions` with explicit `public_folder: images/exhibitions` for this reason.
+- Painting image fields enforce a filename `pattern` (`^images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$`) — the form blocks saves with spaces, capitals, or punctuation in the filename. All existing painting images conform; new uploads must too.
+
 ### Collections
 - Schilderijen / Paintings (NL + EN)
 - Workshops (NL + EN)
@@ -228,6 +233,9 @@ python scripts/validate_content.py --json   # JSON output for tooling
 | Language switcher 404s | `translationKey` mismatch | Ensure both NL and EN files share the same `translationKey` |
 | Language switcher shows two buttons | Missing module mounts | `hugo.toml` must have `[module]` mounts with `excludeFiles = ["en/**"]` for NL — without this, Hugo processes `content/en/` as both NL and EN |
 | Images not processed | Image path doesn't resolve | Path must be relative to `assets/`, e.g. `images/paintings/foo.jpg` |
+| CMS writes `/assets/images/...` (absolute, broken) into content | Field has `media_folder` override but no `public_folder` override | Sveltia/Decap rule: if you override `media_folder` on a field, **always** also override `public_folder`. Without it, the public path falls back to the literal media_folder with a leading slash. |
+| CMS standalone "Media Library" uploads land in wrong folder | Global `media_folder` controls Media Library uploads | Set global `media_folder` to wherever the most common collection's media goes (currently `assets/images/paintings`), and give other collections explicit per-field overrides. |
+| CMS form rejects a saved entry with "filename must match..." | Image's stored path doesn't match the field-level `pattern` regex | Either rename the file to match (lowercase-hyphens, no spaces) or relax the pattern. Existing entries with bad filenames will hit this on next edit. |
 
 ## Documentation Practices
 

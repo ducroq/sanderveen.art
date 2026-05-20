@@ -31,11 +31,30 @@
    - **Jaar** — wanneer het gemaakt is (mag leeg)
    - **Status** — available (te koop), sold (verkocht), of not-for-sale
    - **Uitgelicht** — aan als het op de homepage moet staan
-   - **Afbeelding** — upload de foto van het schilderij
+   - **Afbeelding** — upload de foto van het schilderij (zie regels hieronder)
    - **Categorie** — Abstract of Surrealistisch
    - **Vertaalsleutel** — een korte naam zonder spaties, bijv. `mijn-schilderij` (moet gelijk zijn aan de Engelse versie)
 4. Klik op **Publish**
 5. Herhaal voor de Engelse versie via **Paintings (EN)** met dezelfde vertaalsleutel
+
+### Regels voor afbeeldingsbestanden
+
+Het CMS controleert nu automatisch dat foto's een schone bestandsnaam hebben. Zorg er dus voor dat het bestand vóór upload de volgende format heeft:
+
+- **Alleen kleine letters, cijfers en streepjes** in de naam
+- **Geen spaties, geen hoofdletters, geen leestekens** (geen komma's, geen punten in de naam)
+- **Eindigt op `.jpg`, `.jpeg`, `.png` of `.webp`**
+
+Voorbeelden:
+- **Goed:** `bosbrand.jpg`
+- **Goed:** `horizon-in-de-lente.jpg`
+- **Goed:** `stijl-in-compositie-3.jpg`
+- **Niet goed:** `Bosbrand, 60x60cm.jpg` (spaties, hoofdletter, komma)
+- **Niet goed:** `Stijl in compositie 3, 113x68cm. 1.jpg` (idem)
+
+Als de bestandsnaam niet klopt, krijg je een rode foutmelding bij het opslaan en kan je het niet publiceren tot je de foto opnieuw uploadt met een geldige naam.
+
+**Tip:** Upload de foto bij voorkeur direct binnen het schilderij-formulier (klik op het **Afbeelding**-veld) in plaats van vooraf via de Media Library — dan komt het bestand meteen op de juiste plek terecht.
 
 ## Een bestaand schilderij bewerken
 
