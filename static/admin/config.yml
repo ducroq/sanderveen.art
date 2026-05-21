@@ -46,7 +46,7 @@ collections:
         name: image
         widget: image
         hint: "Hernoem het bestand VOOR upload: kleine letters, streepjes, geen spaties. Bijv. 'mijn-schilderij.jpg'"
-        pattern: ['^/?images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten (geen spaties, geen hoofdletters). Bijv. 'mijn-schilderij.jpg'."]
+        pattern: ['^/?images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten (geen spaties, geen hoofdletters). Bijv. 'mijn-schilderij.jpg'. Hernoem het bestand op je computer en upload opnieuw."]
       - label: Categorie
         name: category
         widget: select
@@ -83,12 +83,12 @@ collections:
         name: image
         widget: image
         hint: "Rename file BEFORE upload: lowercase, hyphens, no spaces. E.g. 'my-painting.jpg'"
-        pattern: ['^/?images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens (no spaces, no capitals). E.g. 'my-painting.jpg'."]
+        pattern: ['^/?images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens (no spaces, no capitals). E.g. 'my-painting.jpg'. Rename the file on your computer and upload again."]
       - label: Category
         name: category
         widget: select
         options: ["Abstract", "Surrealist"]
-        hint: "Pick the same category as the Dutch version. Note: 'Surrealist' (EN) is called 'Surrealistisch' on the NL version."
+        hint: "Kies hetzelfde als de NL versie. NL 'Surrealistisch' = EN 'Surrealist'. (Pick same as NL — Surrealistisch maps to Surrealist.)"
       - { label: Description, name: body, widget: markdown, required: false }
 
   # --- Workshops (NL) ---

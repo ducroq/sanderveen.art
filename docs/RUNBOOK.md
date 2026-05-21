@@ -174,7 +174,10 @@ Sander can manage content via the Sveltia CMS admin panel at `/admin/`.
 ### Media folder configuration (read this before editing `config.yml`)
 - **Global**: `media_folder: assets/images/paintings`, `public_folder: images/paintings` — sets the default for standalone Media Library uploads. Most uploads are paintings, so this routes them correctly by default.
 - **Per-field `media_folder` override requires a matching `public_folder` override.** This is a Sveltia/Decap rule. Without the pair, the CMS writes a broken absolute path (`/assets/images/...`) into content files. Exhibition image fields are pinned to `/assets/images/exhibitions` with explicit `public_folder: images/exhibitions` for this reason.
-- Painting image fields enforce a filename `pattern` (`^images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$`) — the form blocks saves with spaces, capitals, or punctuation in the filename. All existing painting images conform; new uploads must too.
+- Painting image fields enforce a filename `pattern` (`^/?images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$`) — the form blocks saves with spaces, capitals, or punctuation in the filename. The optional leading `/?` is required: Sveltia's image widget validates the form-displayed value (with leading slash), not the saved value (without). All existing painting images conform; new uploads must too.
+
+### Before committing changes to `static/admin/config.yml`
+The CMS form is a different runtime than the saved markdown — patterns and hints can pass code review but still break for the user. **Exercise the form before committing**, either by running `hugo server -D` and using `/admin/` in a browser, or by invoking the local `sander-cms-tester` agent at `.claude/agents/sander-cms-tester.md` (gitignored), which simulates the workflow and runs the validation regexes against both the saved-value form and the form-displayed-value form. Two consecutive CMS regressions in 2026-05 (a6e3e1b deploy break, a20afad pattern false-negative) reached the client because this step was skipped.
 
 ### Collections
 - Schilderijen / Paintings (NL + EN)
