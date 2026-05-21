@@ -22,20 +22,41 @@
 
 ## Een nieuw schilderij toevoegen
 
+Een schilderij toevoegen doe je **twee keer**: één keer in het Nederlands en daarna één keer in het Engels. Beide versies moeten dezelfde **vertaalsleutel** krijgen, anders werkt de taalwissel op de site niet.
+
+### Stap 1 — Nederlandse versie
+
 1. Klik links op **Schilderijen (NL)**
 2. Klik rechtsboven op **New Schilderijen**
-3. Vul de velden in:
+3. Vul de velden in (in deze volgorde, zoals ze in het formulier staan):
    - **Titel** — naam van het schilderij
+   - **Datum** — laat staan op vandaag
+   - **Draft** — laat uit (anders verschijnt het schilderij niet op de site)
+   - **Vertaalsleutel** — een korte unieke naam, alleen kleine letters en streepjes, bijv. `bosbrand` of `horizon-in-de-lente`. **Onthoud deze sleutel** — je hebt 'm zo nodig bij de Engelse versie.
    - **Techniek** — bijv. "Olieverf op doek", "Acryl op paneel"
    - **Afmetingen** — bijv. "80 x 60 cm"
    - **Jaar** — wanneer het gemaakt is (mag leeg)
    - **Status** — available (te koop), sold (verkocht), of not-for-sale
    - **Uitgelicht** — aan als het op de homepage moet staan
-   - **Afbeelding** — upload de foto van het schilderij (zie regels hieronder)
+   - **Afbeelding** — upload de foto van het schilderij (zie regels hieronder), of kies een al geüploade foto uit de mediabibliotheek
    - **Categorie** — Abstract of Surrealistisch
-   - **Vertaalsleutel** — een korte naam zonder spaties, bijv. `mijn-schilderij` (moet gelijk zijn aan de Engelse versie)
+   - **Beschrijving** — optionele extra tekst onder het schilderij (mag leeg)
 4. Klik op **Publish**
-5. Herhaal voor de Engelse versie via **Paintings (EN)** met dezelfde vertaalsleutel
+
+### Stap 2 — Engelse versie (verplicht!)
+
+1. Klik links op **Paintings (EN)**
+2. Klik rechtsboven op **New Paintings**
+3. Vul dezelfde gegevens in, maar dan in het Engels:
+   - **Title** — Engelse naam van het schilderij
+   - **Translation key** — **exact dezelfde** vertaalsleutel als de Nederlandse versie. Tik 'm letter voor letter over.
+   - **Medium** — bijv. "Oil on canvas"
+   - **Dimensions** — bijv. "80 x 60 cm"
+   - **Status / Featured / Image** — moeten gelijk zijn aan de NL versie (dezelfde foto)
+   - **Category** — kies volgens deze regel: koos je NL **Abstract** → kies EN **Abstract**. Koos je NL **Surrealistisch** → kies EN **Surrealist**. Iets anders breekt de bouwcheck en het schilderij verschijnt niet.
+4. Klik op **Publish**
+
+> **Vergeet je de Engelse versie?** Dan slaat het schilderij op, maar verschijnt het niet correct op de site en de bouwcheck (CI) zal klagen. Pak altijd beide talen in één sessie.
 
 ### Regels voor afbeeldingsbestanden
 

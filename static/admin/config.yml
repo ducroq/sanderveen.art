@@ -27,7 +27,7 @@ collections:
       - label: Vertaalsleutel
         name: translationKey
         widget: string
-        hint: "Kleine letters met streepjes, bijv. 'mijn-schilderij'. Moet gelijk zijn aan de EN versie!"
+        hint: "Kleine letters met streepjes, bijv. 'mijn-schilderij'. LET OP: na Publish moet je ook een Engelse versie aanmaken via Paintings (EN) met EXACT dezelfde sleutel — anders werkt de taalwissel niet."
         pattern: ['^[a-z0-9][a-z0-9-]+$', "Alleen kleine letters, cijfers en streepjes. Geen spaties of hoofdletters."]
       - { label: Type, name: type, widget: hidden, default: schilderijen }
       - label: Techniek
@@ -46,11 +46,12 @@ collections:
         name: image
         widget: image
         hint: "Hernoem het bestand VOOR upload: kleine letters, streepjes, geen spaties. Bijv. 'mijn-schilderij.jpg'"
-        pattern: ['^images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten (geen spaties, geen hoofdletters). Bijv. 'mijn-schilderij.jpg'."]
+        pattern: ['^/?images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten (geen spaties, geen hoofdletters). Bijv. 'mijn-schilderij.jpg'."]
       - label: Categorie
         name: category
         widget: select
         options: ["Abstract", "Surrealistisch"]
+        hint: "Kies dezelfde categorie bij de Engelse versie. Let op: 'Surrealistisch' (NL) heet 'Surrealist' in de EN versie."
       - { label: Beschrijving, name: body, widget: markdown, required: false }
 
   # --- English paintings ---
@@ -66,7 +67,7 @@ collections:
       - label: Translation key
         name: translationKey
         widget: string
-        hint: "Lowercase with hyphens, e.g. 'my-painting'. Must match the NL version!"
+        hint: "Lowercase with hyphens, e.g. 'my-painting'. IMPORTANT: must EXACTLY match the translationKey on the Dutch version under Schilderijen (NL) — otherwise the language switcher will not link them."
         pattern: ['^[a-z0-9][a-z0-9-]+$', "Only lowercase letters, numbers and hyphens. No spaces or capitals."]
       - { label: Type, name: type, widget: hidden, default: schilderijen }
       - { label: Medium, name: medium, widget: string }
@@ -82,11 +83,12 @@ collections:
         name: image
         widget: image
         hint: "Rename file BEFORE upload: lowercase, hyphens, no spaces. E.g. 'my-painting.jpg'"
-        pattern: ['^images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens (no spaces, no capitals). E.g. 'my-painting.jpg'."]
+        pattern: ['^/?images/paintings/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens (no spaces, no capitals). E.g. 'my-painting.jpg'."]
       - label: Category
         name: category
         widget: select
         options: ["Abstract", "Surrealist"]
+        hint: "Pick the same category as the Dutch version. Note: 'Surrealist' (EN) is called 'Surrealistisch' on the NL version."
       - { label: Description, name: body, widget: markdown, required: false }
 
   # --- Workshops (NL) ---
