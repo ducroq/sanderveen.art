@@ -177,8 +177,11 @@ def validate_collection(collection_name: str, lang: str, config: dict, result: V
             result.issues.append(Issue("WARNING", collection_name, lang, str(relpath), "featured", f"'featured' should be boolean, got '{fm['featured']}'"))
 
         # Check image path exists (resolve from assets/)
+        # Strip leading slash: Sveltia CMS writes paths like "/images/..." which would
+        # otherwise be treated as absolute by pathlib and discard the assets prefix.
         if "image" in fm and fm["image"]:
-            img_path = ROOT / "assets" / str(fm["image"])
+            img_value = str(fm["image"]).lstrip("/")
+            img_path = ROOT / "assets" / img_value
             if not img_path.exists():
                 result.issues.append(Issue("ERROR", collection_name, lang, str(relpath), "image", f"Image not found: {fm['image']}"))
 
@@ -246,8 +249,10 @@ def check_status_consistency(result: ValidationResult):
             if fm.get("featured") != nl_fm.get("featured"):
                 result.issues.append(Issue("WARNING", "paintings", "parity", str(relpath), "featured", f"Featured mismatch: NL={nl_fm.get('featured')}, EN={fm.get('featured')} for key '{fm['translationKey']}'"))
 
-            # Image should match
-            if fm.get("image") != nl_fm.get("image"):
+            # Image should match (normalize leading slash before compare)
+            nl_img = str(nl_fm.get("image") or "").lstrip("/")
+            en_img = str(fm.get("image") or "").lstrip("/")
+            if nl_img != en_img:
                 result.issues.append(Issue("WARNING", "paintings", "parity", str(relpath), "image", f"Image mismatch: NL='{nl_fm.get('image')}', EN='{fm.get('image')}' for key '{fm['translationKey']}'"))
 
             # Category consistency (Abstract matches, Surrealistisch <-> Surrealist)
@@ -295,7 +300,7 @@ def check_orphaned_images(result: ValidationResult):
                     continue
                 fm = parse_front_matter(md_file)
                 if fm and "image" in fm:
-                    referenced.add(fm["image"])
+                    referenced.add(str(fm["image"]).lstrip("/"))
 
     # Check all images in paintings dir
     for img_file in paintings_dir.rglob("*"):
