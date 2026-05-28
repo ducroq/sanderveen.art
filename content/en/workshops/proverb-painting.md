@@ -17,5 +17,5 @@ Invent your own proverb and translate it into a painting. In this workshop serie
 
 - 6 lessons of 2 hours
 - € 40 per lesson (materials included)
-- Saturdays 10:00–12:00 or Wednesdays 14:00–16:00
+- Saturdays 10:00–12:00 
 - Location: Eenvoudlaan 6A, 3901 SP Veenendaal
