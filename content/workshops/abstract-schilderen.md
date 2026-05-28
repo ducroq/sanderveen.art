@@ -17,5 +17,5 @@ In deze workshopreeks maak je de overgang van figuratief naar abstract schildere
 
 - 6 lessen van 2 uur
 - € 40 per les (materiaal inbegrepen)
-- Zaterdagen 10:00–12:00 of woensdagen 14:00–16:00
+- Zaterdagen 10:00–12:00
 - Locatie: Eenvoudlaan 6A, 3901 SP Veenendaal
