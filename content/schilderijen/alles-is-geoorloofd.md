@@ -9,6 +9,6 @@ dimensions: "57 x 48 cm"
 year: "2024"
 status: "available"
 featured: false
-image: "images/paintings/abstract/alles-is-geoorloofd.jpg"
+image: "images/paintings/alles-is-geoorloofd.jpg"
 category: "Abstract"
 ---

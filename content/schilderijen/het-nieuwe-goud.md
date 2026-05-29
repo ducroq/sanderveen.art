@@ -9,6 +9,6 @@ dimensions: "60 x 50 cm"
 year: "2022"
 status: "available"
 featured: false
-image: "images/paintings/abstract/het-nieuwe-goud.jpg"
+image: "images/paintings/het-nieuwe-goud.jpg"
 category: "Abstract"
 ---

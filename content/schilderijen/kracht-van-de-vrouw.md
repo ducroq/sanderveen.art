@@ -9,6 +9,6 @@ dimensions: "62 x 43 cm"
 year: "2022"
 status: "available"
 featured: false
-image: "images/paintings/surrealistisch/kracht-van-de-vrouw.jpg"
+image: "images/paintings/kracht-van-de-vrouw.jpg"
 category: "Surrealistisch"
 ---

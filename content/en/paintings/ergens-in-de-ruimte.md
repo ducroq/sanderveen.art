@@ -9,6 +9,6 @@ dimensions: "74 x 61 cm"
 year: "2021"
 status: "available"
 featured: false
-image: "images/paintings/abstract/ergens-in-de-ruimte.jpg"
+image: "images/paintings/ergens-in-de-ruimte.jpg"
 category: "Abstract"
 ---

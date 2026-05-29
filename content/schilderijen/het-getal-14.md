@@ -9,6 +9,6 @@ dimensions: "67,5 x 45 cm"
 year: "2020"
 status: "available"
 featured: false
-image: "images/paintings/abstract/het-getal-14.jpg"
+image: "images/paintings/het-getal-14.jpg"
 category: "Abstract"
 ---

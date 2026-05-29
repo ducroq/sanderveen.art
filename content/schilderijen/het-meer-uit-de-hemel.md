@@ -9,6 +9,6 @@ dimensions: "77,5 x 62,5 cm"
 year: "2024"
 status: "available"
 featured: false
-image: "images/paintings/surrealistisch/het-meer-uit-de-hemel.jpg"
+image: "images/paintings/het-meer-uit-de-hemel.jpg"
 category: "Surrealistisch"
 ---

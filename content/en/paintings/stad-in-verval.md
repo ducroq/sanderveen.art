@@ -9,6 +9,6 @@ dimensions: "74 x 61 cm"
 year: "2025"
 status: "available"
 featured: false
-image: "images/paintings/abstract/stad-in-verval.jpg"
+image: "images/paintings/stad-in-verval.jpg"
 category: "Abstract"
 ---

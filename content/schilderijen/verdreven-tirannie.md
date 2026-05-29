@@ -9,6 +9,6 @@ dimensions: "125 x 100 cm"
 year: "2020"
 status: "available"
 featured: true
-image: "images/paintings/surrealistisch/verdreven-tirannie.jpg"
+image: "images/paintings/verdreven-tirannie.jpg"
 category: "Surrealistisch"
 ---

@@ -9,6 +9,6 @@ dimensions: "60 x 50 cm"
 year: "2024"
 status: "available"
 featured: false
-image: "images/paintings/surrealistisch/een-jeugdherinnering.jpg"
+image: "images/paintings/een-jeugdherinnering.jpg"
 category: "Surrealistisch"
 ---

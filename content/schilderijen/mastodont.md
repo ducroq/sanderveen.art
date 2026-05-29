@@ -9,6 +9,6 @@ dimensions: "77 x 45 cm"
 year: "2022"
 status: "available"
 featured: false
-image: "images/paintings/abstract/mastodont.jpg"
+image: "images/paintings/mastodont.jpg"
 category: "Abstract"
 ---

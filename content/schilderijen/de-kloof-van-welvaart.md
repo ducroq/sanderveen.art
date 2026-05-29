@@ -9,6 +9,6 @@ dimensions: "86 x 70 cm"
 year: "2024"
 status: "available"
 featured: true
-image: "images/paintings/surrealistisch/de-kloof-van-welvaart.png"
+image: "images/paintings/de-kloof-van-welvaart.png"
 category: "Surrealistisch"
 ---

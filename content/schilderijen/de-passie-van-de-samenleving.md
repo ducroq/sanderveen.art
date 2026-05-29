@@ -9,6 +9,6 @@ dimensions: "120 x 60 cm"
 year: "2024"
 status: "available"
 featured: true
-image: "images/paintings/abstract/de-passie-van-de-samenleving.jpg"
+image: "images/paintings/de-passie-van-de-samenleving.jpg"
 category: "Abstract"
 ---

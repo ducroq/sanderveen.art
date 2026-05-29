@@ -9,6 +9,6 @@ dimensions: "75 x 75 cm"
 year: "2023"
 status: "available"
 featured: false
-image: "images/paintings/surrealistisch/dimas-iuxta-christus.jpg"
+image: "images/paintings/dimas-iuxta-christus.jpg"
 category: "Surrealistisch"
 ---

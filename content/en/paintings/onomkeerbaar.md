@@ -9,6 +9,6 @@ dimensions: "113 x 80,5 cm"
 year: "2025"
 status: "available"
 featured: true
-image: "images/paintings/abstract/onomkeerbaar.jpg"
+image: "images/paintings/onomkeerbaar.jpg"
 category: "Abstract"
 ---

@@ -9,6 +9,6 @@ dimensions: "67 x 48 cm"
 year: "2022"
 status: "available"
 featured: false
-image: "images/paintings/abstract/stier-uit-die-tijd.jpg"
+image: "images/paintings/stier-uit-die-tijd.jpg"
 category: "Abstract"
 ---

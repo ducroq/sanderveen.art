@@ -9,6 +9,6 @@ dimensions: "76 x 51 cm"
 year: "2020"
 status: "available"
 featured: false
-image: "images/paintings/surrealistisch/tot-ongeloof.jpg"
+image: "images/paintings/tot-ongeloof.jpg"
 category: "Surrealistisch"
 ---

@@ -9,6 +9,6 @@ dimensions: "61 x 50 cm"
 year: "2022"
 status: "available"
 featured: false
-image: "images/paintings/surrealistisch/de-vloek-tussen-kracht-en-wraak.jpg"
+image: "images/paintings/de-vloek-tussen-kracht-en-wraak.jpg"
 category: "Surrealistisch"
 ---

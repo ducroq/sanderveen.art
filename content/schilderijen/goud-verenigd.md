@@ -9,6 +9,6 @@ dimensions: "60 x 50 cm"
 year: "2019"
 status: "available"
 featured: false
-image: "images/paintings/abstract/goud-verenigd.jpg"
+image: "images/paintings/goud-verenigd.jpg"
 category: "Abstract"
 ---

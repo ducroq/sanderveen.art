@@ -9,6 +9,6 @@ dimensions: "75,5 x 62 cm"
 year: "2023"
 status: "available"
 featured: false
-image: "images/paintings/abstract/de-groep.jpg"
+image: "images/paintings/de-groep.jpg"
 category: "Abstract"
 ---

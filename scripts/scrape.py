@@ -7,8 +7,7 @@ Usage:
 
 Output:
     scripts/manifest.json
-    assets/images/paintings/abstract/*.jpg
-    assets/images/paintings/surrealistisch/*.jpg
+    assets/images/paintings/*.jpg
 """
 
 import json
@@ -245,8 +244,7 @@ def main():
         detail_links = parser.links
         print(f"Found {len(detail_links)} paintings in {category}")
 
-        cat_dir = OUTPUT_DIR / category
-        cat_dir.mkdir(parents=True, exist_ok=True)
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
         for link in detail_links:
             full_url = link if link.startswith("http") else BASE_URL + link
@@ -273,8 +271,8 @@ def main():
                 # Determine file extension
                 ext = os.path.splitext(urllib.parse.urlparse(img_url).path)[1] or ".jpg"
                 img_filename = data["slug"] + ext
-                img_path = cat_dir / img_filename
-                data["local_image"] = f"images/paintings/{category}/{img_filename}"
+                img_path = OUTPUT_DIR / img_filename
+                data["local_image"] = f"images/paintings/{img_filename}"
 
                 download_image(img_url, img_path)
             else:

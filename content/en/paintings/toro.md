@@ -9,6 +9,6 @@ dimensions: "60 x 42,5 cm"
 year: "2022"
 status: "available"
 featured: false
-image: "images/paintings/abstract/toro.jpg"
+image: "images/paintings/toro.jpg"
 category: "Abstract"
 ---

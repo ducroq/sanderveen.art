@@ -9,6 +9,6 @@ dimensions: "77,5 x 44,5 cm"
 year: "2021"
 status: "available"
 featured: false
-image: "images/paintings/surrealistisch/het-beloofde-land.jpg"
+image: "images/paintings/het-beloofde-land.jpg"
 category: "Surrealist"
 ---

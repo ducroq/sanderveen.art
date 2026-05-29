@@ -9,6 +9,6 @@ dimensions: "75 x 43 cm"
 year: "2024"
 status: "available"
 featured: false
-image: "images/paintings/abstract/aan-welke-kant-sta-je.jpg"
+image: "images/paintings/aan-welke-kant-sta-je.jpg"
 category: "Abstract"
 ---

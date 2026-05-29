@@ -9,6 +9,6 @@ dimensions: "74 x 48 cm"
 year: "2024"
 status: "available"
 featured: false
-image: "images/paintings/abstract/de-sleutel-van-het-kompas.jpg"
+image: "images/paintings/de-sleutel-van-het-kompas.jpg"
 category: "Abstract"
 ---

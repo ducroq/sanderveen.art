@@ -9,6 +9,6 @@ dimensions: "122,5 x 52,5 cm"
 year: "2023"
 status: "available"
 featured: false
-image: "images/paintings/surrealistisch/bos-bloemen.jpg"
+image: "images/paintings/bos-bloemen.jpg"
 category: "Surrealist"
 ---

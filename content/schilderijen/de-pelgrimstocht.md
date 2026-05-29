@@ -9,6 +9,6 @@ dimensions: "100 x 84 cm"
 year: "2024"
 status: "available"
 featured: true
-image: "images/paintings/surrealistisch/de-pelgrimstocht.jpg"
+image: "images/paintings/de-pelgrimstocht.jpg"
 category: "Surrealistisch"
 ---

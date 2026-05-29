@@ -9,6 +9,6 @@ dimensions: "60,5 x 53 cm"
 year: "2024"
 status: "available"
 featured: true
-image: "images/paintings/surrealistisch/de-vorst-en-het-volk-the-power-and-the-people.jpg"
+image: "images/paintings/de-vorst-en-het-volk-the-power-and-the-people.jpg"
 category: "Surrealistisch"
 ---

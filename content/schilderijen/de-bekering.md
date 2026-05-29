@@ -9,6 +9,6 @@ dimensions: "58,5 x 48,5 cm"
 year: "2023"
 status: "available"
 featured: false
-image: "images/paintings/surrealistisch/de-bekering.jpg"
+image: "images/paintings/de-bekering.jpg"
 category: "Surrealistisch"
 ---

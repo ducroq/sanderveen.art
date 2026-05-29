@@ -9,6 +9,6 @@ dimensions: "67,5 x 40 cm"
 year: "2021"
 status: "available"
 featured: false
-image: "images/paintings/abstract/tweeluik-voor-verzoening.jpg"
+image: "images/paintings/tweeluik-voor-verzoening.jpg"
 category: "Abstract"
 ---

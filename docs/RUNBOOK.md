@@ -57,12 +57,11 @@ hugo --minify --baseURL "https://ducroq.github.io/sanderveen.art/"
 This is the most common content operation. Follow these steps:
 
 ### 1. Add the Image
-Place the painting image in the appropriate subdirectory of `assets/images/paintings/`:
+Place the painting image directly in `assets/images/paintings/`:
 ```
-assets/images/paintings/abstract/my-painting-name.jpg
-assets/images/paintings/surrealistisch/my-painting-name.jpg
+assets/images/paintings/my-painting-name.jpg
 ```
-Use lowercase, hyphenated filenames. Prefer high-resolution source files — Hugo generates responsive sizes.
+Use lowercase, hyphenated filenames (no subfolders — the CMS image widget expects a flat folder; category is set in front matter). Prefer high-resolution source files — Hugo generates responsive sizes.
 
 ### 2. Create NL Content
 Create `content/schilderijen/my-painting-name.md`:
@@ -70,7 +69,7 @@ Create `content/schilderijen/my-painting-name.md`:
 ---
 title: "Titel van het Schilderij"
 translationKey: "my-painting-name"
-image: "images/paintings/abstract/my-painting-name.jpg"
+image: "images/paintings/my-painting-name.jpg"
 date: 2024-01-01
 type: "schilderijen"
 category: "Abstract"           # or "Surrealistisch"
@@ -91,7 +90,7 @@ Create `content/en/paintings/my-painting-name.md`:
 ---
 title: "Painting Title"
 translationKey: "my-painting-name"    # must match NL
-image: "images/paintings/abstract/my-painting-name.jpg"
+image: "images/paintings/my-painting-name.jpg"
 date: 2024-01-01
 type: "schilderijen"                  # reuse NL layouts
 category: "Abstract"                  # or "Surrealist"
