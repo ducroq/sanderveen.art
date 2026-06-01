@@ -1,19 +1,18 @@
 ---
-title: "Expo Veenendaal"
-description: "Three-day exhibition in Veenendaal, November 2024"
-translationKey: "expo-veenendaal-2024"
-type: "exposities"
+translationKey: expo-veenendaal-2024
+title: Expo Veenendaal
+description: Three-day exhibition in Veenendaal, November 2024
+type: exposities
 date: 2024-11-08
-start_date: "8 November 2024"
-end_date: "10 November 2024"
-location: "Veenendaal"
-image: "images/exhibitions/expo-veenendaal-2024-1.jpg"
+start_date: 8 November 2024
+end_date: 10 November 2024
+location: Veenendaal
+image: images/exhibitions/expo-veenendaal-2024-1.jpg
 gallery:
-  - "images/exhibitions/expo-veenendaal-2024-2.jpg"
-  - "images/exhibitions/expo-veenendaal-2024-3.jpg"
-  - "images/exhibitions/expo-veenendaal-2024-4.jpg"
-  - "images/exhibitions/expo-veenendaal-2024-5.jpg"
-  - "images/exhibitions/expo-veenendaal-2024-6.jpg"
+  - images/exhibitions/expo-veenendaal-2024-2.jpg
+  - images/exhibitions/expo-veenendaal-2024-3.jpg
+  - images/exhibitions/expo-veenendaal-2024-4.jpg
+  - images/exhibitions/expo-veenendaal-2024-5.jpg
 weight: 10
 ---
 
