@@ -127,6 +127,12 @@
   // Pre-fill inquiry form from URL params
   var params = new URLSearchParams(window.location.search);
   var paintingParam = params.get('painting');
+  // Strip CR/LF and quotes so a crafted ?painting= can't inject mail headers
+  // (the value ends up inside a mailto subject) or break out of the message
+  // template's surrounding quotes.
+  if (paintingParam) {
+    paintingParam = paintingParam.replace(/[\r\n"]/g, '').slice(0, 200);
+  }
   if (paintingParam) {
     var paintingField = document.getElementById('painting-field');
     if (paintingField) {

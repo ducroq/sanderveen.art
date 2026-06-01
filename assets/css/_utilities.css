@@ -54,3 +54,31 @@
 @media (min-width: 768px) {
   .hide-desktop { display: none !important; }
 }
+
+/* Print: clean catalogue-style output for collectors */
+@media print {
+  .site-header,
+  .site-footer,
+  .menu-toggle,
+  .theme-toggle,
+  .lang-switch,
+  .btn-inquiry,
+  .inquiry-note,
+  .painting-nav,
+  .single-nav,
+  .lightbox,
+  .skip-link {
+    display: none !important;
+  }
+  body { background: white; color: black; }
+  a { color: black; text-decoration: none; }
+  .painting-detail-grid,
+  .contact-grid {
+    display: block;
+  }
+  .painting-hero-img,
+  .single-hero-img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+}

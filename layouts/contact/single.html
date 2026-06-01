@@ -75,8 +75,8 @@ function handleContactSubmit(e) {
   var painting = document.getElementById('painting-field').value;
 
   var subject = painting
-    ? '{{ i18n "inquiry_subject_prefix" }} ' + painting
-    : '{{ i18n "contact_subject_default" }}';
+    ? {{ i18n "inquiry_subject_prefix" | jsonify | safeJS }} + ' ' + painting
+    : {{ i18n "contact_subject_default" | jsonify | safeJS }};
 
   var body = message + '\n\n---\n' + name + '\n' + email;
   if (phone) body += '\n' + phone;
@@ -86,11 +86,12 @@ function handleContactSubmit(e) {
     + '&body=' + encodeURIComponent(body);
 
   if (!document.getElementById('form-sent-msg')) {
-    document.getElementById('contact-form').insertAdjacentHTML('afterend',
+    form.insertAdjacentHTML('afterend',
       '<p id="form-sent-msg" class="form-sent-msg" role="status">'
-      + {{ i18n "mailto_opening" | jsonify }}
+      + {{ i18n "mailto_opening" | jsonify | safeJS }}
       + ' <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>'
     );
+    form.style.display = 'none';
   }
 }
 </script>

@@ -67,6 +67,15 @@ other = "Your email client should open now. If it doesn't, email directly:"
 [noscript_form]
 other = "JavaScript is required to submit this form. Send your message directly to:"
 
+[error_404_title]
+other = "Page not found"
+
+[error_404_intro]
+other = "This page doesn't exist (anymore). The link may be outdated or mistyped."
+
+[back_home]
+other = "Back to homepage"
+
 [breadcrumb_home]
 other = "Home"
 

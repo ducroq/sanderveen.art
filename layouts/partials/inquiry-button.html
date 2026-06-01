@@ -1,6 +1,8 @@
 {{/* Expects: . = painting page */}}
 {{ if ne .Params.status "sold" }}
-  {{ $contactPage := .Site.GetPage "contact" }}
+  {{/* site.GetPage already resolves within the current language's site, so
+       this returns /contact/ on NL and /en/contact/ on EN automatically. */}}
+  {{ $contactPage := site.GetPage "/contact/" }}
   {{ with $contactPage }}
     <a href="{{ .RelPermalink }}?painting={{ urlquery $.Title }}" class="btn btn-inquiry">
       {{ i18n "inquiry_button" }}

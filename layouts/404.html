@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ i18n "error_404_title" }} / Page not found</h1>
+    <p class="page-intro">
+      <strong>NL:</strong> {{ i18n "error_404_intro" }}<br>
+      <strong>EN:</strong> This page doesn't exist (anymore). The link may be outdated or mistyped.
+    </p>
+    <p style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+      <a href="/" class="btn btn-outline">{{ i18n "back_home" }}</a>
+      <a href="/en/" class="btn btn-outline">Back to homepage</a>
+    </p>
+  </div>
+</section>
+{{ end }}

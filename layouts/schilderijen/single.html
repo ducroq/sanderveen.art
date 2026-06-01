@@ -8,21 +8,25 @@
         {{ with .Params.image }}
           {{ $img := resources.Get . }}
           {{ if $img }}
-            {{ $large := $img.Resize "1200x" }}
+            {{ $small := $img.Resize "600x" }}
+            {{ $medium := $img.Resize "1200x" }}
+            {{ $large := $img.Resize "2000x" }}
             <button
               class="painting-image-trigger"
               id="painting-image"
               data-full="{{ $img.RelPermalink }}"
-              data-thumb="{{ $large.RelPermalink }}"
+              data-thumb="{{ $medium.RelPermalink }}"
               aria-label="{{ i18n "view_painting" }}"
               type="button"
             >
               <img
-                src="{{ $large.RelPermalink }}"
-                alt="{{ $.Title }} — {{ $.Params.medium }}, {{ $.Params.dimensions }}"
+                src="{{ $medium.RelPermalink }}"
+                srcset="{{ $small.RelPermalink }} 600w, {{ $medium.RelPermalink }} 1200w, {{ $large.RelPermalink }} 2000w"
+                sizes="(max-width: 767px) 100vw, 60vw"
+                alt="{{ $.Title }}{{ with $.Params.medium }} — {{ . }}{{ end }}{{ with $.Params.dimensions }}, {{ . }}{{ end }}"
                 class="painting-hero-img"
-                width="{{ $large.Width }}"
-                height="{{ $large.Height }}"
+                width="{{ $medium.Width }}"
+                height="{{ $medium.Height }}"
               >
             </button>
           {{ end }}
@@ -63,6 +67,6 @@
 {{/* Lightbox overlay */}}
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="{{ .Title }}" hidden>
   <button class="lightbox-close" aria-label="{{ i18n "lightbox_close" }}">&times;</button>
-  <img class="lightbox-img" src="" alt="{{ .Title }}">
+  <img class="lightbox-img" src="" alt="{{ .Title }}{{ with .Params.medium }} — {{ . }}{{ end }}{{ with .Params.dimensions }}, {{ . }}{{ end }}">
 </div>
 {{ end }}

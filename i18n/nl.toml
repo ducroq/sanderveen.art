@@ -67,6 +67,15 @@ other = "Uw e-mailprogramma zou nu moeten openen. Lukt dat niet? Mail rechtstree
 [noscript_form]
 other = "JavaScript is vereist om dit formulier te versturen. Stuur uw bericht direct naar:"
 
+[error_404_title]
+other = "Pagina niet gevonden"
+
+[error_404_intro]
+other = "Deze pagina bestaat niet (meer). Misschien is de link verouderd of verkeerd getypt."
+
+[back_home]
+other = "Terug naar de homepagina"
+
 [breadcrumb_home]
 other = "Home"
 
