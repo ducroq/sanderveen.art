@@ -1,18 +1,15 @@
-{{ if .IsTranslated }}
-  {{ range .Translations }}
-    {{ if ne .Lang $.Page.Lang }}
-      <a href="{{ .RelPermalink }}" class="lang-switch" lang="{{ .Language.LanguageCode }}" hreflang="{{ .Language.LanguageCode }}">
-        {{ .Language.LanguageName }}
-      </a>
+{{ $page := . }}
+{{ range .Sites }}
+  {{ $thisLang := .Language }}
+  {{ if eq $thisLang.Lang $page.Lang }}
+    <span class="lang-switch lang-switch--active" aria-current="true">{{ upper $thisLang.LanguageCode }}</span>
+  {{ else }}
+    {{ $href := .Home.RelPermalink }}
+    {{ range $page.Translations }}
+      {{ if eq .Lang $thisLang.Lang }}
+        {{ $href = .RelPermalink }}
+      {{ end }}
     {{ end }}
-  {{ end }}
-{{ else }}
-  {{/* Fallback: link to the other language's homepage */}}
-  {{ range .Site.Home.Translations }}
-    {{ if ne .Lang $.Page.Lang }}
-      <a href="{{ .RelPermalink }}" class="lang-switch" lang="{{ .Language.LanguageCode }}" hreflang="{{ .Language.LanguageCode }}">
-        {{ .Language.LanguageName }}
-      </a>
-    {{ end }}
+    <a href="{{ $href }}" class="lang-switch" lang="{{ $thisLang.LanguageCode }}" hreflang="{{ $thisLang.LanguageCode }}">{{ upper $thisLang.LanguageCode }}</a>
   {{ end }}
 {{ end }}

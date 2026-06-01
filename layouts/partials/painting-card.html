@@ -8,7 +8,7 @@
         <div class="painting-card-image">
           <img
             src="{{ $thumb.RelPermalink }}"
-            alt="{{ $.Title }} — {{ $.Params.medium }}, {{ $.Params.dimensions }}"
+            alt="{{ $.Title }}{{ with $.Params.medium }} — {{ . }}{{ end }}{{ with $.Params.dimensions }}, {{ . }}{{ end }}"
             loading="lazy"
             width="{{ $thumb.Width }}"
             height="{{ $thumb.Height }}"

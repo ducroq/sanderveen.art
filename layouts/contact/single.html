@@ -9,6 +9,13 @@
 <section class="section contact-section">
   <div class="container contact-grid">
     <div class="contact-form-wrapper">
+      <noscript>
+        <p class="form-noscript">
+          {{ i18n "noscript_form" }}
+          <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+        </p>
+      </noscript>
+
       <form
         class="contact-form"
         id="contact-form"
@@ -77,6 +84,14 @@ function handleContactSubmit(e) {
   window.location.href = 'mailto:{{ .Site.Params.email }}'
     + '?subject=' + encodeURIComponent(subject)
     + '&body=' + encodeURIComponent(body);
+
+  if (!document.getElementById('form-sent-msg')) {
+    document.getElementById('contact-form').insertAdjacentHTML('afterend',
+      '<p id="form-sent-msg" class="form-sent-msg" role="status">'
+      + {{ i18n "mailto_opening" | jsonify }}
+      + ' <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>'
+    );
+  }
 }
 </script>
 {{ end }}

@@ -58,6 +58,15 @@ other = "Menu openen"
 [menu_close]
 other = "Menu sluiten"
 
+[lightbox_close]
+other = "Sluit afbeelding"
+
+[mailto_opening]
+other = "Uw e-mailprogramma zou nu moeten openen. Lukt dat niet? Mail rechtstreeks naar:"
+
+[noscript_form]
+other = "JavaScript is vereist om dit formulier te versturen. Stuur uw bericht direct naar:"
+
 [breadcrumb_home]
 other = "Home"
 

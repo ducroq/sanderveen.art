@@ -58,6 +58,15 @@ other = "Open menu"
 [menu_close]
 other = "Close menu"
 
+[lightbox_close]
+other = "Close image"
+
+[mailto_opening]
+other = "Your email client should open now. If it doesn't, email directly:"
+
+[noscript_form]
+other = "JavaScript is required to submit this form. Send your message directly to:"
+
 [breadcrumb_home]
 other = "Home"
 

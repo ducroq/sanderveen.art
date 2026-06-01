@@ -4,7 +4,8 @@
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author }}">
-<meta name="theme-color" content="#FAF8F5">
+<meta name="theme-color" content="#FAF8F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="48x48">
 <link rel="icon" href="{{ "favicon-192.png" | relURL }}" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
@@ -14,7 +15,7 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:locale" content="{{ .Site.Params.locale }}">
+<meta property="og:locale" content="{{ .Language.Params.locale }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 {{ with .Params.image }}
   {{ $img := resources.Get . }}
@@ -54,7 +55,14 @@
   {{ range .Translations }}
     <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
   {{ end }}
-  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{/* x-default points to the NL canonical so search engines pick NL as the fallback */}}
+  {{ if eq .Lang "nl" }}
+    <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{ else }}
+    {{ range .Translations }}
+      {{ if eq .Lang "nl" }}<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">{{ end }}
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 <link rel="canonical" href="{{ .Permalink }}">

@@ -1,5 +1,5 @@
 ---
-translationKey: onverdraagzaam
+translationKey: onverdraagzaamheid-van-de-vrede
 title: Onverdraagzaamheid van de vrede
 date: 2026-05-30
 draft: false
