@@ -37,7 +37,7 @@ Een schilderij toevoegen doe je **twee keer**: één keer in het Nederlands en d
    - **Techniek** — bijv. "Olieverf op doek", "Acryl op paneel"
    - **Afmetingen** — bijv. "80 x 60 cm"
    - **Jaar** — wanneer het gemaakt is (mag leeg)
-   - **Status** — available (te koop), sold (verkocht), of not-for-sale
+   - **Status** — kies **Te koop**, **Verkocht**, of **Niet te koop**
    - **Uitgelicht** — aan als het op de homepage moet staan
    - **Afbeelding** — upload de foto van het schilderij (zie regels hieronder), of kies een al geüploade foto uit de mediabibliotheek
    - **Categorie** — Abstract of Surrealistisch
@@ -90,9 +90,10 @@ Als de bestandsnaam niet klopt, krijg je een rode foutmelding bij het opslaan en
 
 ## Een schilderij als "verkocht" markeren
 
-1. Open het schilderij
-2. Verander **Status** naar **sold**
+1. Open het schilderij onder **Schilderijen (NL)**
+2. Verander **Status** naar **Verkocht**
 3. Klik op **Publish**
+4. **Doe hetzelfde in de Engelse versie:** klik links op **Paintings (EN)**, zoek hetzelfde schilderij op (gebruik dezelfde vertaalsleutel/titel), verander **Status** naar **Sold**, klik **Publish**. Zonder deze tweede stap blijft het EN schilderij "Available" en klaagt de bouwcheck.
 
 ## Een workshop toevoegen of bewerken
 
@@ -126,3 +127,5 @@ Als de bestandsnaam niet klopt, krijg je een rode foutmelding bij het opslaan en
 - Maak voor elk schilderij/workshop/expositie altijd ook een **Engelse versie** aan met dezelfde **vertaalsleutel**.
 - Foto's worden het best geüpload als `.jpg` bestanden. Zorg dat de foto scherp en goed belicht is.
 - Als je iets fout doet is dat geen probleem — alle wijzigingen worden bijgehouden. Stuur Jeroen een berichtje, hij kan het terugdraaien.
+
+> ⚠️ **Let op: de "Delete"-knop verwijdert permanent.** In elk formulier zit ergens een knop om het schilderij/de workshop/de expositie te wissen. Gebruik 'm alleen als je het echt wilt verwijderen. Per ongeluk geklikt? Stuur Jeroen een berichtje — hij kan het terugzetten via de versiegeschiedenis.

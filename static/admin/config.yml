@@ -89,7 +89,10 @@ collections:
       - label: Status
         name: status
         widget: select
-        options: [available, sold, not-for-sale]
+        options:
+          - { label: "Available", value: available }
+          - { label: "Sold", value: sold }
+          - { label: "Not for sale", value: not-for-sale }
         default: available
       - { label: Featured, name: featured, widget: boolean, default: false }
       - label: Image
@@ -123,7 +126,7 @@ collections:
       - { label: Datum/tijd, name: workshop_date, widget: string, hint: "Bijv. Zaterdagen 10:00-12:00" }
       - { label: Locatie, name: location, widget: string, default: "Atelier Sander Veen, Eenvoudlaan 6A, Veenendaal" }
       - { label: Prijs, name: price, widget: string, default: "40 per les" }
-      - { label: Volgorde, name: weight, widget: number, default: 50 }
+      - { label: Volgorde, name: weight, widget: number, default: 50, hint: "Lager nummer = hoger in de lijst. Standaard 50." }
       - { label: Inhoud, name: body, widget: markdown }
 
   # --- Workshops (EN) ---
@@ -141,10 +144,10 @@ collections:
         hint: "Lowercase with hyphens. Must match the NL version!"
         pattern: ['^[a-z0-9][a-z0-9-]+$', "Only lowercase letters, numbers and hyphens."]
       - { label: Type, name: type, widget: hidden, default: workshops }
-      - { label: Date/time, name: workshop_date, widget: string }
+      - { label: Date/time, name: workshop_date, widget: string, hint: "E.g. Saturdays 10:00–12:00" }
       - { label: Location, name: location, widget: string, default: "Studio Sander Veen, Eenvoudlaan 6A, Veenendaal" }
       - { label: Price, name: price, widget: string, default: "40 per lesson" }
-      - { label: Order, name: weight, widget: number, default: 50 }
+      - { label: Order, name: weight, widget: number, default: 50, hint: "Lower number = higher in the list. Default 50." }
       - { label: Content, name: body, widget: markdown }
 
   # --- Exposities (NL) ---
@@ -185,7 +188,7 @@ collections:
           public_folder: "images/exhibitions"
           pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten. Hernoem en upload opnieuw."]
         required: false
-      - { label: Volgorde, name: weight, widget: number, default: 50 }
+      - { label: Volgorde, name: weight, widget: number, default: 50, hint: "Lager nummer = hoger in de lijst. Standaard 50." }
       - { label: Inhoud, name: body, widget: markdown }
 
   # --- Exhibitions (EN) ---
@@ -225,7 +228,7 @@ collections:
           public_folder: "images/exhibitions"
           pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens. Rename and upload again."]
         required: false
-      - { label: Order, name: weight, widget: number, default: 50 }
+      - { label: Order, name: weight, widget: number, default: 50, hint: "Lower number = higher in the list. Default 50." }
       - { label: Content, name: body, widget: markdown }
 
   # --- About (NL) ---
