@@ -137,6 +137,10 @@ def parse_front_matter(filepath: Path) -> Optional[dict]:
             current_list_key = None
             if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
                 val = val[1:-1]
+                # Quoted empty string is a genuine empty value, not a list
+                if val == "":
+                    fm[key] = ""
+                    continue
             if val.lower() == "true":
                 val = True
             elif val.lower() == "false":

@@ -13,7 +13,10 @@ enableGitInfo = false
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true
+      # All CMS-authored bodies are plain Markdown today (audited 2026-06-01,
+      # zero raw HTML in content/). Keep this false so a future stray <script>
+      # via CMS edit doesn't render verbatim.
+      unsafe = false
 
 [imaging]
   quality = 85

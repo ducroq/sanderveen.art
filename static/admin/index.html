@@ -7,6 +7,16 @@
   <title>Content Manager — Sander Veen</title>
 </head>
 <body>
-  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+  <!--
+    Sveltia CMS pinned to a specific version with Subresource Integrity.
+    To update: bump the version, then regenerate the integrity hash with:
+      curl -sL https://unpkg.com/@sveltia/cms@<VER>/dist/sveltia-cms.js \
+        | openssl dgst -sha384 -binary | openssl base64 -A
+  -->
+  <script
+    src="https://unpkg.com/@sveltia/cms@0.165.0/dist/sveltia-cms.js"
+    integrity="sha384-lZfLgfwPF9+EUn2wprdrzyyHejLLWy7KCa0yOGN3frs8SqZSyDlwCbyyyXdtjQrl"
+    crossorigin="anonymous"
+    type="module"></script>
 </body>
 </html>
