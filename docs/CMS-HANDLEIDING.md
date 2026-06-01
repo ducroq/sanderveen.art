@@ -128,4 +128,4 @@ Als de bestandsnaam niet klopt, krijg je een rode foutmelding bij het opslaan en
 - Foto's worden het best geüpload als `.jpg` bestanden. Zorg dat de foto scherp en goed belicht is.
 - Als je iets fout doet is dat geen probleem — alle wijzigingen worden bijgehouden. Stuur Jeroen een berichtje, hij kan het terugdraaien.
 
-> ⚠️ **Let op: de "Delete"-knop verwijdert permanent.** In elk formulier zit ergens een knop om het schilderij/de workshop/de expositie te wissen. Gebruik 'm alleen als je het echt wilt verwijderen. Per ongeluk geklikt? Stuur Jeroen een berichtje — hij kan het terugzetten via de versiegeschiedenis.
+> **Let op: de "Delete"-knop verwijdert permanent.** In elk formulier zit ergens een knop om het schilderij/de workshop/de expositie te wissen. Gebruik 'm alleen als je het echt wilt verwijderen. Per ongeluk geklikt? Stuur Jeroen een berichtje — hij kan het terugzetten via de versiegeschiedenis.
