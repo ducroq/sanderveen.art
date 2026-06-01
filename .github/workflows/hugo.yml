@@ -26,8 +26,12 @@ jobs:
     steps:
       - name: Install Hugo CLI
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+          HUGO_DEB="hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          cd "${{ runner.temp }}"
+          wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_DEB}"
+          wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt"
+          sha256sum --check --ignore-missing "hugo_${HUGO_VERSION}_checksums.txt"
+          sudo dpkg -i "${HUGO_DEB}"
 
       - name: Checkout
         uses: actions/checkout@v6

@@ -6,7 +6,6 @@ Checks bilingual parity, front matter schema, enums, image paths, and cross-refe
 
 Usage:
     python scripts/validate_content.py          # Run all checks
-    python scripts/validate_content.py --fix    # Fix auto-fixable issues (dry-run first)
     python scripts/validate_content.py --json   # Output results as JSON
 """
 
@@ -108,19 +107,36 @@ def parse_front_matter(filepath: Path) -> Optional[dict]:
         return None
 
     fm = {}
-    for line in match.group(1).splitlines():
-        line = line.strip()
-        if not line or line.startswith("#"):
+    current_list_key = None
+    for raw_line in match.group(1).splitlines():
+        # Detect indented list item: "  - value" (must check before strip)
+        list_item_m = re.match(r'^\s+-\s+(.+)$', raw_line)
+        if current_list_key and list_item_m:
+            val = list_item_m.group(1).strip()
+            if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
+                val = val[1:-1]
+            fm[current_list_key].append(val)
             continue
-        # Handle YAML key: value (simple flat parsing, no nested)
+
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            current_list_key = None
+            continue
+
         m = re.match(r'^(\w[\w_]*)\s*:\s*(.*)$', line)
         if m:
             key = m.group(1)
             val = m.group(2).strip()
-            # Strip quotes
+
+            if val == "":
+                # Empty value — start of a list (or genuinely empty); subsequent "  - x" lines populate it
+                fm[key] = []
+                current_list_key = key
+                continue
+
+            current_list_key = None
             if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
                 val = val[1:-1]
-            # Parse booleans
             if val.lower() == "true":
                 val = True
             elif val.lower() == "false":
@@ -184,6 +200,14 @@ def validate_collection(collection_name: str, lang: str, config: dict, result: V
             img_path = ROOT / "assets" / img_value
             if not img_path.exists():
                 result.issues.append(Issue("ERROR", collection_name, lang, str(relpath), "image", f"Image not found: {fm['image']}"))
+
+        # Check gallery image paths exist (exhibitions)
+        if "gallery" in fm and isinstance(fm["gallery"], list):
+            for img_value in fm["gallery"]:
+                img_norm = str(img_value).lstrip("/")
+                img_path = ROOT / "assets" / img_norm
+                if not img_path.exists():
+                    result.issues.append(Issue("ERROR", collection_name, lang, str(relpath), "gallery", f"Gallery image not found: {img_value}"))
 
         # Check translationKey format
         if "translationKey" in fm:

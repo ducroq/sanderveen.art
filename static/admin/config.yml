@@ -19,6 +19,7 @@ collections:
     folder: content/schilderijen
     create: true
     slug: "{{slug}}"
+    summary: "{{fields.title}} — {{fields.status}}"
     filter: { field: translationKey, pattern: ".+" }
     fields:
       - { label: Titel, name: title, widget: string }
@@ -34,12 +35,19 @@ collections:
         name: medium
         widget: string
         hint: "Bijv. Olieverf op doek, Acryl op paneel"
-      - { label: Afmetingen, name: dimensions, widget: string, hint: "Bijv. 80 x 60 cm" }
+      - label: Afmetingen
+        name: dimensions
+        widget: string
+        hint: "Bijv. 80 x 60 cm — vergeet 'cm' niet!"
+        pattern: ['^\d+[\d,.]?\d*\s*x\s*\d+[\d,.]?\d*\s*cm$', "Formaat: 'N x N cm'. Bijv. 80 x 60 cm of 80 x 47,5 cm. Vergeet 'cm' niet."]
       - { label: Jaar, name: year, widget: string, required: false }
       - label: Status
         name: status
         widget: select
-        options: [available, sold, not-for-sale]
+        options:
+          - { label: "Te koop", value: available }
+          - { label: "Verkocht", value: sold }
+          - { label: "Niet te koop", value: not-for-sale }
         default: available
       - { label: Uitgelicht, name: featured, widget: boolean, default: false }
       - label: Afbeelding
@@ -60,6 +68,7 @@ collections:
     folder: content/en/paintings
     create: true
     slug: "{{slug}}"
+    summary: "{{fields.title}} — {{fields.status}}"
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
@@ -71,7 +80,11 @@ collections:
         pattern: ['^[a-z0-9][a-z0-9-]+$', "Only lowercase letters, numbers and hyphens. No spaces or capitals."]
       - { label: Type, name: type, widget: hidden, default: schilderijen }
       - { label: Medium, name: medium, widget: string }
-      - { label: Dimensions, name: dimensions, widget: string }
+      - label: Dimensions
+        name: dimensions
+        widget: string
+        hint: "E.g. 80 x 60 cm — don't forget 'cm'!"
+        pattern: ['^\d+[\d,.]?\d*\s*x\s*\d+[\d,.]?\d*\s*cm$', "Format: 'N x N cm'. E.g. 80 x 60 cm or 80 x 47,5 cm. Don't forget 'cm'."]
       - { label: Year, name: year, widget: string, required: false }
       - label: Status
         name: status
@@ -159,6 +172,8 @@ collections:
         widget: image
         media_folder: "/assets/images/exhibitions"
         public_folder: "images/exhibitions"
+        hint: "Hernoem het bestand VOOR upload: kleine letters, streepjes, geen spaties. Bijv. 'expo-2025-1.jpg'."
+        pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten (geen spaties, geen hoofdletters). Hernoem het bestand op je computer en upload opnieuw."]
       - label: Galerijtje
         name: gallery
         widget: list
@@ -168,6 +183,7 @@ collections:
           widget: image
           media_folder: "/assets/images/exhibitions"
           public_folder: "images/exhibitions"
+          pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten. Hernoem en upload opnieuw."]
         required: false
       - { label: Volgorde, name: weight, widget: number, default: 50 }
       - { label: Inhoud, name: body, widget: markdown }
@@ -196,6 +212,8 @@ collections:
         widget: image
         media_folder: "/assets/images/exhibitions"
         public_folder: "images/exhibitions"
+        hint: "Rename file BEFORE upload: lowercase, hyphens, no spaces. E.g. 'expo-2025-1.jpg'."
+        pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens (no spaces, no capitals). Rename the file on your computer and upload again."]
       - label: Gallery
         name: gallery
         widget: list
@@ -205,6 +223,7 @@ collections:
           widget: image
           media_folder: "/assets/images/exhibitions"
           public_folder: "images/exhibitions"
+          pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens. Rename and upload again."]
         required: false
       - { label: Order, name: weight, widget: number, default: 50 }
       - { label: Content, name: body, widget: markdown }
