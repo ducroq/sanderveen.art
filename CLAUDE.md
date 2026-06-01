@@ -23,7 +23,7 @@ Live: https://ducroq.github.io/sanderveen.art/
 
 1. **No webshop, no prices** — inquiry-based only (mailto contact form)
 2. **Bilingual parity** — every NL page needs an EN counterpart (linked via `translationKey`)
-3. **No external dependencies** — no npm, no CDN, no JS frameworks; self-hosted fonts (exception: Sveltia CMS loaded from unpkg)
+3. **No external dependencies** — no npm, no CDN, no JS frameworks; self-hosted fonts (one exception: Sveltia CMS in `static/admin/`, loaded from unpkg with a pinned version + SRI hash — see `static/admin/index.html` for the upgrade procedure)
 4. **Extended Hugo in CI** — local Windows build is non-extended (no WebP); CI uses `hugo_extended`
 5. **GitHub Pages deployment** — no Netlify, no Vercel
 6. **Privacy** — Eenvoudlaan 6A is also Sander's home address; only show full address in workshop pages, not on contact page
@@ -56,6 +56,7 @@ sanderveen.art/
 │   ├── exposities/        # Exhibition list + single layouts (with gallery)
 │   ├── contact/           # Contact page layout
 │   ├── partials/          # head, header, footer, painting-card, lightbox, etc.
+│   ├── 404.html           # Bilingual 404 page (NL + EN on one screen)
 │   └── index.html         # Homepage template
 ├── static/fonts/          # Self-hosted woff2 (Playfair Display 700, Inter 400/500/600)
 ├── static/admin/          # Sveltia CMS (index.html + config.yml)
@@ -89,6 +90,8 @@ sanderveen.art/
 | `layouts/schilderijen/list.html` | Gallery grid |
 | `layouts/partials/painting-card.html` | Gallery card component |
 | `layouts/index.html` | Homepage |
+| `layouts/404.html` | Bilingual 404 page (Hugo emits this to `public/404.html`; GH Pages serves it for any unmatched path) |
+| `assets/js/main.js` | Mobile menu, lightbox, theme toggle, inquiry-form prefill |
 | `assets/css/_gallery.css` | Grid layout, painting cards (row-wise, grouped by category) |
 | `assets/css/_layout.css` | Page structure, responsive breakpoints |
 | `i18n/nl.toml` | Dutch UI strings |

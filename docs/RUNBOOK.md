@@ -41,9 +41,9 @@ The site deploys to **GitHub Pages** automatically on push to `main`.
 
 ### How It Works
 1. Push to `main` triggers `.github/workflows/hugo.yml`
-2. CI installs **Hugo Extended** v0.147.0 (required for image processing / WebP)
-3. `actions/configure-pages@v5` provides the correct `baseURL` (overrides `hugo.toml`)
-4. Hugo builds with `--minify --baseURL "$BASE_URL/"`
+2. CI downloads **Hugo Extended** v0.147.0 (required for image processing / WebP) and verifies its SHA-256 against the upstream `hugo_<VERSION>_checksums.txt` before `dpkg -i` — fails closed on a 404 or hash mismatch
+3. `actions/configure-pages@v6` provides the correct `baseURL` (overrides `hugo.toml`)
+4. Hugo builds with `--minify --baseURL "$BASE_URL/"`. Painting hero images are generated at 600/1200/2000 widths for srcset, so the first build after adding paintings can take noticeably longer (~10× a no-image-change build)
 5. Artifact uploaded and deployed to GitHub Pages
 
 ### Manual Deploy
@@ -165,7 +165,7 @@ To add a section beyond paintings, workshops, and exhibitions:
 Sander can manage content via the Sveltia CMS admin panel at `/admin/`.
 
 ### How It Works
-- **Sveltia CMS** loads from `static/admin/index.html` (single `<script>` tag)
+- **Sveltia CMS** loads from `static/admin/index.html` (single `<script>` tag), pinned to a specific version with a SHA-384 SRI hash. To upgrade, follow the inline `curl + openssl` recipe in that file
 - **Config** in `static/admin/config.yml` defines all content collections
 - **Auth**: GitHub Personal Access Token (fine-grained, scoped to this repo only, contents read+write)
 - On publish, Sveltia commits directly to `main` → triggers GitHub Actions deploy
