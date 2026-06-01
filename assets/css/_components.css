@@ -159,6 +159,7 @@
   border: 1px solid var(--color-border);
   border-radius: 4px;
   background-color: var(--color-white);
+  color: var(--color-text);
   font-size: var(--text-base);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -167,7 +168,23 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-gold-rgb), 0.15);
+}
+
+.form-noscript,
+.form-sent-msg {
+  margin: 1rem 0;
+  padding: 0.875rem 1rem;
+  border-left: 3px solid var(--color-gold);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+}
+
+.form-sent-msg a,
+.form-noscript a {
+  color: var(--color-gold);
+  font-weight: 500;
 }
 
 /* Breadcrumbs */

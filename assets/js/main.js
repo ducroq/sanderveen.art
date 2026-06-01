@@ -65,6 +65,7 @@
       lightboxImg.src = thumbSrc;
       lightboxImg.alt = altText;
       lightbox.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       closeBtn.focus();
 
@@ -81,6 +82,7 @@
     function closeLightbox() {
       lightbox.hidden = true;
       lightboxImg.src = '';
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       if (previousFocus) previousFocus.focus();
     }

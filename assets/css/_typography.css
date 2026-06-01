@@ -40,6 +40,7 @@
   --color-text: #1A1A1A;
   --color-text-muted: #5C5652;
   --color-gold: #B8860B;
+  --color-gold-rgb: 184, 134, 11;
   --color-gold-light: #D4A843;
   --color-gold-dark: #8B6508;
   --color-border: #E5DFD8;
@@ -119,6 +120,7 @@ body.dark {
   --color-text: #F0EDE8;
   --color-text-muted: #A89F96;
   --color-gold: #D4A843;
+  --color-gold-rgb: 212, 168, 67;
   --color-gold-light: #E8C56D;
   --color-gold-dark: #B8860B;
   --color-border: #3A3530;

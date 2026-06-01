@@ -46,9 +46,19 @@
               box-shadow 0.25s cubic-bezier(0.2, 0, 0, 1);
 }
 
-.painting-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+@media (hover: hover) and (pointer: fine) {
+  .painting-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .painting-card:hover .painting-card-image img {
+    transform: scale(1.03);
+  }
+
+  body.dark .painting-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .painting-card.is-sold .painting-card-image img {
@@ -84,10 +94,6 @@
   transition: transform 0.3s ease;
 }
 
-.painting-card:hover .painting-card-image img {
-  transform: scale(1.03);
-}
-
 .painting-card-image .badge {
   position: absolute;
   top: 0.75rem;
@@ -117,7 +123,3 @@
   color: var(--color-text-muted);
 }
 
-/* Dark theme gallery */
-body.dark .painting-card:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-}
