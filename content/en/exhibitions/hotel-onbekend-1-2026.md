@@ -1,6 +1,6 @@
 ---
 translationKey: expo-hotel-parijs-1-2026
-title: Hotel Expo (location to be confirmed)
+title: Hotel Expo Paris
 description: Exhibition at a hotel — Novotel Paris
 type: exposities
 date: 2026-02-25
