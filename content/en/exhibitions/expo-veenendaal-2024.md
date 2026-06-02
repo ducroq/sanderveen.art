@@ -1,6 +1,6 @@
 ---
 translationKey: expo-veenendaal-2024
-title: Expo Veenendaal
+title: Expo Sander & Sander, Veenendaal
 description: Three-day exhibition in Veenendaal, November 2024
 type: exposities
 date: 2024-11-08
