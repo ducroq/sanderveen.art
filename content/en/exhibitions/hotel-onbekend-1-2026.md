@@ -13,4 +13,4 @@ weight: 25
 draft: true
 ---
 
-Exhibition of works by Sander Veen at a hotel, February 2026. Location to be filled in by Sander.
+Exhibition of works by Sander Veen at Novotel hotel, February 2026.
