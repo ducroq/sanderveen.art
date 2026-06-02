@@ -48,6 +48,9 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install validator deps
+        run: pip install --disable-pip-version-check pyyaml
+
       - name: Validate content
         run: python scripts/validate_content.py
 

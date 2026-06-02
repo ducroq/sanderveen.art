@@ -151,6 +151,10 @@ collections:
       - { label: Content, name: body, widget: markdown }
 
   # --- Exposities (NL) ---
+  # NOTE: media_folder lives at COLLECTION level (here), NOT on the image field
+  # below. Sveltia 0.165 silently ignores field-level media_folder on a top-level
+  # image widget — uploads land in the global default and then fail the pattern
+  # check. The validator (scripts/validate_content.py) enforces this.
   - name: exposities
     label: Exposities (NL)
     folder: content/exposities
@@ -202,6 +206,7 @@ collections:
       - { label: Inhoud, name: body, widget: markdown }
 
   # --- Exhibitions (EN) ---
+  # NOTE: see exposities above — media_folder must stay at collection level.
   - name: exhibitions-en
     label: Exhibitions (EN)
     folder: content/en/exhibitions

@@ -312,6 +312,55 @@ def check_cms_config_sync(result: ValidationResult):
             result.issues.append(Issue("ERROR", "cms", "-", "static/admin/config.yml", "folder", f"CMS references folder '{folder}' which does not exist"))
 
 
+def check_cms_field_media_folder_trap(result: ValidationResult):
+    # Sveltia 0.165 silently ignores `media_folder` set on a top-level `image`
+    # widget — the upload lands in the global default and then fails the
+    # filename pattern with a misleading error. The override must be at the
+    # *collection* level (alongside `folder:`). Field-level `media_folder`
+    # still works on `file` widgets and on `image` widgets nested inside a
+    # `list` widget's `field:`, so this check only looks at top-level fields.
+    config_path = ROOT / "static" / "admin" / "config.yml"
+    if not config_path.exists():
+        return
+    try:
+        import yaml
+    except ImportError:
+        result.issues.append(Issue(
+            "WARNING", "cms", "-", "static/admin/config.yml", "-",
+            "PyYAML not installed — skipping media_folder-trap check (pip install pyyaml)"
+        ))
+        return
+
+    try:
+        data = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    except yaml.YAMLError as e:
+        result.issues.append(Issue("ERROR", "cms", "-", "static/admin/config.yml", "-", f"YAML parse error: {e}"))
+        return
+
+    def flag(coll_name: str, field_path: str):
+        result.issues.append(Issue(
+            "ERROR", "cms", "-", "static/admin/config.yml",
+            f"collections.{coll_name}.{field_path}",
+            "Top-level image widget has field-level media_folder — Sveltia 0.165 "
+            "ignores this; move media_folder to the collection level "
+            "(alongside `folder:`). Field-level overrides work on `file` widgets "
+            "and on image widgets nested inside a `list` widget."
+        ))
+
+    for collection in (data or {}).get("collections", []) or []:
+        coll_name = collection.get("name", "?")
+        for field_def in collection.get("fields", []) or []:
+            if isinstance(field_def, dict) and field_def.get("widget") == "image" and "media_folder" in field_def:
+                flag(coll_name, field_def.get("name", "?"))
+        for file_def in collection.get("files", []) or []:
+            if not isinstance(file_def, dict):
+                continue
+            file_name = file_def.get("name", "?")
+            for field_def in file_def.get("fields", []) or []:
+                if isinstance(field_def, dict) and field_def.get("widget") == "image" and "media_folder" in field_def:
+                    flag(coll_name, f"{file_name}.{field_def.get('name', '?')}")
+
+
 def check_video_references(result: ValidationResult):
     """Check that all referenced video files exist under static/ (and don't escape it)."""
 
@@ -410,6 +459,7 @@ def run_validation() -> ValidationResult:
     # Cross-collection checks
     check_status_consistency(result)
     check_cms_config_sync(result)
+    check_cms_field_media_folder_trap(result)
     check_orphaned_images(result)
     check_video_references(result)
 
