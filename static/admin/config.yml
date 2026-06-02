@@ -188,6 +188,18 @@ collections:
           public_folder: "images/exhibitions"
           pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten. Hernoem en upload opnieuw."]
         required: false
+      - label: Video's
+        name: videos
+        widget: list
+        required: false
+        hint: "Optioneel. Korte sfeerimpressies (mp4). Tip: stuur via WhatsApp naar jezelf om te verkleinen. Klik op 'Add' per video."
+        field:
+          label: Video
+          name: video
+          widget: file
+          media_folder: "/static/videos"
+          public_folder: "videos"
+          pattern: ['^/?videos/[a-z0-9][a-z0-9-]*\.mp4$', "Bestandsnaam mag alleen kleine letters (a-z), cijfers en streepjes (-) bevatten en moet eindigen op .mp4. Geen hoofdletters, geen underscores (_), geen spaties. Hernoem het bestand op je computer en upload opnieuw."]
       - { label: Volgorde, name: weight, widget: number, default: 50, hint: "Lager nummer = hoger in de lijst. Standaard 50." }
       - { label: Inhoud, name: body, widget: markdown }
 
@@ -228,6 +240,18 @@ collections:
           public_folder: "images/exhibitions"
           pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens. Rename and upload again."]
         required: false
+      - label: Videos
+        name: videos
+        widget: list
+        required: false
+        hint: "Optional. Short clips (mp4). Tip: send via WhatsApp to yourself to shrink the file. Click 'Add' per video."
+        field:
+          label: Video
+          name: video
+          widget: file
+          media_folder: "/static/videos"
+          public_folder: "videos"
+          pattern: ['^/?videos/[a-z0-9][a-z0-9-]*\.mp4$', "Filename may only contain lowercase letters (a-z), digits and hyphens (-) and must end in .mp4. No uppercase, no underscores (_), no spaces. Rename the file on your computer and upload again."]
       - { label: Order, name: weight, widget: number, default: 50, hint: "Lower number = higher in the list. Default 50." }
       - { label: Content, name: body, widget: markdown }
 
@@ -242,6 +266,14 @@ collections:
           - { label: Titel, name: title, widget: string }
           - { label: Beschrijving, name: description, widget: string }
           - { label: Vertaalsleutel, name: translationKey, widget: hidden, default: about }
+          - label: Atelier video
+            name: video
+            widget: file
+            required: false
+            media_folder: "/static/videos"
+            public_folder: "videos"
+            hint: "Optioneel. Houd 'm onder de 20 MB. Tip: stuur de video via WhatsApp naar jezelf — wat je terugkrijgt is al flink verkleind. Hernoem het bestand VOOR upload: kleine letters, streepjes, geen spaties, eindigt op .mp4."
+            pattern: ['^/?videos/[a-z0-9][a-z0-9-]*\.mp4$', "Bestandsnaam mag alleen kleine letters (a-z), cijfers en streepjes (-) bevatten en moet eindigen op .mp4. Geen hoofdletters, geen underscores (_), geen spaties. Bijv. 'atelier-rondleiding.mp4'. Hernoem het bestand op je computer en upload opnieuw."]
           - { label: Inhoud, name: body, widget: markdown }
 
   # --- About (EN) ---
@@ -255,4 +287,12 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string }
           - { label: Translation key, name: translationKey, widget: hidden, default: about }
+          - label: Studio video
+            name: video
+            widget: file
+            required: false
+            media_folder: "/static/videos"
+            public_folder: "videos"
+            hint: "Optional. Keep it under 20 MB. Tip: send the video to yourself via WhatsApp — what you receive back is already much smaller. Rename file BEFORE upload: lowercase, hyphens, no spaces, ending in .mp4."
+            pattern: ['^/?videos/[a-z0-9][a-z0-9-]*\.mp4$', "Filename may only contain lowercase letters (a-z), digits and hyphens (-) and must end in .mp4. No uppercase, no underscores (_), no spaces. E.g. 'studio-tour.mp4'. Rename the file on your computer and upload again."]
           - { label: Content, name: body, widget: markdown }

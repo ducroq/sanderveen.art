@@ -1,0 +1,23 @@
+{{- /* Native HTML5 video embed.
+       Param "src":   path relative to site root, e.g. "videos/foo.mp4" (leading slash tolerated).
+                      Refuses anything outside videos/ as a defence-in-depth measure.
+       Param "title": optional — sets figcaption and aria-label.
+       Poster: auto-derived from src by swapping .mp4 → .jpg, included only if the file exists. */ -}}
+{{- $src := strings.TrimPrefix "/" (.src | default "") -}}
+{{- if not (hasPrefix $src "videos/") -}}{{- $src = "" -}}{{- end -}}
+{{- if $src -}}
+{{- $posterRel := printf "%s.jpg" (strings.TrimSuffix ".mp4" $src) -}}
+{{- $posterAbs := printf "static/%s" $posterRel -}}
+{{- $hasPoster := os.FileExists $posterAbs -}}
+<figure class="video-embed">
+  <video
+    src="{{ $src | relURL }}"
+    {{ if $hasPoster }}poster="{{ $posterRel | relURL }}"{{ end }}
+    controls
+    playsinline
+    preload="metadata"
+    {{ with .title }}aria-label="{{ . }}"{{ end }}
+  ></video>
+  {{ with .title }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
+{{- end -}}

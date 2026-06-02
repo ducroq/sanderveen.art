@@ -150,6 +150,42 @@ weight: 60
 ```
 3. Create EN file in `content/en/exhibitions/my-exhibition.md` with same `translationKey` and `type: "exposities"`
 4. The `image` field is the hero image; `gallery` is an array of additional photos rendered as a grid
+5. Optional `videos:` list (same scalar-string shape as `gallery:`) renders short clips between the body and the gallery. See § Adding or Replacing a Video.
+
+## Adding or Replacing a Video
+
+Videos live in `static/videos/` and are served as-is (no Hugo image pipeline). The site uses native HTML5 `<video>` controls — no JS players.
+
+### From the CMS (Sander's path)
+- **Studio video** on the About page: Over mij → "Atelier video" field
+- **Exhibition videos**: Exposities → expo entry → "Video's" list → Add
+- Sander's step-by-step is in `docs/CMS-HANDLEIDING.md` § "Een video toevoegen of vervangen" (includes WhatsApp-shrink tip, Media Library trap, and slug-rename caveat)
+
+### From git (Jeroen's path)
+1. Re-encode or remux with ffmpeg first. WhatsApp clips that are already ≤5 MB and H.264/AAC just need a remux for faststart:
+   ```bash
+   ffmpeg -i input.mp4 -c copy -movflags +faststart -y static/videos/<slug>.mp4
+   ```
+   Larger or non-web-friendly files: re-encode at CRF 26 + faststart:
+   ```bash
+   ffmpeg -i input.mp4 -c:v libx264 -crf 26 -preset slow -c:a aac -b:a 96k -movflags +faststart -y static/videos/<slug>.mp4
+   ```
+2. Generate a poster thumbnail (the partial picks it up automatically if it sits next to the mp4):
+   ```bash
+   ffmpeg -ss 1 -i static/videos/<slug>.mp4 -frames:v 1 -q:v 3 -y static/videos/<slug>.jpg
+   ```
+3. Reference the file in front matter:
+   - About: `video: "videos/<slug>.mp4"` in `content/over/_index.md` and `content/en/about/_index.md`
+   - Exhibition: append to a `videos:` list (same scalar-string shape as `gallery:`) in both the NL and EN entry
+4. Run `python scripts/validate_content.py` to confirm the path resolves and doesn't escape `static/`.
+
+### Naming rules
+- `.mp4` only (the CMS pattern is `^/?videos/[a-z0-9][a-z0-9-]*\.mp4$`). `.webm` would require pattern relaxation.
+- Lowercase letters, digits, hyphens. No spaces, no uppercase, no underscores. Same as the image-widget rules; the CMS error message calls out uppercase/underscore explicitly.
+
+### What renders
+- `layouts/partials/video-embed.html` is the single source of truth. Auto-derives a poster path from the src, adds aria-label from the optional `title` param, refuses any path that doesn't start with `videos/`.
+- Single-video exhibition pages get a `.exhibition-videos--single` modifier class so the portrait clip is centred at its natural width instead of stretched across an auto-fill grid.
 
 ## Adding a New Section
 
@@ -206,6 +242,7 @@ Run `python scripts/validate_content.py` to check all content files against the 
 - **Bilingual parity** — every NL file has an EN counterpart with matching `translationKey`
 - **Cross-language consistency** — status, featured, image, and category match between NL/EN
 - **Image paths** — referenced images exist in `assets/images/`
+- **Video references** — every `video:` / `videos:` value resolves to a file under `static/`, and refuses paths that escape via `..`
 - **CMS config sync** — collection folders in `config.yml` exist on disk
 - **Orphaned images** — painting images not referenced by any content
 

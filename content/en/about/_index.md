@@ -3,6 +3,7 @@ title: "About Sander Veen"
 description: "Contemporary artist from Veenendaal — abstract art and surrealism"
 translationKey: "about"
 type: "page"
+video: "videos/studio-rondleiding.mp4"
 ---
 
 Welcome to the world of Sander Veen, a contemporary artist from Veenendaal, the Netherlands, who specialises in abstract art and surrealism. Sander is known for his unique style, combining highly evocative images with geometric shapes and vibrant colours. In his paintings the line between reality and imagination dissolves, which creates an enchanting and inspiring experience.

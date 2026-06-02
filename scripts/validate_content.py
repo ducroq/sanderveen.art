@@ -61,13 +61,13 @@ COLLECTIONS = {
         "nl": {
             "folder": ROOT / "content" / "exposities",
             "required_fields": ["title", "description", "translationKey", "type", "date", "start_date", "location", "weight"],
-            "optional_fields": ["end_date", "image", "gallery"],
+            "optional_fields": ["end_date", "image", "gallery", "videos"],
             "type_value": "exposities",
         },
         "en": {
             "folder": ROOT / "content" / "en" / "exhibitions",
             "required_fields": ["title", "description", "translationKey", "type", "date", "start_date", "location", "weight"],
-            "optional_fields": ["end_date", "image", "gallery"],
+            "optional_fields": ["end_date", "image", "gallery", "videos"],
             "type_value": "exposities",
         },
     },
@@ -312,6 +312,50 @@ def check_cms_config_sync(result: ValidationResult):
             result.issues.append(Issue("ERROR", "cms", "-", "static/admin/config.yml", "folder", f"CMS references folder '{folder}' which does not exist"))
 
 
+def check_video_references(result: ValidationResult):
+    """Check that all referenced video files exist under static/ (and don't escape it)."""
+
+    static_root = (ROOT / "static").resolve()
+
+    def _verify(filepath: Path, field_name: str, v_value):
+        relpath = filepath.relative_to(ROOT)
+        v_norm = str(v_value).lstrip("/")
+        target = (ROOT / "static" / v_norm).resolve()
+        # Defence in depth: refuse any path that escapes static/ via ../
+        try:
+            target.relative_to(static_root)
+        except ValueError:
+            result.issues.append(Issue("ERROR", "videos", "-", str(relpath), field_name, f"Video path escapes static/: {v_value}"))
+            return
+        if not target.exists():
+            result.issues.append(Issue("ERROR", "videos", "-", str(relpath), field_name, f"Video not found: {v_value}"))
+
+    def _check(filepath: Path):
+        fm = parse_front_matter(filepath)
+        if not fm:
+            return
+        if "video" in fm and isinstance(fm["video"], str) and fm["video"]:
+            _verify(filepath, "video", fm["video"])
+        if "videos" in fm and isinstance(fm["videos"], list):
+            for v_value in fm["videos"]:
+                _verify(filepath, "videos", v_value)
+
+    about_pages = [
+        ROOT / "content" / "over" / "_index.md",
+        ROOT / "content" / "en" / "about" / "_index.md",
+    ]
+    for p in about_pages:
+        if p.exists():
+            _check(p)
+
+    for folder in [ROOT / "content" / "exposities", ROOT / "content" / "en" / "exhibitions"]:
+        if folder.exists():
+            for md_file in folder.glob("*.md"):
+                if md_file.name == "_index.md":
+                    continue
+                _check(md_file)
+
+
 def check_orphaned_images(result: ValidationResult):
     """Check for painting images not referenced by any content file."""
     paintings_dir = ASSETS / "paintings"
@@ -367,6 +411,7 @@ def run_validation() -> ValidationResult:
     check_status_consistency(result)
     check_cms_config_sync(result)
     check_orphaned_images(result)
+    check_video_references(result)
 
     return result
 

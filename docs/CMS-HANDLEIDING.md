@@ -121,6 +121,48 @@ Als de bestandsnaam niet klopt, krijg je een rode foutmelding bij het opslaan en
 3. Pas de tekst aan
 4. Klik op **Publish**
 
+## Een video toevoegen of vervangen
+
+Filmpjes kun je op twee plekken kwijt:
+
+- **Atelier rondleiding** op de "Over mij" pagina (één video)
+- **Sfeerimpressies bij een expositie** op een expositie-pagina (één of meer videos per expositie)
+
+### Hoe upload je een video?
+
+1. Open het formulier waar de video bij hoort (Over mij of een expositie)
+2. Bij Over mij: klik op het **Atelier video**-veld. Bij een expositie: klik onderaan op **Add** bij **Video's**.
+3. Selecteer het bestand op je computer
+4. Klik op **Publish**
+5. Vergeet niet **óók de Engelse versie aan te passen** (zelfde video, of laat 'm weg)
+
+### Belangrijk: upload via het veld, niet via de Media Library
+
+Klik altijd op het **Atelier video**-veld zelf (of op **Add** bij Video's), **niet** op de Media Library-knop bovenin. Anders komt het bestand in de verkeerde map terecht en weigert de CMS het op te slaan met een rode foutmelding ("pad begint niet met videos/"). Dit werkt hetzelfde als bij schilderij-foto's.
+
+### Tip: video te groot? Stuur 'm via WhatsApp
+
+WhatsApp comprimeert video's automatisch. Stuur de video van je telefoon naar jezelf via WhatsApp, en gebruik de ontvangen versie op je computer. Die is al flink kleiner — meestal onder de 5 MB — en goed genoeg voor de website.
+
+### Regels voor video-bestanden
+
+- **Bestandsformaat:** `.mp4`
+- **Bestandsnaam:** alleen kleine letters, cijfers en streepjes, **geen spaties, geen hoofdletters**
+- **Maximale grootte:** houd 'm onder de 20 MB (anders wordt de website traag)
+- **Goed:** `atelier-rondleiding.mp4`, `hotel-praag-2026.mp4`
+- **Niet goed:** `IMG_20250405.mp4` (hoofdletters), `Mijn Video 23-3.mp4` (spaties, hoofdletter)
+
+Als de bestandsnaam niet klopt krijg je een rode foutmelding bij het opslaan, en kan je pas publiceren als je 'm hernoemd en opnieuw geüpload hebt.
+
+> **Geluid:** sfeerimpressies bij exposities zijn leuker met geluid erbij. Voor korte filmpjes van één schilderij (~20 sec) is geluid niet nodig.
+
+### Titel/locatie van een expositie aanpassen — en wat dat met de URL doet
+
+Als je een bestaande expositie hernoemt (bijvoorbeeld een placeholder "Hotel onbekend" naar "Hotel Krasnapolsky Amsterdam"), verandert alleen de **titel** die bovenaan de pagina staat. Het webadres (URL) blijft hetzelfde, bijv. `/exposities/hotel-onbekend-1-2026/`. Bezoekers merken dit nauwelijks — de titel is wat ze lezen — maar als je een nette URL wilt zijn er twee opties:
+
+- **Eenvoudig:** verwijder de placeholder-expositie en maak een nieuwe aan met de juiste titel. Vergeet niet de bijbehorende video opnieuw toe te voegen.
+- **Of:** stuur Jeroen een berichtje — hij past de bestandsnaam in één keer aan, zonder verlies van inhoud.
+
 ## Belangrijk om te weten
 
 - **Na Publish:** het CMS slaat de wijziging op en de bouwserver begint automatisch. Na 1-2 minuten staat het op de site. Controleer op **https://ducroq.github.io/sanderveen.art/** of je schilderij/workshop/expositie er staat. Zie je 'm na 5 minuten nog niet? Vaakste oorzaak: de Engelse versie is nog niet gepubliceerd.

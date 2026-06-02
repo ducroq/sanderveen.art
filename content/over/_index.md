@@ -3,6 +3,7 @@ title: "Over Sander Veen"
 description: "Hedendaags kunstenaar uit Veenendaal — abstracte kunst en surrealisme"
 type: "page"
 translationKey: "about"
+video: "videos/studio-rondleiding.mp4"
 ---
 
 Welkom in de wereld van Sander Veen, een hedendaagse kunstenaar uit Veenendaal die gespecialiseerd is in abstracte kunst en surrealisme. Sander staat bekend om zijn unieke stijl, waarin hij fantasievolle beelden combineert met geometrische vormen en levendige kleuren. Zijn schilderijen vervagen de grens tussen werkelijkheid en verbeelding, wat zorgt voor een betoverende en inspirerende ervaring.

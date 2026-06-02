@@ -25,6 +25,14 @@
       {{ .Content }}
     </div>
 
+    {{ with .Params.videos }}
+    <div class="exhibition-videos{{ if eq (len .) 1 }} exhibition-videos--single{{ end }}">
+      {{ range . }}
+        {{ partial "video-embed.html" (dict "src" . "title" $.Title) }}
+      {{ end }}
+    </div>
+    {{ end }}
+
     {{ with .Params.gallery }}
     <div class="exhibition-gallery">
       {{ range . }}

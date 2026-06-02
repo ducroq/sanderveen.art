@@ -8,6 +8,9 @@
 
 <section class="section">
   <div class="container">
+    {{ with .Params.video }}
+      {{ partial "video-embed.html" (dict "src" . "title" (i18n "video_studio_tour")) }}
+    {{ end }}
     {{ with .Content }}
       <div class="prose">{{ . }}</div>
     {{ end }}
