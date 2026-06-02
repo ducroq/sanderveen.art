@@ -154,6 +154,8 @@ collections:
   - name: exposities
     label: Exposities (NL)
     folder: content/exposities
+    media_folder: "/assets/images/exhibitions"
+    public_folder: "images/exhibitions"
     create: true
     slug: "{{slug}}"
     filter: { field: translationKey, pattern: ".+" }
@@ -173,8 +175,6 @@ collections:
       - label: Hoofdafbeelding
         name: image
         widget: image
-        media_folder: "/assets/images/exhibitions"
-        public_folder: "images/exhibitions"
         hint: "Hernoem het bestand VOOR upload: kleine letters, streepjes, geen spaties. Bijv. 'expo-2025-1.jpg'."
         pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten (geen spaties, geen hoofdletters). Hernoem het bestand op je computer en upload opnieuw."]
       - label: Galerijtje
@@ -184,8 +184,6 @@ collections:
           label: Foto
           name: photo
           widget: image
-          media_folder: "/assets/images/exhibitions"
-          public_folder: "images/exhibitions"
           pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Bestandsnaam moet alleen kleine letters, cijfers en streepjes bevatten. Hernoem en upload opnieuw."]
         required: false
       - label: Video's
@@ -207,6 +205,8 @@ collections:
   - name: exhibitions-en
     label: Exhibitions (EN)
     folder: content/en/exhibitions
+    media_folder: "/assets/images/exhibitions"
+    public_folder: "images/exhibitions"
     create: true
     slug: "{{slug}}"
     fields:
@@ -225,8 +225,6 @@ collections:
       - label: Main image
         name: image
         widget: image
-        media_folder: "/assets/images/exhibitions"
-        public_folder: "images/exhibitions"
         hint: "Rename file BEFORE upload: lowercase, hyphens, no spaces. E.g. 'expo-2025-1.jpg'."
         pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens (no spaces, no capitals). Rename the file on your computer and upload again."]
       - label: Gallery
@@ -236,8 +234,6 @@ collections:
           label: Photo
           name: photo
           widget: image
-          media_folder: "/assets/images/exhibitions"
-          public_folder: "images/exhibitions"
           pattern: ['^/?images/exhibitions/[a-z0-9][a-z0-9-]*\.(jpe?g|png|webp)$', "Filename must use only lowercase letters, digits and hyphens. Rename and upload again."]
         required: false
       - label: Videos

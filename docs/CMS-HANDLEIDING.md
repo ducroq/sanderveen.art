@@ -81,6 +81,16 @@ Als de bestandsnaam niet klopt, krijg je een rode foutmelding bij het opslaan en
 
 **Tip:** Upload de foto bij voorkeur direct binnen het schilderij-formulier (klik op het **Afbeelding**-veld) in plaats van vooraf via de Media Library — dan komt het bestand meteen op de juiste plek terecht.
 
+### Hardnekkige foutmelding terwijl de naam er goed uitziet?
+
+Soms ziet de bestandsnaam er goed uit, maar krijg je tóch de rode foutmelding. Drie veelvoorkomende oorzaken:
+
+1. **Hoofdletter-extensie.** Je iPhone of camera slaat foto's vaak op als `.JPG` of `.JPEG` (hoofdletters). Het CMS wil `.jpg` (kleine letters). Zet in Windows Verkenner eerst de bestandsnaamextensies aan (**Beeld → Bestandsnaamextensies** aanvinken). Hernoem dan `.JPG` naar `.jpg`.
+2. **HEIC-bestand van je iPhone.** Standaard slaat de iPhone foto's op als `.HEIC`. Dat formaat werkt niet op de site. Twee oplossingen:
+   - **Eénmalig:** ga in je iPhone naar **Instellingen → Camera → Formaten** en kies **Meest compatibel**. Vanaf dat moment maakt je iPhone gewoon JPG's.
+   - **Voor bestaande HEIC-foto's:** stuur de foto via WhatsApp naar jezelf en sla 'm op je computer op — wat je terugkrijgt is al een JPG. (Dit is dezelfde truc als bij video's.)
+3. **Stiekeme streepjes uit Word of een chat.** Als je een naam kopieert vanuit Word, Mail of WhatsApp kan er een ander soort streepje meekomen (`–` of `—`) dat op een gewoon streepje (`-`) lijkt. Typ de bestandsnaam altijd zelf in Verkenner; copy-paste niet uit een andere app.
+
 ## Een bestaand schilderij bewerken
 
 1. Klik links op **Schilderijen (NL)**
