@@ -166,6 +166,7 @@ collections:
     fields:
       - { label: Titel, name: title, widget: string }
       - { label: Beschrijving (kort), name: description, widget: string }
+      - { label: Draft, name: draft, widget: boolean, default: false, hint: "Aan = nog niet zichtbaar op de site. Uit = gepubliceerd." }
       - label: Vertaalsleutel
         name: translationKey
         widget: string
@@ -217,6 +218,7 @@ collections:
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description (short), name: description, widget: string }
+      - { label: Draft, name: draft, widget: boolean, default: false, hint: "On = not yet visible on the site. Off = published." }
       - label: Translation key
         name: translationKey
         widget: string
