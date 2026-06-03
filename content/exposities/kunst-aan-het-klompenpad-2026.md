@@ -11,6 +11,7 @@ location: Wageningen
 image: /images/exhibitions/kahk-2026-2.jpg
 gallery:
   - /images/exhibitions/kahk-2026-1.jpg
+  - /images/exhibitions/kahk-2026-4.jpg
 videos: []
 weight: 50
 ---
