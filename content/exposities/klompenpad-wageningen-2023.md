@@ -12,8 +12,6 @@ gallery:
   - images/exhibitions/klompenpad-wageningen-2023-2.jpg
   - images/exhibitions/klompenpad-wageningen-2023-3.jpg
   - images/exhibitions/klompenpad-wageningen-2023-4.jpeg
-  - /images/exhibitions/kl-groep.jpg
-  - /images/exhibitions/kl-pad.jpg
 weight: 30
 ---
 
