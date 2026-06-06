@@ -14,8 +14,6 @@ gallery:
   - /images/exhibitions/expo-veenendaal-2024-6.jpg
   - /images/exhibitions/thuis-3.jpg
   - /images/exhibitions/thuis-expo-1.jpg
-  - /images/exhibitions/expo-schuur.jpg
-  - /images/exhibitions/lampegiet.jpg
 videos: []
 weight: 50
 ---
