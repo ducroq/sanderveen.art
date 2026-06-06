@@ -15,6 +15,7 @@ gallery:
   - /images/exhibitions/thuis-3.jpg
   - /images/exhibitions/thuis-expo-1.jpg
   - /images/exhibitions/kunstroute-2025.jpg
+  - /images/exhibitions/expo-lampegiet.jpg
 videos: []
 weight: 50
 ---
