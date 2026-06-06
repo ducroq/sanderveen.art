@@ -14,6 +14,7 @@ gallery:
   - /images/exhibitions/expo-veenendaal-2024-6.jpg
   - /images/exhibitions/thuis-3.jpg
   - /images/exhibitions/thuis-expo-1.jpg
+  - /images/exhibitions/kl-pad-1.jpg
 videos: []
 weight: 50
 ---
