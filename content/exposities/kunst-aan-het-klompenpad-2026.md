@@ -1,7 +1,7 @@
 ---
 translationKey: klompenpad
 title: Kunst aan het Klompenpad 2026
-description: Buiten expositie aan het Klompenpad tussen Wageingen en Bennekom
+description: Buitenexpositie aan het Klompenpad tussen Wageningen en Bennekom
 draft: false
 type: exposities
 date: 2026-06-03

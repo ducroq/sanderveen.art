@@ -11,12 +11,13 @@
     {{ if gt (len .Pages) 0 }}
       <div class="card-list">
         {{ range .Pages.ByDate.Reverse }}
+          {{ $page := . }}
           <article class="card">
             {{ with .Params.image }}
               {{ $img := resources.Get . }}
               {{ if $img }}
                 {{ $thumb := $img.Fill "600x400 Center" }}
-                <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" class="card-image" loading="lazy">
+                <img src="{{ $thumb.RelPermalink }}" alt="{{ $page.Title }}" class="card-image" loading="lazy">
               {{ end }}
             {{ end }}
             <div class="card-body">
