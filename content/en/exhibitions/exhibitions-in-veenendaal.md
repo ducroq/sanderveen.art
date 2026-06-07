@@ -5,8 +5,8 @@ description: Art route, home exhibitions, townhall
 draft: false
 type: exposities
 date: 2026-06-03
-start_date: 01-01-2023
-end_date: 01-07-2026
+start_date: 01 January 2023
+end_date: 01 July 2026
 location: Veenendaal
 image: /images/exhibitions/gemeentehuis.jpg
 gallery:
