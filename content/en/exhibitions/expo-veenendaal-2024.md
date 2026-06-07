@@ -13,7 +13,7 @@ gallery:
   - images/exhibitions/expo-veenendaal-2024-3.jpg
   - images/exhibitions/expo-veenendaal-2024-4.jpg
   - images/exhibitions/expo-veenendaal-2024-5.jpg
-  - /images/exhibitions/sens2024.jpg
+  - /images/exhibitions/sens24.jpg
 weight: 10
 ---
 
