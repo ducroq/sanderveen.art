@@ -20,4 +20,12 @@ videos: []
 weight: 50
 ---
 
-Veenendaal
+Several exhibitions in Veenendaal.  
+
+In the town hall.  
+
+The art route.  
+
+Home exhibition for the open studio days.  
+
+In the theater
