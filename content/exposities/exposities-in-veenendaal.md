@@ -11,7 +11,7 @@ location: Veenendaal
 image: /images/exhibitions/gemeentehuis.jpg
 gallery:
   - /images/exhibitions/gemeentehuis2.jpg
-  - /images/exhibitions/expo-veenendaal-2024-6.jpg
+  - /images/exhibitions/kunstroute-2024.jpg
   - /images/exhibitions/thuis-3.jpg
   - /images/exhibitions/thuis-expo-1.jpg
   - /images/exhibitions/kunstroute-2025.jpg
