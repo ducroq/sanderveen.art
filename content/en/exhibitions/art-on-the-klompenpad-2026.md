@@ -5,8 +5,8 @@ description: Outdoor exhibition on the Klompenpad (walk path in the fields) betw
 draft: false
 type: exposities
 date: 2026-06-03
-start_date: 16-05-2026
-end_date: 17-05-2026
+start_date: 16 May 2026
+end_date: 17 May 2026
 location: Wageningen
 image: /images/exhibitions/kahk-2026-2.jpg
 gallery:
