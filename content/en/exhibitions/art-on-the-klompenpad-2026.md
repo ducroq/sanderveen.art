@@ -16,4 +16,6 @@ videos: []
 weight: 50
 ---
 
-Klompenpad Wageningen
+Art at the clogs path edition 2026.
+
+2 days exhibiting in nature along a walking path near Wageningen.
