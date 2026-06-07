@@ -16,4 +16,6 @@ videos: []
 weight: 50
 ---
 
-Klompenpad Wageningen
+Kunst aan het klompenpad editie 2026.
+
+2 dagen exposeren in de natuur aan een wandelpad bij Wageningen.
