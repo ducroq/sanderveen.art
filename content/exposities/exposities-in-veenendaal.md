@@ -20,4 +20,12 @@ videos: []
 weight: 50
 ---
 
-Exposities
+Meerdere exposities in Veenendaal. 
+
+In het gemeentehuis.
+
+De kunstroute.
+
+Thuis exposite voor de open atelier dagen.
+
+In het theater
