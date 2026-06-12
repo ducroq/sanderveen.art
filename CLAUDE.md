@@ -2,9 +2,9 @@
 
 Portfolio website for painter **Sander Veen**. Bilingual (Dutch primary, English at `/en/`). Inquiry-based — visitors contact the artist to purchase, no cart or prices shown.
 
-Built with Hugo, custom theme from scratch. Deployed to **GitHub Pages** via Actions.
+Built with Hugo, custom theme from scratch. Deployed to **GitHub Pages** via Actions. DNS + email forwarding via Cloudflare; domain registered at Strato.
 
-Live: https://ducroq.github.io/sanderveen.art/
+Live: https://sanderveen.art
 
 ## Before You Start
 
@@ -78,7 +78,8 @@ sanderveen.art/
 - **Bilingual**: EN content in `content/en/`, separated via Hugo module mounts (`excludeFiles` in `hugo.toml`); linked to NL via `translationKey` in front matter; EN painting pages use `type: "schilderijen"` to reuse NL layouts; EN workshops use `type: "workshops"`, EN exhibitions use `type: "exposities"`
 - **Logo**: `assets/images/logo.png` (transparent PNG), used in header and homepage hero; `filter: invert(1)` for dark mode
 - **Fonts**: woff2 files in `static/fonts/`, referenced with `../fonts/` in CSS @font-face (required for GH Pages subpath)
-- **Contact**: mailto link, no server-side form processing
+- **Contact**: mailto link, no server-side form processing. `info@sanderveen.art` forwards to Sander's personal inbox via Cloudflare Email Routing — no mailbox at the domain, so replies come from his personal address (contact pages warn visitors)
+- **DNS**: managed at Cloudflare (zone `sanderveen.art`, account `Busara.eu@gmail.com`). All records on DNS-only / grey cloud — orange cloud would clash with GitHub Pages' Let's Encrypt HTTP-01 renewal. CAA locks cert issuance to `letsencrypt.org`
 - **CMS**: Sveltia CMS at `static/admin/`, configured in `static/admin/config.yml`, uses GitHub PAT auth
 - **Theme**: dark/light toggle via `body.dark` class, persisted in localStorage
 
