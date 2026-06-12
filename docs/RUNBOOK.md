@@ -49,8 +49,54 @@ The site deploys to **GitHub Pages** automatically on push to `main`.
 ### Manual Deploy
 Not needed — everything goes through CI. If you must test the CI locally:
 ```bash
-hugo --minify --baseURL "https://ducroq.github.io/sanderveen.art/"
+hugo --minify --baseURL "https://sanderveen.art/"
 ```
+
+## DNS + Email (Cloudflare)
+
+The domain `sanderveen.art` is **registered at Strato** but the **DNS zone is hosted at Cloudflare** (account `Busara.eu@gmail.com`, zone id `804dab5fccedd408fc89da00825798c1`). Email forwarding for `info@sanderveen.art` is handled by **Cloudflare Email Routing** — there is no mailbox at the domain.
+
+### Record inventory
+
+| Type | Name | Target | Proxy | Notes |
+|---|---|---|---|---|
+| A | `@` | 185.199.108.153 / .109 / .110 / .111 | DNS only | GitHub Pages apex IPs |
+| AAAA | `@` | 2606:50c0:8000::153 / :8001 / :8002 / :8003 | DNS only | GitHub Pages IPv6 |
+| CNAME | `www` | `ducroq.github.io` | DNS only | |
+| MX | `@` | `route1/2/3.mx.cloudflare.net` | n/a | Auto-managed by Email Routing |
+| TXT | `@` | `v=spf1 include:_spf.mx.cloudflare.net ~all` | n/a | SPF, auto by Email Routing |
+| TXT | `cf2024-1._domainkey` | `v=DKIM1; …` | n/a | DKIM, auto by Email Routing |
+| TXT | `_dmarc` | `v=DMARC1; p=none;` | n/a | Monitoring-only; no `rua=` |
+| CAA | `@` | `0 issue "letsencrypt.org"` + `0 issuewild ";"` | n/a | Locks cert issuance to LE (GH Pages) |
+
+### Why grey cloud (DNS only) is mandatory
+
+All A/AAAA/CNAME records are deliberately **not proxied** (grey cloud). Turning on orange cloud would:
+
+1. Break GitHub Pages' Let's Encrypt HTTP-01 renewal — the cert would silently fail to renew after ~60 days and HTTPS would break.
+2. Block the LE renewal challenge token from reaching GH Pages servers.
+
+Trade-off: no Cloudflare CDN, no WAF, no Polish image optimisation. For a static portfolio this is fine. If we ever need those, the path is to move hosting to Cloudflare Pages (no GH Pages LE cert involved).
+
+### Email Routing setup
+
+- Destination: `sanderv1@hotmail.com` (verified via account-level verification mail).
+- Rule: `info@sanderveen.art` → destination (explicit literal).
+- Catch-all: any `*@sanderveen.art` → same destination (covers typos like `inof@`).
+- Outbound: **none** — Cloudflare Email Routing is receive-only. Sander's *replies* come from his personal `@hotmail.com` address. The contact pages warn visitors about this.
+
+### Disaster recovery
+
+If the Cloudflare zone or account becomes inaccessible, GitHub Pages keeps serving the site — DNS is the only thing Cloudflare provides for us. Recovery path:
+
+1. Log into Strato → Domeinbeheer → ⚙ → NS-record configuratie
+2. Switch nameservers back to Strato's (`shades02.rzone.de`, `docks16.rzone.de`) OR to another DNS provider
+3. At the new provider, re-create the records from the table above
+4. Wait for TTL propagation
+
+The site, content, and CI are unaffected by Cloudflare outages — they live in this Git repo and on GitHub Pages.
+
+The DMARC policy is intentionally `p=none` (no `rua=`). It signals to Outlook/Gmail receivers that the domain has a published policy (improves first-message deliverability) without producing daily XML reports that nobody reads.
 
 ## Adding a New Painting
 
@@ -268,7 +314,11 @@ python scripts/validate_content.py --json   # JSON output for tooling
 | Fonts not loading on GH Pages | CSS @font-face paths wrong | Use `../fonts/` (relative to CSS output path) |
 | No WebP in local build | Non-extended Hugo on Windows | Expected; CI uses extended Hugo |
 | Build fails in CI, works locally | Hugo version mismatch or missing extended | Check `HUGO_VERSION` in workflow matches local |
-| baseURL wrong in production | Hardcoded in `hugo.toml` | CI overrides via `configure-pages@v5` — don't hardcode the GH Pages URL |
+| baseURL wrong in production | Hardcoded in `hugo.toml` | CI overrides via `configure-pages@v6` — don't hardcode the URL. After a custom-domain change in repo Settings → Pages, the *next* build picks up the new baseURL; older builds still serve until then. Manually trigger the workflow (`gh workflow run "Deploy Hugo site to Pages" --ref main`) if pages render with old asset paths. |
+| HTTPS broken or "Enforce HTTPS" greyed out | Cloudflare orange-cloud proxy intercepts the LE HTTP-01 challenge | Verify all A/AAAA/CNAME records are **DNS only** (grey cloud) at Cloudflare. Re-issue the cert via repo Settings → Pages once DNS is correct. |
+| Mail to `info@sanderveen.art` bounces | Cloudflare Email Routing destination address unverified | dash.cloudflare.com → Email → Email Routing → Destination Addresses; resend verification mail to `sanderv1@hotmail.com` and click the link |
+| Mail to `info@sanderveen.art` lands in Hotmail/Outlook spam | Fresh-domain reputation + forwarded mail | One-time fix by Sander: open the message in Hotmail and click "Not junk". After 2–3 such actions, Outlook learns. DMARC `p=none` + SPF + DKIM are already published. |
+| JSON-LD validator rejects schema with `\"value\"` instead of `value` | Missing `safeJS` after `jsonify` inside `<script type="application/ld+json">` | Pipe template expressions through `\| jsonify \| safeJS`. Hugo's JS-context auto-escape double-quotes the `jsonify` output otherwise. |
 | i18n key shows `[i18n] ...` | Missing key in one language file | Add the key to both `i18n/nl.toml` and `i18n/en.toml` |
 | EN painting uses wrong layout | Missing `type: "schilderijen"` | Add `type: "schilderijen"` to EN front matter |
 | Language switcher 404s | `translationKey` mismatch | Ensure both NL and EN files share the same `translationKey` |

@@ -93,6 +93,7 @@ sanderveen.art/
 | `layouts/schilderijen/single.html` | Individual painting page |
 | `layouts/schilderijen/list.html` | Gallery grid |
 | `layouts/partials/painting-card.html` | Gallery card component |
+| `layouts/partials/picture.html` | `<picture>` element with WebP source + base-format fallback; gates WebP on `hugo.IsExtended` so local non-extended dev builds still work |
 | `layouts/index.html` | Homepage |
 | `layouts/404.html` | Bilingual 404 page (Hugo emits this to `public/404.html`; GH Pages serves it for any unmatched path) |
 | `assets/js/main.js` | Mobile menu, lightbox, theme toggle, inquiry-form prefill |
