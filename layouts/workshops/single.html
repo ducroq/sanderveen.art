@@ -15,8 +15,12 @@
     {{ with .Params.image }}
       {{ $img := resources.Get . }}
       {{ if $img }}
-        {{ $hero := $img.Fit "1200x600" }}
-        <img src="{{ $hero.RelPermalink }}" alt="{{ $.Title }}" class="single-hero-img">
+        {{ partial "picture.html" (dict
+          "img" $img
+          "spec" "1200x600"
+          "alt" (printf "%s — %s" $.Title $.Site.Params.author)
+          "class" "single-hero-img"
+        ) }}
       {{ end }}
     {{ end }}
 
@@ -29,4 +33,28 @@
     </nav>
   </div>
 </article>
+
+{{/* Course JSON-LD — fits workshops better than Event because they're
+     recurring (workshop_date is a string like "Zaterdagen 10:00–12:00",
+     not an ISO date). */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": {{ .Title | jsonify | safeJS }},
+  "description": {{ with .Description }}{{ . | jsonify | safeJS }}{{ else }}{{ .Summary | plainify | jsonify | safeJS }}{{ end }},
+  "provider": {
+    "@type": "Person",
+    "name": {{ .Site.Params.author | jsonify | safeJS }},
+    "url": {{ .Site.BaseURL | jsonify | safeJS }}
+  },
+  "url": {{ .Permalink | jsonify | safeJS }}
+  {{ with .Params.image -}}
+    {{ $img := resources.Get . -}}
+    {{ if $img -}}
+  ,"image": {{ $img.Permalink | jsonify | safeJS }}
+    {{- end }}
+  {{- end }}
+}
+</script>
 {{ end }}

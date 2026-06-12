@@ -1,0 +1,39 @@
+{{/*
+  Renders a <picture> element with a WebP source + base-format fallback,
+  or a plain <img> if Hugo is not extended (local Windows dev).
+
+  Args (dict):
+    img        required, *resources.Resource — the source image
+    spec       required, string — Hugo image spec without format ("400x600", "1200x")
+    alt        required, string
+    class      optional, string — CSS class on the <img>
+    loading    optional, "lazy" | "eager"
+    processor  optional, "Fit" | "Fill" | "Resize" — defaults to "Fit"
+*/}}
+{{- $img := .img -}}
+{{- $spec := .spec -}}
+{{- $alt := .alt -}}
+{{- $class := .class -}}
+{{- $loading := .loading -}}
+{{- $processor := default "Fit" .processor -}}
+
+{{- $jpeg := "" -}}
+{{- if eq $processor "Fit" -}}{{- $jpeg = $img.Fit $spec -}}
+{{- else if eq $processor "Fill" -}}{{- $jpeg = $img.Fill $spec -}}
+{{- else if eq $processor "Resize" -}}{{- $jpeg = $img.Resize $spec -}}
+{{- end -}}
+
+{{- if hugo.IsExtended -}}
+  {{- $webpSpec := printf "%s webp q85" $spec -}}
+  {{- $webp := "" -}}
+  {{- if eq $processor "Fit" -}}{{- $webp = $img.Fit $webpSpec -}}
+  {{- else if eq $processor "Fill" -}}{{- $webp = $img.Fill $webpSpec -}}
+  {{- else if eq $processor "Resize" -}}{{- $webp = $img.Resize $webpSpec -}}
+  {{- end -}}
+  <picture>
+    <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+    <img src="{{ $jpeg.RelPermalink }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $loading }} loading="{{ . }}"{{ end }} width="{{ $jpeg.Width }}" height="{{ $jpeg.Height }}">
+  </picture>
+{{- else -}}
+  <img src="{{ $jpeg.RelPermalink }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $loading }} loading="{{ . }}"{{ end }} width="{{ $jpeg.Width }}" height="{{ $jpeg.Height }}">
+{{- end -}}

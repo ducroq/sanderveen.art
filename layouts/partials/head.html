@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }} — {{ .Site.Params.author }}.{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author }}">
 <meta name="theme-color" content="#FAF8F5" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
@@ -12,7 +12,7 @@
 
 {{/* Open Graph */}}
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }} — {{ .Site.Params.author }}.{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:locale" content="{{ .Language.Params.locale }}">
@@ -39,8 +39,8 @@
 
 {{/* Twitter Card */}}
 <meta name="twitter:card" content="{{ if .Params.image }}summary_large_image{{ else }}summary{{ end }}">
-<meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .Params.medium }}{{ .Title }} — {{ .Params.medium }}{{ with .Params.dimensions }}, {{ . }}{{ end }} — {{ .Site.Params.author }}.{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 {{ with .Params.image }}
   {{ $img := resources.Get . }}
   {{ if $img }}
@@ -97,21 +97,47 @@
 {
   "@context": "https://schema.org",
   "@type": "VisualArtwork",
-  "name": {{ .Title | jsonify }},
+  "name": {{ .Title | jsonify | safeJS }},
   "creator": {
     "@type": "Person",
-    "name": {{ .Site.Params.author | jsonify }}
+    "name": {{ .Site.Params.author | jsonify | safeJS }}
   },
-  "artMedium": {{ .Params.medium | jsonify }},
-  "description": {{ with .Description }}{{ . | jsonify }}{{ else }}{{ if .Params.medium }}{{ printf "%s — %s" .Title .Params.medium | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }}{{ end }}
+  "artMedium": {{ .Params.medium | jsonify | safeJS }},
+  "description": {{ with .Description }}{{ . | jsonify | safeJS }}{{ else }}{{ if .Params.medium }}{{ printf "%s — %s" .Title .Params.medium | jsonify | safeJS }}{{ else }}{{ .Summary | plainify | jsonify | safeJS }}{{ end }}{{ end }}
   {{ with .Params.image -}}
     {{ $img := resources.Get . -}}
     {{ if $img -}}
-  ,"image": {{ $img.Permalink | jsonify }}
+  ,"image": {{ $img.Permalink | jsonify | safeJS }}
     {{- end }}
   {{- end }}
   {{ with .Params.dimensions -}}
-  ,"size": {{ . | jsonify }}
+  ,"size": {{ . | jsonify | safeJS }}
+  {{- end }}
+}
+</script>
+{{ end }}
+
+{{/* Structured data for the artist (home page only). Address kept to locality
+     — full street appears only on workshop pages per privacy constraint. */}}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ .Site.Params.author | jsonify | safeJS }},
+  "jobTitle": {{ if eq .Language.Lang "nl" }}"Beeldend kunstenaar"{{ else }}"Visual artist"{{ end }},
+  "url": {{ .Site.BaseURL | jsonify | safeJS }},
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Veenendaal",
+    "addressCountry": "NL"
+  }
+  {{ with .Site.Params.instagram -}}
+  ,"sameAs": [{{ . | jsonify | safeJS }}]
+  {{- end }}
+  {{ $logo := resources.Get "images/logo.png" -}}
+  {{ with $logo -}}
+  ,"image": {{ .Permalink | jsonify | safeJS }}
   {{- end }}
 }
 </script>

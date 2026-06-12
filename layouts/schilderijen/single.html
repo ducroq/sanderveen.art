@@ -11,6 +11,9 @@
             {{ $small := $img.Resize "600x" }}
             {{ $medium := $img.Resize "1200x" }}
             {{ $large := $img.Resize "2000x" }}
+            {{ $alt := $.Title }}
+            {{ with $.Params.medium }}{{ $alt = printf "%s — %s" $alt . }}{{ end }}
+            {{ with $.Params.dimensions }}{{ $alt = printf "%s, %s" $alt . }}{{ end }}
             <button
               class="painting-image-trigger"
               id="painting-image"
@@ -19,15 +22,26 @@
               aria-label="{{ i18n "view_painting" }}"
               type="button"
             >
-              <img
-                src="{{ $medium.RelPermalink }}"
-                srcset="{{ $small.RelPermalink }} 600w, {{ $medium.RelPermalink }} 1200w, {{ $large.RelPermalink }} 2000w"
-                sizes="(max-width: 767px) 100vw, 60vw"
-                alt="{{ $.Title }}{{ with $.Params.medium }} — {{ . }}{{ end }}{{ with $.Params.dimensions }}, {{ . }}{{ end }}"
-                class="painting-hero-img"
-                width="{{ $medium.Width }}"
-                height="{{ $medium.Height }}"
-              >
+              <picture>
+                {{ if hugo.IsExtended }}
+                  {{ $smallW := $img.Resize "600x webp q85" }}
+                  {{ $mediumW := $img.Resize "1200x webp q85" }}
+                  {{ $largeW := $img.Resize "2000x webp q85" }}
+                  <source
+                    type="image/webp"
+                    srcset="{{ $smallW.RelPermalink }} 600w, {{ $mediumW.RelPermalink }} 1200w, {{ $largeW.RelPermalink }} 2000w"
+                    sizes="(max-width: 767px) 100vw, 60vw">
+                {{ end }}
+                <img
+                  src="{{ $medium.RelPermalink }}"
+                  srcset="{{ $small.RelPermalink }} 600w, {{ $medium.RelPermalink }} 1200w, {{ $large.RelPermalink }} 2000w"
+                  sizes="(max-width: 767px) 100vw, 60vw"
+                  alt="{{ $alt }}"
+                  class="painting-hero-img"
+                  width="{{ $medium.Width }}"
+                  height="{{ $medium.Height }}"
+                >
+              </picture>
             </button>
           {{ end }}
         {{ end }}

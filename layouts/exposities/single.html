@@ -16,8 +16,12 @@
     {{ with .Params.image }}
       {{ $img := resources.Get . }}
       {{ if $img }}
-        {{ $hero := $img.Fit "1200x600" }}
-        <img src="{{ $hero.RelPermalink }}" alt="{{ $.Title }}" class="single-hero-img">
+        {{ partial "picture.html" (dict
+          "img" $img
+          "spec" "1200x600"
+          "alt" (printf "%s (%s) — %s" $.Title ($.Date.Format "2006") $.Site.Params.author)
+          "class" "single-hero-img"
+        ) }}
       {{ end }}
     {{ end }}
 
@@ -35,11 +39,18 @@
 
     {{ with .Params.gallery }}
     <div class="exhibition-gallery">
-      {{ range . }}
-        {{ $img := resources.Get . }}
+      {{ range $i, $imgPath := . }}
+        {{ $img := resources.Get $imgPath }}
         {{ if $img }}
-          {{ $thumb := $img.Fit "600x400" }}
-          <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" class="gallery-img" loading="lazy">
+          {{ $loc := default "" $.Params.location }}
+          {{ $alt := printf "%s%s — foto %d" $.Title (cond (ne $loc "") (printf ", %s" $loc) "") (add $i 1) }}
+          {{ partial "picture.html" (dict
+            "img" $img
+            "spec" "600x400"
+            "alt" $alt
+            "class" "gallery-img"
+            "loading" "lazy"
+          ) }}
         {{ end }}
       {{ end }}
     </div>
@@ -50,4 +61,42 @@
     </nav>
   </div>
 </article>
+
+{{/* Event JSON-LD — helps Google understand the page is about an exhibition.
+     startDate uses the page .Date (publication date) as an approximation;
+     location uses the city name from front-matter. */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": {{ .Title | jsonify | safeJS }},
+  "startDate": {{ .Date.Format "2006-01-02" | jsonify | safeJS }},
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "organizer": {
+    "@type": "Person",
+    "name": {{ .Site.Params.author | jsonify | safeJS }}
+  }
+  {{ with .Params.location -}}
+  ,"location": {
+    "@type": "Place",
+    "name": {{ . | jsonify | safeJS }},
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": {{ . | jsonify | safeJS }},
+      "addressCountry": "NL"
+    }
+  }
+  {{- end }}
+  {{ with .Description -}}
+  ,"description": {{ . | jsonify | safeJS }}
+  {{- end }}
+  {{ with .Params.image -}}
+    {{ $img := resources.Get . -}}
+    {{ if $img -}}
+  ,"image": {{ $img.Permalink | jsonify | safeJS }}
+    {{- end }}
+  {{- end }}
+}
+</script>
 {{ end }}

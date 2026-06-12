@@ -4,15 +4,16 @@
     {{ with .Params.image }}
       {{ $img := resources.Get . }}
       {{ if $img }}
-        {{ $thumb := $img.Fit "400x600" }}
+        {{ $alt := $.Title }}
+        {{ with $.Params.medium }}{{ $alt = printf "%s — %s" $alt . }}{{ end }}
+        {{ with $.Params.dimensions }}{{ $alt = printf "%s, %s" $alt . }}{{ end }}
         <div class="painting-card-image">
-          <img
-            src="{{ $thumb.RelPermalink }}"
-            alt="{{ $.Title }}{{ with $.Params.medium }} — {{ . }}{{ end }}{{ with $.Params.dimensions }}, {{ . }}{{ end }}"
-            loading="lazy"
-            width="{{ $thumb.Width }}"
-            height="{{ $thumb.Height }}"
-          >
+          {{ partial "picture.html" (dict
+            "img" $img
+            "spec" "400x600"
+            "alt" $alt
+            "loading" "lazy"
+          ) }}
           {{ if eq $.Params.status "sold" }}
             <span class="badge badge-sold">{{ i18n "sold" }}</span>
           {{ end }}

@@ -5,7 +5,7 @@ defaultContentLanguage = "nl"
 defaultContentLanguageInSubdir = false
 
 enableRobotsTXT = true
-enableGitInfo = false
+enableGitInfo = true
 
 [pagination]
   pagerSize = 12
