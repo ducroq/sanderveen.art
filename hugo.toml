@@ -7,6 +7,12 @@ defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
 enableGitInfo = true
 
+# Site has no tags/categories taxonomy — paintings use a plain `category`
+# string param (see layouts/schilderijen/list.html), not Hugo taxonomies.
+# An empty table removes Hugo's default `tags`/`categories`, which otherwise
+# generate empty /tags/ and /categories/ pages that Google flags as Soft 404.
+[taxonomies]
+
 [pagination]
   pagerSize = 12
 
