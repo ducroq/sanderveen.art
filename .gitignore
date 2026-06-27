@@ -34,4 +34,4 @@ scripts/manifest.json
 memory/
 
 # Office documents (not source content)
-*.docx
+# *.docx
